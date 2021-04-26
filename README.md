@@ -11,7 +11,8 @@
 ...
 
 ### 专业的 Git 
-
+##### git 入门
+##### git 基础
 ##### git 分支
 1. [两种 merge 模式： fast forward和三方合并](https://github.com/xiao2shiqi/pro_developer/blob/main/git/pro_git/3_git_branch/2_branch_create_merge)
 
