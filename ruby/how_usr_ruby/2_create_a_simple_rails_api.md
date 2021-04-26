@@ -1,0 +1,179 @@
+### 使用 Mongo + Grape 搭建简易 Rails API
+
+##### 前言
+
+在前后端分离的大趋势下，很少有一个项目可以通吃前后端了，本篇使用 Rails 快速搭建后端的 API 可以应对很多轻量级的项目需求，而且 Ruby 灵活动态的语言配合 MongoDB 非关系型数据库食用，效果更佳，写起代码很舒服，下面简单说一下具体如何操作
+
+
+
+##### 创建 Rails 项目
+
+首先安装 rails （前提确保你的 rails 版本在 6.0 以上）
+
+```ruby
+gem install rails -v '~> 6.0.0'
+```
+
+
+
+然后使用 rails 命令创建应用程序，代码如下：（指定我们应用主要作用 API，只保留较小的 Rails 子集）
+
+```ruby
+rails new application_name --skip-active-record --skip-bundle --api --T
+```
+
+创建命令后面有几个选项命令，我们简单说一下他们的含义：
+
+* --skip-active-record：我们跳过 ActiveRecord 模块，因为我们要使用 Mongoid 作为 ORM 工具
+* --skip-bundle：跳过 bundle install 步骤，因为我们还要修改 Gemfile，引入 `mongoid` 包
+* --api：不含针对浏览器的中间件，不生成视图，辅助方法和静态资源等
+* --T：跳过默认的 minitest 测试  ，因为我们打算用 RSpec
+
+
+
+##### 配置 mongoid
+
+我们修改 Gemfile 添加 mongoid 组件：
+
+```ruby
+gem 'mongoid', '~> 7.0.5'
+```
+
+> 备注：Mongoid 7.0.5 需要使用 Rails 6.0 或者更高版本
+>
+> 另注意更改 source 'https://gems.ruby-china.com/'
+
+
+
+安装 gem 相关依赖
+
+```ruby
+bundle install
+```
+
+
+
+创建默认的 Mongoid 配置文件
+
+```ruby
+rails g mongoid:config
+```
+
+备注：你可以手动创建文件：config/mongoid.yml 替代以上命名，配置文件保存 Rails 到 MongoDB 的连接信息，值得注意的是因为没有使用 ActiveRecord  所以我们没有 database.yml 文件
+
+默认的 mongoid.yml 信息如下（如果配置信息不同，可以改为你自己的 DB 连接信息）：
+
+```yaml
+development:
+  clients:
+    default:
+      database: blog_development
+      hosts:
+        - localhost:27017
+      options:
+        server_selection_timeout: 1
+```
+
+
+
+##### 创建 Model 使用 Mongoid
+
+我们创建对象来访 MongoDB，我这里使用 2个对象，并且建立一对多的关联关系。代码如下
+
+`app/models/post.rb`
+
+```ruby
+class Post
+    include Mongoid::Document
+
+    field :title, type: String
+    field :body, type: String
+
+    has_many :comments, dependent: :destroy
+end
+```
+
+`app/model/comment.rb`
+
+```ruby
+class Comment
+    include Mongoid::Document
+
+    field :name, type: String
+    field :message, type: String
+
+    belongs_to :post
+end
+```
+
+代码很简单，就是引入 Mongoid::Document，然后声明字段和属性，这里就不多数了
+
+到这里我们已经可以通过 Post 对象来访问 Mongodb 了，如图：
+
+![accessMongoDB](https://pcloud-1258173945.cos.ap-guangzhou.myqcloud.com/uPic/kHKz2w.png)
+
+存储层的事情到这里就搞定了，下一步我们看看控制层的 API 怎么创建。
+
+
+
+##### 使用 Grape 创建 webAPI
+
+首先说说为什么选择 Grape 而不是 Rails::API，我们可以看看下面对比图：
+
+![Grape VS Rails::API](https://pcloud-1258173945.cos.ap-guangzhou.myqcloud.com/uPic/t6UuaM.png)
+
+Grape 无论在社区的热度、更新活跃度、还有功能都远远比 Rails::API 要丰富的多，从数据来看显然 **Rails::API** 已经过时不在推荐使用。
+
+首先我们在项目中引入 gem：
+
+```ruby
+gem 'grape'
+gem 'grape-swagger'
+```
+
+然后我们创建一个基本的 API 文件，代码如下
+
+`app/api/base_api.rb`
+
+```ruby
+require 'grape'
+
+class BaseApi < Grape::API
+    version 'v1', using: :header, vendor: 'rcc'
+    format :json
+
+    desc 'get all posts data'
+    get "posts" do
+        {data: Post.all.to_a}
+    end
+
+    add_swagger_documentation mount_path: '/api_doc'
+end
+```
+
+需要 `BaseApi` 路径生效，还需要修改一下 `config/routes.rb` 文件，增加以下配置：
+
+```ruby
+Rails.application.routes.draw do
+  mount BaseApi => "/"
+end
+```
+
+
+
+根据上述定义的 API，我们打开浏览器可以访问：http://localhost:3000/posts 即可访问 Posts 所有数据，如图：
+
+<img src="https://pcloud-1258173945.cos.ap-guangzhou.myqcloud.com/uPic/dmrxoI.png" alt="posts data" style="zoom:50%;" />
+
+鉴于我们引入了  `grape-swagger` 的 gem，我们在 `BaseApi` 也定义的 swagger 路径是 `/api_doc`， 所以我们访问 http://localhost:3000/api_doc 即可看到所有接口信息，效果如下：
+
+<img src="https://pcloud-1258173945.cos.ap-guangzhou.myqcloud.com/uPic/vl2u5B.png" alt="grape-swagger" style="zoom:50%;" />
+
+基于以上配置，一个使用 Grape 访问 Mongodb 的 Rails 纯后端应用就搭建完成了。然后就可以开始跟你的前端配合，开始愉快的写代码了。
+
+
+
+##### 参考资料：
+* https://docs.mongodb.com/mongoid/current/tutorials/mongoid-documents/
+* https://github.com/ruby-grape/grape
+* https://guides.rubyonrails.org/
