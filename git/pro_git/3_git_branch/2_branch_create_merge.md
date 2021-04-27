@@ -11,25 +11,25 @@
 我们从一个正常开发流程来看看：
 
 开发者小王接到需求任务，从 master 分支中创建功能分支，git 指令如下：
-```console
+```shell
 git checkout -b feature556
 Switched to a new branch 'feature556'
 ```
 
 小王在 feature556 分支上完成的功能开发工作，然后产生1次 commit，
-```console
+```shell
 git commit -m 'Create pop up effects'
 [feature556 6104106] create pop up effects
  3 files changed, 75 insertions(+)
 ```
 
 我们再更新一下 README 自述文件，让版本差异更明显一些
-```console
+```shell
 git commit -m `updated md`
 ```
 
 这时候我们看看当前分支的 git 历史记录，输入 `git log --online -all` 可以看到全部分支的历史线：
-```console
+```shell
 f2c9c7f (HEAD -> feature556) updated md
 6104106 create pop up effects
 a1ec682 (origin/main, origin/HEAD, main) import dio
@@ -41,7 +41,7 @@ c5848ff update this readme
 ![git-flow-fast-forward](https://pcloud-1258173945.cos.ap-guangzhou.myqcloud.com/uPic/xkrZa4.png)
 
 功能完成后自然要上线，我们把代码合并，完成上线动作，代码如下
-```console
+```shell
 git checkout master
 git merge feautre556
 Updating a1ec682..38348cc
