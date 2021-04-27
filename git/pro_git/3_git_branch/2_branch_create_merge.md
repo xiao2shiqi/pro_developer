@@ -1,4 +1,4 @@
-# git merge 的两种模式： Fast-forward 和 no-Fast-forward
+# git merge --ff/--no-ff/--ff-only 三种选项参数的区别
 
 ### 前言
 `git merge` 应该是开发者最常用的 git 指令之一，
@@ -73,7 +73,7 @@ Fast-forward
 补充：大家在 `git log` 看到很多类似：`Merge branch 'feature001' into master` 的 commit 就是 non-Fast-forward 产生的。
 执行完以上动作，最终分支流程图如下：
 
-![merge-non-fast-forward](https://pcloud-1258173945.cos.ap-guangzhou.myqcloud.com/uPic/oaic6r.png)
+![merge-non-fast-forward](https://pcloud-1258173945.cos.ap-guangzhou.myqcloud.com/uPic/v4rlal.png)
 
 ### 如何手动设置合并模式 ？
 
