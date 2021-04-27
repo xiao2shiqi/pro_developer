@@ -38,14 +38,24 @@ c5848ff update this readme
 ```
 
 直接看下图可能会更好理解一些
-![git-flow-fast-forward](https://pcloud-1258173945.cos.ap-guangzhou.myqcloud.com/uPic/40WjpK.png)
+![git-flow-fast-forward](https://pcloud-1258173945.cos.ap-guangzhou.myqcloud.com/uPic/xkrZa4.png)
 
 功能完成后自然要上线，我们把代码合并，完成上线动作，代码如下
 ```console
 git checkout master
 git merge feautre556
-
+Updating a1ec682..38348cc
+Fast-forward
+  .......  | 2+++
+ 1 file changed, 2 insertions(+)
 ```
+
+如果你注意上面的文字的话，你会发现 git 帮你自动执行了 `Fast-forward` 操作，那么什么是 `Fast-forward` ？ 
+`Fast-forward` 是指 Master 合并 Feature 时候发现 Master 当前节点一直和 Feature 的根节点相同，没有发生改变，那么 Master 快速移动头指针到 Feature 的位置，所以 **Fast-forward 并不会发生真正的合并**，只是通过移动指针造成合并的假象，这也体现 git 设计的巧妙之处。合并后的分支指针如下：
+![merge-Fast-forward](https://pcloud-1258173945.cos.ap-guangzhou.myqcloud.com/uPic/N5wea3.png)
+
+通常功能分支（feature556） 合并 master 后会被删除，通过下图可以看到，通过 `Fast-forward` 模式产生的合并可以产生**干净并且线性的历史记录**：
+![remove-feature556](https://pcloud-1258173945.cos.ap-guangzhou.myqcloud.com/uPic/sKocLW.png)
 
 
 关于 --ff, --no-ff, --ff-only 三种模式的官方说明：
