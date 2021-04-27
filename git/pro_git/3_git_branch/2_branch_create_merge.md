@@ -19,6 +19,16 @@ Switched to a new branch 'feature556'
 小王在 feature556 分支上完成的功能开发工作，然后产生1次 commit，
 ```console
 git commit -am 'Create pop up effects'
+[feature556 6104106] create pop up effects
+ 3 files changed, 75 insertions(+)
+```
+
+这时候分支模型如下：
+![git-flow-fast-forward](https://pcloud-1258173945.cos.ap-guangzhou.myqcloud.com/uPic/RnvI9G.png)
+
+功能完成后自然要上线，我们把代码合并，完成上线动作，代码如下
+```console
+
 ```
 
 
