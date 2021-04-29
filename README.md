@@ -17,8 +17,8 @@ Rails Mongod 教程：
 1. [使用 MongoDB + Grape 创建简单的 Rails API](https://github.com/xiao2shiqi/strongest_programmer/blob/main/ruby/how_usr_ruby/2_create_a_simple_rails_api.md)
 
 
-Ruby 高手进阶
-... 待补充
+Ruby 进阶
+1. [重新熟悉 Ruby 语法](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/1_familiar_ruby.md)
 
 ___
 ### 专业的 Git 

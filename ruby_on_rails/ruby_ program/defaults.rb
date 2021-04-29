@@ -1,5 +1,5 @@
 module Defaults
-    NETWORKS = ["192.168.1", "192.168.2"]
+    NETWORKS = ["192.168.1", "192.168.2"].map!(&:freeze).freeze
     # NETWORKS = ["192.168.1", "192.168.2"].freeze       # 增加 freeze 后，常量 NETWORKS 无法再修改
 end
 
@@ -15,5 +15,10 @@ end
 def host_addresses (host, networks = Defaults::NETWORKS)
     networks.map {|net| net << ".#{host}" }
 end
-host_addresses("1")
+# host_addresses("11")
+
+Defaults.freeze
+
+p Defaults::NETWORKS
+Defaults::NETWORKS = ["192.168.1.9"]
 p Defaults::NETWORKS
