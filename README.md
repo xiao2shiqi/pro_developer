@@ -3,22 +3,26 @@
 ___
 ### Java 语言
 ___
-Java 基础知识：
+Java 基础：
 
-Java 高手进阶：
+Java 进阶：
 
 ___
-### Ruby 宝典
+### Ruby On Rails
 ___
-Yard 文档使用：
+Yard 文档：
 1. [如何使用 yard 写文档](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/yard/1_how_to_use_yard.md)
 
-Rails Mongod 教程：
+Rails Mongod 使用：
 1. [使用 MongoDB 创建 Rails API](https://github.com/xiao2shiqi/strongest_programmer/blob/main/ruby/how_usr_ruby/2_create_a_simple_rails_api.md)
 2. [使用 Rails 操作 Mongo Docuemtn](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/rails_mongoid_manual/2_document.md)
 
+Ruby 基础
+
 Ruby 进阶
 1. [重新熟悉 Ruby 语法](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/1_familiar_ruby.md)
+
+Rails 使用
 
 ___
 ### 专业的 Git 
