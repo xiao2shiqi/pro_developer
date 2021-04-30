@@ -17,7 +17,6 @@ Rails Mongod 教程：
 1. [使用 MongoDB 创建 Rails API](https://github.com/xiao2shiqi/strongest_programmer/blob/main/ruby/how_usr_ruby/2_create_a_simple_rails_api.md)
 2. [使用 Rails 操作 Mongo Docuemtn](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/rails_mongoid_manual/2_document.md)
 
-
 Ruby 进阶
 1. [重新熟悉 Ruby 语法](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/1_familiar_ruby.md)
 
@@ -36,7 +35,6 @@ ___
 ___
 ### Go 语言
 ___
-
 1. Go 基础
 2. Go 进阶
 3. Go 框架
@@ -51,7 +49,7 @@ ___
 
 
 ___
-### 专业的基础理论 
+### 基础理论 
 ___
 
 ##### 计算机网络
