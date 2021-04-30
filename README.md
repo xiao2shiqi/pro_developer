@@ -11,7 +11,7 @@ ___
 ### Ruby 宝典
 ___
 Yard 文档使用：
-1. [如何使用 yard 写文档](https://github.com/xiao2shiqi/strongest_programmer/blob/main/ruby/how_usr_ruby/1_how_to_use_yard.md)
+1. [如何使用 yard 写文档](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/yard/1_how_to_use_yard.md)
 
 Rails Mongod 教程：
 1. [使用 MongoDB 创建 Rails API](https://github.com/xiao2shiqi/strongest_programmer/blob/main/ruby/how_usr_ruby/2_create_a_simple_rails_api.md)
