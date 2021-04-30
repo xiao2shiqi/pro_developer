@@ -14,7 +14,8 @@ Yard 文档使用：
 1. [如何使用 yard 写文档](https://github.com/xiao2shiqi/strongest_programmer/blob/main/ruby/how_usr_ruby/1_how_to_use_yard.md)
 
 Rails Mongod 教程：
-1. [使用 MongoDB + Grape 创建简单的 Rails API](https://github.com/xiao2shiqi/strongest_programmer/blob/main/ruby/how_usr_ruby/2_create_a_simple_rails_api.md)
+1. [使用 MongoDB 创建 Rails API](https://github.com/xiao2shiqi/strongest_programmer/blob/main/ruby/how_usr_ruby/2_create_a_simple_rails_api.md)
+2. [使用 Rails 操作 Mongo Docuemtn](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/rails_mongoid_manual/2_document.md)
 
 
 Ruby 进阶
