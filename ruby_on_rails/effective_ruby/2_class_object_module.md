@@ -245,3 +245,48 @@ end
 * 使用 Strcut 封装一些类方法可以让代码看上去更简洁和具备封装性
 
 ### 使用 module 来创建 namespace
+如果想要避免跟顶级的类产生冲突，那么可以使用命名空间来解决类名冲突的问题，module 代码如下：
+```ruby
+module Notebooks
+  class Binding
+    def initialize (bookname)
+      p bookname
+    end
+  end
+end
+```
+不过以上的写法不仅会导致大量的缩进，而且还会导致模块不好扩展的问题，Ruby 还支持另一种快捷创建 namespace 的方式：
+```ruby
+class Notebooks::Binding
+    #...
+end
+```
+使用该方式需要小心，要提前在入口处定义 `module` 模块，然后 `Notebooks` 文件才能被顺利加载，否则会出现 NameError 异常。另外在 Ruby 项目结构的约定中，请保持项目结构和命名空间的映射，例如上面代码的 `Notebooks::Binding` 应该对应文件夹 `notebooks/bindings.rb`，从而使项目结构保持清晰。
+
+
+
+##### 使用限定顶级常量 `::` 来解决 namespace 冲突问题
+当你命名空间和 ruby 内部顶级类冲突的时候，这时你的程序运行可能不如你的预期，例如下面代码：
+```ruby
+module Cluster
+    class Array
+        def initialize (n)
+            # stack level too deep (SystemStackError)
+            @disks = Array.new(n) {|i| "disk#{i}" }
+        end
+    end
+end
+```
+当我尝试在 Cluster::Array 中调用 Ruby 顶级类 Array 时候，程序误认为是要调用自身，结果导致 `stack level too deep (SystemStackError)` 异常，这时候需要使用限定符 `::` 来解决程序可能出现的歧义问题，限定符的含义是从 Object 为根节点向下寻找，因此限定符的全称是 `Object::Array`，因为 Ruby 支持简写的方法，所以可以省略 Object，简写为 `::Array`
+
+我们使用限定符，修改一下刚才有歧义的程序，再来看看结果：
+```ruby
+    @disks = ::Array.new(n) {|i| "disk#{i}" }
+# ->: #<Cluster::Array:0x00007fbb1281af68 @disks=["disk0", "disk1", "disk2", "disk3", "disk4"]>
+```
+可以看到程序输出已经符合我们的预期，通过以上程序，关于 Namespace 我们可以得出以下总结：
+* 使用 module 来实现命名空间，可以避免和其他库的类名发生冲突
+* 从约定上来说，请保证命名空间和目录结构的映射关系
+* 当类名出现歧义的时候，使用 `::` 来限定类加载的顺序，比如 `::Array`
+
+### 理解等价的不同用法
