@@ -1,4 +1,4 @@
-# 专业的后端开发者进阶指南
+# 后端程序员的进阶宝典
 
 这里收录我的学习总结，逐渐形成完整的知识体系。也可以希望可以把总结的经验分享出来，帮助到大家
 
@@ -13,22 +13,27 @@
 ___
 ### Java 语言
 ___
-Java 基础知识：
+Java 基础：
 
-Java 高手进阶：
+Java 进阶：
 
 ___
-### Ruby 宝典
+### Ruby On Rails
 ___
-Yard 文档使用：
-1. [如何使用 yard 写文档](https://github.com/xiao2shiqi/strongest_programmer/blob/main/ruby/how_usr_ruby/1_how_to_use_yard.md)
+Yard 文档：
+1. [如何使用 yard 写文档](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/yard/1_how_to_use_yard.md)
 
-Rails Mongod 教程：
-1. [使用 MongoDB + Grape 创建简单的 Rails API](https://github.com/xiao2shiqi/strongest_programmer/blob/main/ruby/how_usr_ruby/2_create_a_simple_rails_api.md)
+Rails Mongod 使用：
+1. [使用 MongoDB 创建 Rails API](https://github.com/xiao2shiqi/strongest_programmer/blob/main/ruby/how_usr_ruby/2_create_a_simple_rails_api.md)
+2. [使用 Rails 操作 Mongo Docuemtn](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/rails_mongoid_manual/2_document.md)
 
+Ruby 基础
 
-Ruby 进阶
+Ruby 进阶文章：
 1. [重新熟悉 Ruby 语法](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/1_familiar_ruby.md)
+2. [Ruby 中的面向对象](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/2_class_object_module.md)
+
+Rails 的使用方法
 
 ___
 ### 专业的 Git 
@@ -42,28 +47,30 @@ ___
 ##### Git 进阶
 ...
 
+
+##### Github 使用
+
+
 ___
 ### Go 语言
 ___
-
 1. Go 基础
 2. Go 进阶
 3. Go 框架
 ___
-### 专业的数据库
+### 数据库
 ___
-
-##### 高性能 MySQL 
-##### PostgreSQL 大师
-##### MongoDB 指南
-##### Redis 解密
+##### 数据库系统理论概述
+##### MySQL 
+##### PostgreSQL
+##### MongoDB
+##### Redis
 
 
 ___
-### 专业的基础理论 
+### 基础理论 
 ___
 
 ##### 计算机网络
 ##### 操作系统
 ##### 算法和数据结构
-##### 数据库系统概述
