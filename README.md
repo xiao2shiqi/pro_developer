@@ -29,7 +29,7 @@ Rails Mongod 使用：
 
 Ruby 基础
 
-Ruby 进阶文章：
+深入理解 Ruby：
 1. [重新熟悉 Ruby 语法](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/1_familiar_ruby.md)
 2. [Ruby 中的面向对象](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/2_class_object_module.md)
 

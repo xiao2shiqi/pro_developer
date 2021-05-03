@@ -60,7 +60,7 @@ p "have methods? #{honda.respond_to?(:driver)}"
 但是这个单例类是匿名不可见的，所以当你在 Car 类上调用 `superclass` 的时候会跳过他们，依然返回 `Object` 
 
 上述就是 ruby 的简单继承，已经可以足够解决大多的情况了。
-##### 回顾要点：
+##### 结论
 * 当类调用方法时，Ruby 会沿着继承体系向上搜索，直到最起点的 `method_missing` 方法，抛出异常
 * 使用 `include` 时 Ruby 会创建单例类，并且插入到继承体系中，因为 Ruby 向上搜索会跳过单例类，所以 `superclass` 会跳过单例类
 
@@ -116,8 +116,94 @@ end
 ```
 刚看到这段提示你可能会有点迷茫，因为 Derived 是有 m1 方法的，不过当你了解 super 的工作原理，应该就可以避免
 
-##### 回顾要点
+##### 结论
 * 在同名方法中使用 super 可以帮你调用父类的同名方法
 * 当父类中没有子类 super 同名方法时，会抛出 NoMethodError 异常
 
-### 初始化子类时调用 super 
+### 利用 super 复用父类的 initialize 方法
+在 Ruby 中类的初始化工作都是通过 `initialize` 来完成的，但如果是继承关系，那么父类和子类都会有各自的 initialize 方法，如果子类在构建的时候想复用父类的初始化函数，那么显然是行不通了，代码如下：
+```ruby
+class Parent
+    attr_accessor(:name)
+
+    # 父类的构造逻辑
+    def initialize
+        @name = "Howard"
+    end
+end
+
+class Child < Parent
+    attr_accessor(:grade)
+
+    # 子类有自己的实例变量和构造逻辑
+    def initialize
+        @grade = 8
+    end
+end
+
+p Parent.new        # #<Parent:0x00007fe83603a518 @name="Howard">
+child = Child.new   # #<Child:0x00007fe83603a0e0 @grade=8>
+p child
+p child.name    # name = nil
+```
+天哪，**child.name 竟然为 nill**，父类 Parent 经常没有把自己的构造逻辑传给 Child，原因是因为子类在实现 Child.initialize 方法时实际上已经把父类的 Parent.initialize 方法给覆盖了，这种情况我们可以使用 `super` 关键字来让 Child 复用父类的 initialize 逻辑，代码如下：
+```ruby
+class Parent
+    attr_accessor(:name)
+
+    # 父类的构造逻辑
+    def initialize(name)
+        @name = name
+    end
+end
+
+class Child < Parent
+    attr_accessor(:grade)
+
+    # 子类有自己的实例变量和构造逻辑
+    def initialize(name, grade)
+        super(name)
+        @grade = grade
+    end
+end
+
+child = Child.new("edward", 8)   # #<Child:0x00007fe83603a0e0 @grade=8>
+p child             # #<Child:0x00007f965f825e90 @name="edward", @grade=8>
+p child.name        # edward
+```
+可以看到上面子类 Chlid 对象调用 `child.name` 可以正确获取父类的 `name` 属性。
+结论：
+* 使用继承无法复用父类的 initialize 方法
+* 在子类的 initialize 使用 super 可以复用父类的 initialize 构造方法
+
+### 使用 Struct 存储结构化数据
+`Hash` 可以说是最常用的数据结构，它的优点是非常灵活，缺点是可读性差，你必须对 `Hash` 内部的结构非常清楚，你才方便的去操作它，可以参考示例代码：
+```ruby
+class AnnualWeather
+  # 模拟外部文件
+  Csv = [{date: '2020-01', high: 31.3, low: 25.1}, {date: '2020-02', high: 32.3, low: 26.1}, {date: '2020-03', high: 33.3, low: 27.1}]
+
+  def initialize  
+    @readings = []
+    # 从 Csv 中装载初始化数据
+    Csv.each { |e|  
+      @readings.append({:date => e[:date], :high => e[:high], :low => e[:low]}) 
+    }
+  end
+end
+```
+我们写一个处理天气的类，它可以从外部加载CSV文件，然后存储在本地的 `@readings` 哈希数组中。这段程序很好理解，但是如果我想要扩展它的话就会比较麻烦，例如我想写一个 `mean` 方法计算平均温度，我们为 AnnualWeather 类添加以下代码：
+```ruby
+  # 计算平均温度
+  def mean
+    return 0.0 if @readings.size.zero?
+    total = @readings.reduce(0.0) do |sum, reading|
+      # 我需要知道 reading 的结构，我才方便操作它
+      sum + (reading[:high] + reading[:low]) / 2.0
+    end
+    # 算出平均温度
+    total / @readings.size.to_f
+  end
+```
+
+代码很简单，但是会遇到问题，如果我不是 `initialize` 函数的代码作者，那么我在编写 `mean` 函数会异常困难，因为我不清楚 `@readings` 内部是如何加载数据的，我不得不去读完 `initialize` 函数的代码，我才知道 `@readings` 内部的 Key 名称

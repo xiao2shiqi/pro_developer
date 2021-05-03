@@ -1,1 +1,3 @@
-.m1("console")
+def mean
+
+  # end
