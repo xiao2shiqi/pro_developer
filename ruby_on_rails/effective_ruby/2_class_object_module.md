@@ -206,4 +206,42 @@ end
   end
 ```
 
-代码很简单，但是会遇到问题，如果我不是 `initialize` 函数的代码作者，那么我在编写 `mean` 函数会异常困难，因为我不清楚 `@readings` 内部是如何加载数据的，我不得不去读完 `initialize` 函数的代码，我才知道 `@readings` 内部的 Key 名称
+代码很简单，但是会遇到问题，如果我不是 `initialize` 函数的代码作者，那么我在编写 `mean` 函数会异常困难，因为我不清楚 `@readings` 内部是如何加载数据的，我不得不去读完 `initialize` 函数的代码，我才知道 `@readings` 内部有哪些 `Key` 和 `Value`，搞清楚这些后我才能使用它。
+
+使用 `Struct` 代替 `Hash` 可以使我们程序表达的意图更加清晰，修改后的代码如下：
+```ruby
+class AnnualWeather
+  # 模拟外部文件
+  Csv = [{date: '2020-01', high: 31.3, low: 25.1}, {date: '2020-02', high: 32.3, low: 26.1}, {date: '2020-03', high: 33.3, low: 27.1}]
+
+  # 定义 strcut 存储结构化对象
+  Reading = Struct.new(:date, :high, :low) do
+    # 对象方法 mean
+    def mean 
+      (high + low) / 2.0
+    end
+  end
+
+  def initialize  
+    @readings = []
+    Csv.each { |e| 
+      # 将 Csv 数据构造为 struct 对象
+      reading = Reading.new(e[:date], e[:high], e[:low])
+      @readings.append(reading) 
+    }
+  end
+
+  # 计算平均温度
+  def mean
+    return 0.0 if @readings.size.zero?
+    # 调用对象方法获取 total 
+    total = @readings.reduce(0.0) {|sum, reading| sum + reading.mean }
+    total / @readings.size.to_f
+  end
+end
+```
+修改后的程序，方法 `mean`，`initialize` 看上去代码意图都清晰很多，`Struct` 可以便捷的封装属性和类方法更加方便使用者调用。因此我们可以得出如下结论：
+* 处理结构化的数据，如果 Hash 太灵活，创建 Class 又太重，那么使用 Strcut 处理可能刚刚好
+* 使用 Strcut 封装一些类方法可以让代码看上去更简洁和具备封装性
+
+### 使用 module 来创建 namespace
