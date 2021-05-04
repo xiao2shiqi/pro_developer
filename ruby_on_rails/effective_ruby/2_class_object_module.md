@@ -291,6 +291,7 @@ end
 
 ### 理解 ruby 相等的不同用法
 
+##### `==` 和 `equal?`
 `==` 和 `equal?` 虽然都是比较相等，但是他们却有不同的含义，示例代码：
 ```ruby
 "foo" == "foo"
@@ -305,9 +306,118 @@ end
 
 这里的等价跟 Java 是相反的，Java == 比较对象相等，equal 比较值相等
 
-##### Hash 使用 eql? 判断相等
-Hash 对象是不允许存在相同的主键（key），默认情况下 Hash 通过使用 `equal?` 方法判断对象 `object_id ` 相等从而决定是否放入哈希桶内，大多数情况没有问题，例如：
+##### `==` 和 `eql?`
+上面例子很好理解，但这里就比较抽象了，先看代码：
 ```ruby
-{1 => "1", 1 => "2"}
-=> {1=>"2"}
+1 == 1.0
+=> true
+1.eql?(1.0)
+=> false
 ```
+`==` 和 `eql?` 虽然都是**值比较**，但是他们都存在也是有原因的，通过示例程序，我们可以得出以下结论：
+* `==` 对比值相等，但是会做一些隐式的类型转换
+* `eql?` 对比值相等，也会对比类型是否相等
+
+
+##### Hash 使用 eql? 判断相等
+一个 Hash 对象是不允许存在相同的主键（key），例如代码：
+```ruby
+# 声明一个重复的键，只有最后的键有效
+{"pink": "like", "pink": "love"}
+ => {:pink=>"love"} 
+```
+默认情况下 Hash 通过 `==` 进行值匹配（严格来说是调用 object.hash 方法来匹配），如果 key 重复则不会放入 Hash 桶中，这种判断条件对于普通的数据类型没有问题，例如字符，数值等，但是如果 Key 是对象的话，那么判断就会出错了。如下代码：
+```ruby
+class Color
+    def initialize(name)
+        @name = name
+    end
+end
+
+hash = {Color.new("pink") => "like", Color.new("pink") => "love"}
+=> {#<Color:0x00007f89620165d8 @name="pink">=>"like", #<Color:0x00007f8962016470 @name="pink">=>"love"}
+```
+从输出来看，**两个相同的对象**都生成了 `Hash Key`，这似乎不符合我们的预期，我们希望相同的对象都可以被排除掉，不放入 Hash 桶中（类似示例代码）
+
+跟 Java 一样，在 Ruby 中我们想要改变对象默认的等价策略，那么我们需要重写它的 `hash`，`eql?` 方法，因为 Ruby 是根据 `object.hash` 的值来判断对象是否相等，我们在 `Color` 类中尝试添加以下代码：
+```ruby
+def hash
+    # 默认的 hash 返回的是 object_id，修改后相同的 name，则被认定为相同的对象
+    name.hash
+end
+
+def eql?(other) 
+    name == other.name
+end
+
+hash = {Color.new("pink") => "like", Color.new("pink") => "love"}
+=> {#<Color:0x00007fe38990a550 @name="pink">=>"love"}
+# 有兴趣可以打印两个对象 Color.new("pink").hash 的值看看
+```
+示例程序中可以看出，两个相同对象最终只会生成一个 Key，通过重写 `hash`，`eql?` 方法，程序执行的结果最终符合我们的预期。
+
+思考题：
+另外 Ruby 还提供 `===` 操作符，它大多被用在 case..when 语句的默认匹配上，有兴趣的话也可以思考以下 `===` 和以上三种等价操作符(`==`，`eql?`, `equal?`) 的区别
+
+结论：
+* `==`：比较两个对象的值，是比较宽松的等价操作符，会进行一些隐式的条件转换
+* `eql?`：比较两个对象的值和类型，Hash 冲突不符合预期的时候，可以重写类的 `eql?` 方法
+* `equal?`：比较两个对象的引用，既内存地址 `object_id` 的相等性
+* `===`：是在 case..when 表达式中使用的等价操作符，具体的区别还需要探索
+
+### 优先使用实例变量
+实例变量绑定在单个对象上，是以 `@` 开头命名的变量，
+类变量是以 `@@` 开头命名的变量，它们和对象无关，而是绑定在一个类型上并且保持全局唯一。
+
+类变量因为其本身的全局唯一属性，所以常常会被用于实现单例，单例类通常用于配置信息、数据库等对象 <br> 我们通过一个手写的单例程序，先看看类变量有哪些问题：
+```ruby
+class Singleton
+    private_class_method(:new, :dup, :clone)
+
+    def self.instance
+        @@single ||= new
+    end
+end
+
+class Configuration < Singleton
+    #....
+end
+
+class Database < Singleton
+    #...
+end
+
+Configuration.instance
+=> #<Configuration:0x00007fcc5c0d64b8>
+Database.instance
+=> #<Configuration:0x00007fcc5c0d64b8>
+```
+但是上面的程序似乎有些混乱了，Configuration、Database 打印同一个对象了，原因是 `Singleton.instance` 使用类变量 `@@single` 导致第二次调用 instance 获取到上一次的对象，我们将类变量 `@@single` 修改为实例变量即可解决问题：
+```ruby
+def self.instance
+    @single ||= new
+end
+
+Configuration.instance
+=> #<Configuration:0x00007fa09701d120>
+Database.instance
+=> #<Database:0x00007fa09701cdb0>
+```
+通过以上程序证明，实例变量避免子类直接继承父类的类变量关系，提供更好的封装特性，在大多数场景下推荐尽量使用实例变量。
+
+以上的单例示例程序不建议作为参考，因为 Ruby 标准库提供更好的单例实现，如下：
+```ruby
+require 'singleton'
+
+class Configuration
+    include(Singleton)
+end
+
+class Database
+    include(Singleton)
+end
+```
+
+关于实例变量的结论如下：
+* 实例变量提供更好的封装性，优先实现实例变量，而非类变量
+* ruby 标准库 `singleton` 提供很好的单例实现，无需自己实现单例

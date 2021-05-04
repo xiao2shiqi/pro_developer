@@ -1,20 +1,21 @@
 class Color
-    attr_reader(:name)
-
     def initialize(name)
         @name = name
     end
 
-    # def hash
-    #     name.hash
-    # end
+    attr_reader(:name)
 
-    # def eql?(other) 
-    #     name.eql?(other.name)
-    # end 
+    def hash
+        name.hash
+    end
+
+    def eql?(other) 
+        # name.eql?(other.name)
+        name == other.name
+    end
 end
 
-a = Color.new("pink")
-b = Color.new("pink")
-
-{a => "like", b => "love"}
+hash = {Color.new("pink") => "like", Color.new("pink") => "love"}
+p hash
+# p Color.new("pink").hash
+# p Color.new("pink").hash
