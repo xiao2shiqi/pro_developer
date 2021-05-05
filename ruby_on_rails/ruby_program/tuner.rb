@@ -13,8 +13,9 @@ class Tuner
 end
 
 # 预设有效的频道
-presets = %w(90.1, 106.2, 88.5)
-p "presets: #{presets}"
-tuner = Tuner.new(presets)
-p "#tuner: #{tuner}"
-p "#presets: #{presets}"
+presets = %w(90.1, 106.2, 80.5)
+presets.each {|p| p p.object_id}
+copy_presets = Marshal.load(Marshal.dump(presets))
+copy_presets.each {|c| c.sub!('0', '1')}
+p presets
+p copy_presets
