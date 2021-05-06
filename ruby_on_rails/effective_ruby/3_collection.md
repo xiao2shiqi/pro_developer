@@ -117,5 +117,8 @@ copy_presets.each {|c| c.sub!('0', '1')}
 * 如果要保证集合的元素不被修改，可以使用 Marshal 进行深度拷贝
 
 
+---
+### 使用 Array 方法将 nil 对象转成数组
+
 参考资料：
 * 《Effectvie Ruby》：https://book.douban.com/subject/26690609/
