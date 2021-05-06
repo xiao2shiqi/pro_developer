@@ -118,7 +118,7 @@ copy_presets.each {|c| c.sub!('0', '1')}
 
 
 ---
-### 使用 Array 方法将 nil 对象转成数组 （感觉就是 Array 方法的使用而已）
+~~### 使用 Array 方法将 nil 对象转成数组 （感觉就是 Array 方法的使用而已）~~
 
 ### 使用 Set 高效的对程序进行检查
 
@@ -165,6 +165,12 @@ end
 
 
 
+---
+### 通过 reduce 方法折叠集合
+
+待补充.....
+
+---
 
 参考资料：
 * 《Effectvie Ruby》：https://book.douban.com/subject/26690609/
