@@ -421,3 +421,7 @@ end
 关于实例变量的结论如下：
 * 实例变量提供更好的封装性，优先实现实例变量，而非类变量
 * ruby 标准库 `singleton` 提供很好的单例实现，无需自己实现单例集合
+
+
+参考资料：
+* 《Effectvie Ruby》：https://book.douban.com/subject/26690609/

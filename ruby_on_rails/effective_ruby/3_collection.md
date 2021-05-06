@@ -116,3 +116,6 @@ copy_presets.each {|c| c.sub!('0', '1')}
 * dup 和 clone 都可以拷贝对象，但是如果要修改拷贝的对象 dup 会更加合适
 * 如果要保证集合的元素不被修改，可以使用 Marshal 进行深度拷贝
 
+
+参考资料：
+* 《Effectvie Ruby》：https://book.douban.com/subject/26690609/

@@ -106,3 +106,6 @@ end
 * 对于 Rails、Rake 等服务器程序也可以在启动前加入 `-w` 警告选项，来检查程序的警告信息
 * 开发阶段应该默认为你的程序开启警告选项，来提升程序的健壮性
 
+
+参考资料：
+* 《Effectvie Ruby》：https://book.douban.com/subject/26690609/
