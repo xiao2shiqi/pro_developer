@@ -118,7 +118,53 @@ copy_presets.each {|c| c.sub!('0', '1')}
 
 
 ---
-### 使用 Array 方法将 nil 对象转成数组
+### 使用 Array 方法将 nil 对象转成数组 （感觉就是 Array 方法的使用而已）
+
+### 使用 Set 高效的对程序进行检查
+
+我们经常喜欢使用 `include?` 来判断元素是否存在数组中，在少量数据的情况下是没有问题的，但是数据量比较大的情况下就不建议使用了，因为 `include?` 是基于数组搜索，时间复杂度是线性的  `O(n)` ，而且当数据持续增加性能会越来越低，我们先看一段使用 `include?` 的代码：
+```ruby
+class Role
+
+  # 初始化角色权限
+  def initialize(name, permissions)
+      @name, @permissions = name, permissions
+  end
+
+  # 权限检查
+  def can?(permission)
+    # TODO 随着权限越来，include? 搜索会越来越慢
+    @permissions.include?(permission)
+  end
+end
+```
+每次执行 `@permissions.include?(permission)` 搜索数组检查权限，随着数据越多，查询性能会越慢，我们需要引入一种 `O(1)` 查询复杂度的方法，从而保证每次检查权限的性能，应对这种场景，基于 `Hash` 实现的 `Set` 集合就登场了。
+
+我们看看使用 `Set` 改造 Role 类的代码：
+```ruby
+require 'set'   # set 非核心库，需要额外引入
+
+class Role
+  def initialize(name, permissions)
+      @name, @permissions = name, Set.new(permissions)
+  end
+
+  def can?(permission)
+    # 使用 哈希查询，时间复杂度 O(1)
+    @permissions.include?(permission)
+  end
+end
+```
+
+以上代码，我们使用 `set` 重构了 Role 类，解决的数组搜索的性能问题，推荐性能敏感场景使用 `set` 替代 `Array` 进行搜索
+
+关于数组的检查我们可以得出以下结论：
+* 如果对效率有要求，考虑使用 `Set` 来进行集合元素的检索
+* `Set` 是基于 `Hash` 实现的，所以集合是无序的，如果对顺序有要求应该考虑使用 `SorteSet` 类
+* `Set` 非核心类库，使用前需要先 `require` 它
+
+
+
 
 参考资料：
 * 《Effectvie Ruby》：https://book.douban.com/subject/26690609/
