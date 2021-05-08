@@ -1,4 +1,4 @@
-# 后端程序员的进阶宝典
+# 后端工程师的学习笔记
 
 这里收录我的学习总结，逐渐形成完整的知识体系。也可以希望可以把总结的经验分享出来，帮助到大家
 
@@ -33,6 +33,7 @@ Ruby 基础
 1. [重新熟悉 Ruby 的基础语法](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/1_familiar_ruby.md)
 2. [理解 Ruby 中的面向对象](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/2_class_object_module.md)
 3. [高效使用 Ruby 的集合](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/3_collection.md)
+4. [Ruby 元编程](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/4_meta_programing.md)
 
 Rails 的使用方法
 
