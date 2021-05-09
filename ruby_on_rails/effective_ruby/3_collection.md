@@ -165,9 +165,139 @@ end
 
 ---
 
-~~使用 reduce 方法折叠集合~~ （感觉是减少代码的语法糖，暂时不值得学习，降低代码可读性，增加代码的维护难度）
+### 使用 reduce 方法折叠集合
+相信大家平时都非常熟悉 Ruby 中的 `map` 和 `select` 还有 `each` 方法了，其实在 `Enumerable` 模块中还有一个更强大的的方法，他不仅具备同时以上几种方法的能力，而且还有更为强大的扩展能力和想象空间，它就是 `reduce` 方法（貌似在 Ruby 1.9 之前称为 `inject` 方法）。
 
-### 考虑使用默认哈希值
+##### 使用 reduce 替代 each 实现数组求和
+
+我们先看一段代码，平时对数组求和，我们通常会用 `each` 方法，代码如下
+```ruby
+sum = 0
+(0..5).each do |e|
+  sum += e
+end
+#=> 15
+```
+
+但是使用 `reduce` 也可以达到同样的求和效果，代码如下：
+```ruby
+(0..5).reduce(0) do |sum, e|
+  sum + e
+end
+#=> 15
+```
+如果你追求代码简洁的话，甚至可以用一行代码表示求和运算：
+```ruby
+(0..5).reduce(0, :+)
+#=> 15
+```
+
+##### 使用 reduce 替代 Hash 将数组转哈希
+我们通常会遇到数组转哈希的场景，通常我们会使用构建 `Hash` 对象的方式来处理，代码如下：
+```ruby
+array = (0..5)
+p "array #{array.to_a}"
+ary_hash = Hash[
+  array.map do |x| 
+    [x, true] 
+  end
+]
+p "array map build hash: #{ary_hash}"
+#=> "array map build hash: {0=>true, 1=>true, 2=>true, 3=>true, 4=>true, 5=>true}"
+```
+
+当然我们也可以使用 `reduce` 来讲一个数组转换为哈希，而且实现方式似乎可以更加的优雅，代码如下：
+```ruby
+# {} 声明 hash 的初始值，否则 update 没有 update 方法
+ary_hash = array.reduce({}) do |hash, element|
+  hash.update(element => true)
+end
+p "array reduce build hash: #{ary_hash}"
+#=> "array reduce build hash: {0=>true, 1=>true, 2=>true, 3=>true, 4=>true, 5=>true}"
+```
+
+##### 使用 reduce 替代 select 实现对象搜索
+假如我们有一个需求，需要将 users 集合中 `age > 21` 的用户挑选出来，通常我们会用 `select` 来实现，其实强大的 `reduce` 也可以实现，我们可以对比一下他们实现的区别：
+```ruby
+# 使用 Struct 构建 user 对象
+user = Struct.new(:name, :age)
+users = [user.new("phoenix", 19), user.new("jack", 21), user.new("tom", 23)]
+
+
+# select 方法实现筛选 age > 21 的对象，并且返回 names 数组
+names = users.select {|u| u.age >= 21}.map{|u| u.name}
+#=> ["jack", "tom"]
+
+# reduce 方法实现筛选 age > 21 的对象，并且返回 names 数组
+names = users.reduce([]) do |names, user|
+  names << user.name if user.age >= 21
+  names
+end
+#=> ["jack", "tom"]
+```
+
+`reduce` 就介绍到这里，它还有更多的使用场景和更强大的功能需要我们去挖掘，在使用时还需要注意以下两点：
+* reduce 总是需要一个初始值，这个初始值就是你最终返回值的类型
+* reduce 总是需要声明返回值
+
+### 使用默认值来避免 Hash 因为找不到 key 而出现的 NilClass 异常
+Hash 应该是最常用的数据结构，因为 Hash 查找不存在的 key 的时候返回的是 `nil`，所以当我们对 Hash 进行运算如果一不小心就容易遇到 `nil:NilClass (NoMethodError)` 异常，例如下面这段统计数组元素出现次数的代码：
+```ruby
+# 初始化数组
+array = [1, 2, 3, 4, 5]
+
+hash_res = array.reduce({}) do |hash, element|
+  # 因为 hash[element] 有可能获取 nil
+  # 所以在进行 += 1 的时候可能会出现 undefined method `+' for nil:NilClass (NoMethodError)
+  hash[element] += 1
+  hash
+end
+#=> undefined method `+' for nil:NilClass (NoMethodError)
+```
+
+##### 通过 `||=` 设置默认值
+没有默认值，使用 Hash 战战兢兢，随时担心出现 NoMethodError，当然我们也有在运算前通过 `||=` 为不存在的元素进行默认值声明，代码如下：
+```ruby
+hash_res = array.reduce({}) do |hash, element|
+  # 没有默认值，使用 Hash 战战兢兢，随时担心出现 NoMethodError
+  # 使用防御式编程： hash[element] ||= 0 来获得安全感
+  hash[element] ||= 0
+  hash[element] += 1
+  hash
+end
+#=> {1=>1, 2=>1, 3=>1, 4=>1, 5=>1}
+```
+但是这样写出来的代码，似乎并不优雅，而且 `||=` 容易散落各地不好排查，而且代码也容易重复。因此我们在初始化`Hash.new` 的时候声明默认值，这样 **Hash 在找不到键的时候就会使用默认值**，所以我们在使用 Hash 的时候也会有安全感很多，使用默认值我们可以把以前的代码改造如下：
+```ruby
+hash_res = array.reduce(Hash.new(0)) do |hash, element|
+  hash[element] += 1
+  hash
+end
+#=> {1=>1, 2=>1, 3=>1, 4=>1, 5=>1}
+```
+
+##### 使用 fetch 处理默认值
+除了在 `Hash.new` 初始化默认值，某些时候使用 `fetch` 来处理默认值也是很好的方式，虽然工作方式类似，但是它们的使用方式还是有些区别：
+* fetch 接收 2个参数，第1个参数是 key 值，第2个参数是默认值
+* fetch 如果不传第2个参数也可以工作，只是如果出现找不到 key 的情况会抛出 `KeyError` 异常
+
+总体来说相比对整个哈希设置默认值，`fetch` 看上去更加灵活和安全
+
+```ruby
+hash_res = array.reduce({}) do |hash, element|
+  hash[element] = hash.fetch(element, 0) + 1
+  hash
+end
+#=> {1=>1, 2=>1, 3=>1, 4=>1, 5=>1}
+```
+
+关于哈希默认值的使用建议如下：
+* 如果你操作 `Hash` 不希望遇到 `NoMethodError` 可以考虑使用 Hash 默认值
+* 如果你期望查找不存在 key 的时候返回 `nil`，那么就不要使用 Hash 默认值
+* 相比对整个哈希设置默认值，`fetch` 更加灵活和安全
+
+
+### 对集合优先使用委托而非继承
 
 
 
