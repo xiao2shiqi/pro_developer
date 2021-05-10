@@ -1,6 +1,6 @@
 # git merge --ff/--no-ff/--ff-only 三种选项参数的区别
 
-![文章配图](https://pcloud-1258173945.cos.ap-guangzhou.myqcloud.com/uPic/mM4xmE.png)
+<!-- ![文章配图](https://pcloud-1258173945.cos.ap-guangzhou.myqcloud.com/uPic/mM4xmE.png) -->
 ### 前言
 `git merge` 应该是开发者最常用的 git 指令之一，
 默认情况下你直接使用 `git merge` 命令，没有附加任何选项命令的话，那么应该是交给 git 来判断使用哪种 merge 模式，实际上 git 默认执行的指令是 `git merge -ff` 指令（默认值）
