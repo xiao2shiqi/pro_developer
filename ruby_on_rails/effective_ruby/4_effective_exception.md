@@ -64,3 +64,59 @@ raise(TemperatureError.new(180))
 
 
 ### 应该只捕获特定的异常
+
+很多人刚开始接触编程的时候，大多都会对可能出现异常的代码都是直接用 `begin……rescue` 全部包起来，例如下面这样：
+```ruby
+begin
+  raise("Oops, something went wrong")
+rescue => e # Default Error : RuntimeError
+  # handle exception code....
+end
+#=> #<RuntimeError: Oops, something went wrong>
+```
+会出现以上这种代码的大多有以下几个情况：
+1. 你也不知道程序会出什么问题，索性使用通用的 `RuntimError` 包住所有问题
+2. 让程序看起来运行正常……
+
+结合前面一节如何为你的错误定义特定类型的异常，所以对异常的处理我有如下建议：
+1. 你应该先定义你知道的异常类型，然后在 `begin...rescue` 中优先处理你知道的异常
+2. 如果确实发生无法预见的异常，应该向上抛出，及时反馈问题，而不是使用 `begin...rescue` 来尝试掩盖问题
+
+结合以上的建议，我们来看看建议的异常处理代码应该怎么写 ？
+```ruby
+# 首先定义你自己的异常类型
+# 当然如果你的异常可以复用异常标准库的异常，建议优先复用标准库的异常：
+# 例如：NetworkConnectionError，InvalidRecordError 等……
+
+# 我根据自己的程序定义了：参数异常，类型异常
+class ParamsError < StandardError; end
+class TypeError < StandardError; end
+```
+
+然后我们来看看在一段可能出现 `ParamsError`， `TypeError` 的异常代码中我们应该怎样捕获？ 代码如下：
+```ruby
+# 原则是应该优先对可预见的异常类型进行恢复处理……
+begin 
+  # a few code....
+  raise(ParamsError, "parama value error !!") # wow ! raise error !
+rescue ParamsError => e
+  # 程序可能在这里恢复
+  p "处理参数错误的逻辑代码……"
+rescue TypeError => e
+  # 程序可能在这里恢复
+  p "处理可预见的类型异常逻辑代码……"
+rescue => e
+  # 处理不了，通知上级了！
+  p "未知的通用异常，继续向上抛出……"
+  raise 
+ensure
+  #... 通常 ensure 负责执行一些关闭资源的操作，例如： file.close,  db.close ...
+end
+```
+通过以上程序，我们看到几个处理异常的原则：
+1. 显示声明捕获的异常类型，可以让你的代码更具表达性和可读性
+2. 优先处理可预见的异常类型，因为你知道如何恢复它，从而你的程序也更健壮
+3. 越抽象的异常应该越挡在底部，例如通用的 `RuntimeError` 因为你不知道如何处理它，只能继续向上抛
+4. 使用 `ensure` 来执行不管是否发生异常都必须执行的代码，例如：关闭连接资源
+
+可以通过以上的方式来改造你的程序，让你的程序更加的健壮！
