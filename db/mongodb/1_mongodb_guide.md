@@ -87,3 +87,7 @@ Document 对字段名称的限制：
 * 要访问嵌入式文档获取 `last` 的值，就使用点符号：`name.last`
 * 还有更深一些的层级，例如如果要访问 `numbenr`，那么就使用点号：`contact.phone.number`
 
+更多的嵌套对象查询，可以参考文档：
+* [嵌套对象查询](https://docs.mongodb.com/v4.2/tutorial/query-array-of-documents/)
+* [查询嵌套数据对象](https://docs.mongodb.com/v4.2/tutorial/query-array-of-documents/)
+
