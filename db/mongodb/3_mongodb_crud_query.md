@@ -62,3 +62,60 @@ SELECT * FROM inventory WHERE status = "A" AND qty < 30
 
 其他更多比较运算符，可以参考：[Comparison Query Operators](https://docs.mongodb.com/manual/reference/operator/query-comparison/#query-selectors-comparison)
 
+### 返回指定字段
+使用以下格式查询语法，可以只展示指定的 `item` 和 `status` 字段：
+```
+db.inventory.find( { status: "A" }, { item: 1, status: 1 } )
+```
+翻译为 SQL 就是：
+```
+SELECT _id, item, status from inventory WHERE status = "A"
+```
+
+从上面格式可以看出指定 `<field>: 1 `  可以显示指定字段，当然也可以使用 `<field>: 0` 来显示的排除指定字段：
+```
+db.inventory.find( { status: "A" }, { status: 0, instock: 0 } )
+```
+
+
+### 查询嵌套文档
+嵌套文档也是通过 `db.collection.find()` 函数进行查询，我们先插入演示数据：
+```
+db.inventory.insertMany( [
+    { item: "journal", instock: [ { warehouse: "A", qty: 5 }, { warehouse: "C", qty: 15 } ] },  
+    { item: "notebook", instock: [ { warehouse: "C", qty: 5 } ] },
+    { item: "paper", instock: [ { warehouse: "A", qty: 60 }, { warehouse: "B", qty: 15 } ] },
+    { item: "planner", instock: [ { warehouse: "A", qty: 40 }, { warehouse: "B", qty: 5 } ] }, 
+    { item: "postcard", instock: [ { warehouse: "B", qty: 15 }, { warehouse: "C", qty: 35 } ] }
+]);
+```
+
+想要查询 `inventory` 中的 `instock` 包含和匹配对象的查询语法如下：
+```
+db.inventory.find( { "instock": { warehouse: "A", qty: 5 } } )
+#=> {item: journal}
+```
+使用嵌套查询需要注意的是：整个嵌入式/嵌套文档上的相等匹配要求与指定文档（包括字段顺序）完全匹配
+例如我们改变查询对象的顺序：`{ qty: 5, warehouse: "A" }` 那么就无法查出结果：
+```
+db.inventory.find( { "instock": { qty: 5, warehouse: "A" } } )
+#=> null
+```
+
+##### 嵌套文旦范围查询
+很多时候你不知道嵌套文件的具体对象，那么可以使用以下语句对嵌套文档进行查询，例如我们要查出 `inventory` 集合中 `instock.qty <= 20` 的数据，查询语句如下：  
+```
+db.inventory.find( { 'instock.qty': { $lte: 20 } } )
+```
+
+##### 使用 `$elemMatch` ，多条件完全匹配
+查询语法如下：
+```
+// 查询 instock 字段包含 {qty: 5, warehouse: "A" } 的对象的记录
+db.inventory.find( { "instock": { $elemMatch: { qty: 5, warehouse: "A" } } } )
+// 查询 instock 字段 qty > 10 and qty < 20 的记录
+db.inventory.find( { "instock": { $elemMatch: { qty: { $gt: 10, $lte: 20 } } } } )
+```
+
+
+### 查询数组
