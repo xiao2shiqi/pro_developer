@@ -117,5 +117,88 @@ db.inventory.find( { "instock": { $elemMatch: { qty: 5, warehouse: "A" } } } )
 db.inventory.find( { "instock": { $elemMatch: { qty: { $gt: 10, $lte: 20 } } } } )
 ```
 
+对于嵌套查询更多信息查阅问题：[查询嵌入式文档数组](https://docs.mongoing.com/mongodb-crud-operations/query-documents/query-an-array-of-embedded-documents)
 
 ### 查询数组
+可以使用以下语句精确匹配数组：
+```
+db.inventory.find( { tags: ["red", "blank"] } )
+```
+要查找数组中包含指定元素可以使用 `$all` 操作符，例如查询 `tags` 字段既包含 `red, blnak` 的语法，如下：
+```
+db.inventory.find( { tags: { $all: ["red", "blank"] } } )
+```
+查找数组中包含指定元素，例如 `tags` 字段中包含 `red` 元素的记录：
+```
+db.inventory.find( { tags: "red" } )
+```
+使用相等对比操作符：查询数组字段中，`dim_cm` 数组字段包含大于 `25` 的项目：
+```
+db.inventory.find( { dim_cm: { $gt: 25 } } )
+```
+数组的查询方法还有很多：
+更多数组查询的技巧查阅文档：[查询数组](https://docs.mongoing.com/mongodb-crud-operations/query-documents/query-an-array)
+
+
+### 查询空字段
+查询所有 `null` 值的字段（包含不存在的字段）
+```
+db.inventory.find( { item: null } )
+#=> query result: 2 item
+```
+只查询存在 `null` 值的字段（不包含字段不存在的情况）
+```
+db.inventory.find( { item : { $type: 10 } } )
+#=> query result: 1 item
+```
+
+查询不存在字段的记录信息：
+```
+db.inventory.find( { item : { $exists: false } } )
+#=> query result: 1 item
+```
+
+
+### 查询嵌套文档
+填充假数据用于练习：
+```
+db.inventory.insertMany( [
+    { item: "journal", qty: 25, size: { h: 14, w: 21, uom: "cm" }, status: "A" },
+    { item: "notebook", qty: 50, size: { h: 8.5, w: 11, uom: "in" }, status: "A" },
+    { item: "paper", qty: 100, size: { h: 8.5, w: 11, uom: "in" }, status: "D" },
+    { item: "planner", qty: 75, size: { h: 22.85, w: 30, uom: "cm" }, status: "D" },
+    { item: "postcard", qty: 45, size: { h: 10, w: 15.25, uom: "cm" }, status: "A" }
+]);
+```
+
+内嵌文档完全匹配（需要匹配顺序）
+```
+db.inventory.find( { size: { h: 14, w: 21, uom: "cm" } } )
+#=> query result: 1 item
+```
+如果匹配的内嵌文档顺序不同，则无法匹配，例如：
+```
+db.inventory.find(  { size: { w: 21, h: 14, uom: "cm" } }  )
+#=> query result: 0 item
+```
+使用 `点符号` 完全匹配内嵌文档的字段，例如以下语句匹配 `size.uom` 字段：
+```
+db.inventory.find( { "size.uom": "in" } )
+#=> query result: 2 item
+```
+也可以使用`查询运算符`来匹配内嵌文档，如下：
+```
+db.inventory.find( { "size.h": { $lt: 15 } } )
+#=> query result: 4 item
+```
+使用 `AND` 兼顾外部和内嵌字段的查询
+```
+db.inventory.find( { "size.h": { $lt: 15 }, "size.uom": "in", status: "D" } )
+```
+
+更多查询教程：
+* [Query Documents](https://docs.mongodb.com/manual/tutorial/query-documents/)
+* [Query an Array](https://docs.mongodb.com/manual/tutorial/query-arrays/)
+* [Query an Array of Embedded Documents](https://docs.mongodb.com/manual/tutorial/query-array-of-documents/)
+
+本章完。。。。
