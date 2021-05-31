@@ -89,8 +89,6 @@ ___
 3. [聚合管道](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/3_aggregation.md)
 4. [数据模式验证](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/4_data_modeling.md)
 ##### Redis
-
-
 ___
 ### 基础理论 
 ___
