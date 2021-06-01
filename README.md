@@ -64,6 +64,9 @@ ROR 相关工具使用合集：
 ___
 ### 开发工具 专题
 
+##### 效率工具
+1. [让你的 git 自动执行：代码检查、单元测试](https://github.com/xiao2shiqi/pro_developer/blob/main/develop_tool/effective/1_auto_check_code_ut.md)
+
 ##### Git 心得
 1. [git merge --ff/--no-ff/--ff-only 三种选项参数的区别](https://github.com/xiao2shiqi/pro_developer/blob/main/develop_tool/git/pro_git/3_git_branch/2_branch_create_merge.md)
 
