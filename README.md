@@ -54,9 +54,11 @@ Ruby 基础：
 5. [元编程的注意事项](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/5_meta_programming.md)
 6. [熟悉使用单元测试](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/6_unit_test.md)
 
-Rails 使用：
 
-ROR 相关工具使用合集：
+Ruby 使用技巧：
+
+
+Rails 使用技巧：
 1. [如何使用 yard 写文档](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/yard/1_how_to_use_yard.md)
 2. [使用 MongoDB 创建 Rails API](https://github.com/xiao2shiqi/strongest_programmer/blob/main/ruby/how_usr_ruby/2_create_a_simple_rails_api.md)
 3. [使用 Rails 操作 Mongo Docuemtn](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/rails_mongoid_manual/2_document.md)
