@@ -65,7 +65,7 @@ ___
 ### 开发工具 专题
 
 ##### Git 心得
-1. [git merge --ff/--no-ff/--ff-only 三种选项参数的区别](https://github.com/xiao2shiqi/pro_developer/blob/main/git/pro_git/3_git_branch/2_branch_create_merge.md)
+1. [git merge --ff/--no-ff/--ff-only 三种选项参数的区别](https://github.com/xiao2shiqi/pro_developer/blob/main/develop_tool/git/pro_git/3_git_branch/2_branch_create_merge.md)
 
 ##### Github 使用
 

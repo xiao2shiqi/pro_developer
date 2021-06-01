@@ -115,3 +115,6 @@ Installing hooks...
 Done!
 ```
 
+### 源代码
+以上脚本代码我放到这里，有需要可以自取：
+* [/scripts](https://github.com/xiao2shiqi/pro_developer/tree/main/develop_tool/source/scripts)
