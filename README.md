@@ -56,7 +56,7 @@ Ruby 基础：
 
 
 Ruby 使用技巧：
-
+1. [Ruby 多线程的使用技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/ruby_skill/1_ruby_thread.md)
 
 Rails 使用技巧：
 1. [如何使用 yard 写文档](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/yard/1_how_to_use_yard.md)
