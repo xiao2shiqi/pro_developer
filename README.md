@@ -1,7 +1,13 @@
 这里是我的学习笔记和总结仓库。
 公开分享这些笔记和总结，希望在工作和学习上都能帮助到大家。
+
+知识体系：
 ___
-# 知识体系
+### 技术思考和价值观
+
+技术趋势的思考
+
+___
 ### Java 专题
 Java 基础（基本语法）：
 
@@ -33,8 +39,7 @@ Rails 使用技巧：
 3. [使用 Rails 操作 Mongo Docuemtn](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/rails_mongoid_manual/2_document.md)
 
 ___
-### 开发工具 专题
-
+### 工具
 ##### 效率工具
 1. [让你的 git 自动执行：代码检查、单元测试](https://github.com/xiao2shiqi/pro_developer/blob/main/develop_tool/effective/1_auto_check_code_ut.md)
 2. [git 集成 alibaba p3c插件，自动检查代码风格](https://github.com/xiao2shiqi/pro_developer/blob/main/develop_tool/effective/2_git_integrate_alibaba_p3c.md)
