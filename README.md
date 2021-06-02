@@ -5,7 +5,7 @@
 ___
 ### 技术思考和价值观
 
-技术趋势的思考
+1. [对于流行技术趋势的思考](https://github.com/xiao2shiqi/pro_developer/blob/main/think/1.md)
 
 ___
 ### Java 专题
