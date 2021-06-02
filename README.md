@@ -25,9 +25,10 @@ Ruby 进阶：
 1. [重新熟悉 Ruby 的基础语法](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/1.md)
 2. [理解 Ruby 中的面向对象](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/2.md)
 3. [高效使用 Ruby 的集合](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/3.md)
-4. [异常处理几个有效的方法](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/4.md)
-5. [元编程的注意事项](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/5.md)
-6. [熟悉使用单元测试](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/6.md)
+4. [有效处理异常的几个方法](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/4.md)
+5. [元编程的几个注意事项](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/5.md)
+6. [熟练的使用单元测试](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/6.md)
+7. [常用的文档和依赖管理](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/7.md)
 
 
 Ruby 使用技巧：
