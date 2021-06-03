@@ -30,6 +30,8 @@ Ruby 进阶：
 6. [熟练的使用单元测试](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/6.md)
 7. [常用的文档和依赖管理](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/effective_ruby/7.md)
 
+Ruby 元编程：
+
 
 Ruby 使用技巧：
 1. [Ruby 多线程的使用技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/ruby_skill/1.md)
