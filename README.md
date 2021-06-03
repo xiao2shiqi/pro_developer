@@ -5,7 +5,8 @@
 ___
 ### 技术思考和价值观
 
-1. [对于流行技术趋势的思考](https://github.com/xiao2shiqi/pro_developer/blob/main/think/1.md)
+1. [对于流行技术趋势的一些思考](https://github.com/xiao2shiqi/pro_developer/blob/main/think/1.md)
+2. [从技术人的角度为鸿蒙OS说两句公道话](https://github.com/xiao2shiqi/pro_developer/blob/main/think/2.md)
 
 ___
 ### Java 专题
