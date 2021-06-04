@@ -34,7 +34,7 @@ Ruby 进阶（Effective Ruby）：
 
 Ruby 元编程（Metaprogramming Ruby）：
 1. [什么是元编程？](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/1.md)
-2. [对象模型]
+2. [对象模型](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/2.md)
 3. [方法]
 4. [代码块]
 5. [类定义]
