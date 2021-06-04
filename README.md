@@ -33,7 +33,7 @@ Ruby 进阶：
 
 Ruby 元编程：
 
-Ruby 杂谈 confused talk ：
+Ruby 杂谈：
 1. [Ruby 多线程的使用技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/ruby_skill/1.md)
 2. [Ruby 和 Java 的基础语法比较](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/ruby_skill/2.md)
 
@@ -47,6 +47,8 @@ ___
 ##### 效率工具
 1. [让你的 git 自动执行：代码检查、单元测试](https://github.com/xiao2shiqi/pro_developer/blob/main/develop_tool/effective/1.md)
 2. [git 集成 alibaba p3c插件，自动检查代码风格](https://github.com/xiao2shiqi/pro_developer/blob/main/develop_tool/effective/2.md)
+3. [VSCODE 几个实用技巧分享](https://github.com/xiao2shiqi/pro_developer/blob/main/develop_tool/effective/3.md)
+4. [VSCode snippets 代码模板使用心得](https://github.com/xiao2shiqi/pro_developer/blob/main/develop_tool/effective/3.md)
 
 ##### Git 心得
 1. [git merge --ff/--no-ff/--ff-only 三种选项参数的区别](https://github.com/xiao2shiqi/pro_developer/blob/main/develop_tool/git/pro_git/3_git_branch/1.md)
