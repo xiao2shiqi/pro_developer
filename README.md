@@ -36,6 +36,7 @@ Ruby 元编程：
 
 Ruby 使用技巧：
 1. [Ruby 多线程的使用技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/ruby_skill/1.md)
+2. [Ruby 和 Java 的基础语法比较](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/ruby_skill/2.md)
 
 Rails 使用技巧：
 1. [如何使用 yard 写文档](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/rails_mongoid_manual/1.md)
