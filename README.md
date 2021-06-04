@@ -33,8 +33,7 @@ Ruby 进阶（Effective Ruby）：
 8. [内存管理和性能优化](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/8.md) （待完成）
 
 Ruby 元编程（Metaprogramming Ruby）：
-
-1. [元编程这个字眼](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/1.md)
+1. [什么是元编程？](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/1.md)
 2. [对象模型]
 3. [方法]
 4. [代码块]
