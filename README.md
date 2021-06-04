@@ -20,9 +20,9 @@ Web 框架（SSM）：
 
 ___
 ### Ruby 专题
-Ruby 基础：
+Ruby 基础（Ruby Basic）：
 
-Ruby 进阶：
+Ruby 进阶（Effective Ruby）：
 1. [重新熟悉 Ruby 的基础语法](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/1.md)
 2. [理解 Ruby 中的面向对象](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/2.md)
 3. [高效使用 Ruby 的集合](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/3.md)
@@ -32,18 +32,17 @@ Ruby 进阶：
 7. [常用的文档和依赖管理](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/7.md)
 8. [内存管理和性能优化](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/8.md) （待完成）
 
-Ruby 元编程：
-
+Ruby 元编程（Metaprogramming Ruby）：
 
 
 Ruby 杂谈：
 1. [Ruby 多线程的使用技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/ruby_skill/1.md)
 2. [Ruby 和 Java 的基础语法比较](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/ruby_skill/2.md)
 
-Rails 使用技巧：
-1. [如何使用 yard 写文档](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/rails_mongoid_manual/1.md)
-2. [使用 MongoDB 创建 Rails API](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/rails_mongoid_manual/2.md)
-3. [使用 Rails 操作 Mongo Docuemtn](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/rails_mongoid_manual/3.md)
+Rails 使用：
+1. [如何使用 yard 写文档](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/rails_guide/1.md)
+2. [使用 MongoDB 创建 Rails API](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/rails_guide/2.md)
+3. [使用 Rails 操作 Mongo Docuemtn](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/rails_guide/3.md)
 
 ___
 ### 工具
