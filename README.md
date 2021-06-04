@@ -33,8 +33,7 @@ Ruby 进阶：
 
 Ruby 元编程：
 
-
-Ruby 使用技巧：
+Ruby 杂谈 confused talk ：
 1. [Ruby 多线程的使用技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/ruby_skill/1.md)
 2. [Ruby 和 Java 的基础语法比较](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby_on_rails/ruby_skill/2.md)
 
