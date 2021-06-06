@@ -35,7 +35,7 @@ ___
 ##### Ruby 元编程（Metaprogramming Ruby）：
 1. [什么是元编程？（What is Mate ?）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/1.md)
 2. [对象模型（The Object Model）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/2.md)
-3. [方法（Methods）]
+3. [动态方法（Methods）]
 4. [代码块]
 5. [类定义]
 6. [编写代码的代码]
