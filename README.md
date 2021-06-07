@@ -27,7 +27,7 @@ ___
 2. [理解 Ruby 中的面向对象](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/2.md)
 3. [高效使用 Ruby 的集合](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/3.md)
 4. [有效处理异常的几个方法](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/4.md)
-5. [元编程的几个注意事项](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/5.md)
+5. [元编程的几个注意事项](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/5.md)（待完成）
 6. [熟练的使用单元测试](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/6.md)
 7. [常用的文档和依赖管理](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/7.md)
 8. [内存管理和性能优化](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/8.md) （待完成）
