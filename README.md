@@ -33,10 +33,10 @@ ___
 8. [内存管理和性能优化](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/8.md) （待完成）
 
 ##### Ruby 元编程（Metaprogramming Ruby）：
-1. [什么是元编程？（What is Mate ?）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/1.md)
+1. [元编程（What is Mate?）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/1.md)
 2. [对象模型（The Object Model）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/2.md)
 3. [动态方法（Methods）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/3.md)
-4. [代码块]
+4. [代码块（The Blocks）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/4.md)
 5. [类定义]
 6. [编写代码的代码]
 
