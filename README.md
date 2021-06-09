@@ -1,22 +1,21 @@
 这里是我的学习笔记和总结仓库。
 公开分享这些笔记和总结，希望在工作和学习上都能帮助到大家
 
-
-### 技术思考和价值观 >>>
-
+个人的思考和价值观输出（博客的草稿）
 1. [对于流行技术趋势的一些思考](https://github.com/xiao2shiqi/pro_developer/blob/main/think/1.md)
 2. [我对鸿蒙OS的一些看法](https://github.com/xiao2shiqi/pro_developer/blob/main/think/2.md)
 
+---------------------------------------- 学海无涯分割线 ------------------------------------------------
+
 ## 工具和技术修养
 #### 基础工具 ---------------------------------------------------------------
-* [Linux ](https://www.w3cschool.cn/linux/)
+* [《Linux 基础》 ](https://www.w3cschool.cn/linux/)   -> 《鸟哥的 Linux 私房菜》
 *  [VSCode 教程](https://jeasonstudio.gitbooks.io/vscode-cn-doc/content/)  -> 《VSCode 权威指南》
-* 《鸟哥的 Linux 私房菜》
 * [git pro 第二版](https://git-scm.com/book/zh/v2/)
 * [相对简单的 git 文档](https://backlog.com/git-tutorial/cn/)
 * 《了不起的 Markdown》
 
-效率工具使用心得：
+心得总结：
 1. [让你的 git 自动执行：代码检查、单元测试](https://github.com/xiao2shiqi/pro_developer/blob/main/develop_tool/effective/1.md)
 2. [git 集成 alibaba p3c插件，自动检查代码风格](https://github.com/xiao2shiqi/pro_developer/blob/main/develop_tool/effective/2.md)
 3. [VSCode 几个实用技巧和插件分享](https://github.com/xiao2shiqi/pro_developer/blob/main/develop_tool/effective/3.md)
@@ -28,6 +27,10 @@
 * 《Clean Code 代码整洁之道》
 * 《程序员的职业素养》
 * 《重构》
+
+心得总结：
+
+
 
 ## 编程语言 
 #### Java 语言 ---------------------------------------------------------------
