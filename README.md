@@ -57,7 +57,7 @@ Ruby 元编程（Metaprogramming Ruby
 2. [对象模型（The Object Model）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/2.md)
 3. [动态方法（Methods）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/3.md)
 4. [代码块（The Blocks）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/4.md)
-5. [类定义]
+5. [类定义（Class Definitions）：Ruby 对象模式最深暗的角落](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/5.md)
 6. [编写代码的代码]
 
 Ruby 使用总结：
