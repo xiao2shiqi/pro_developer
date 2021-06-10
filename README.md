@@ -9,10 +9,9 @@
 
 ## 工具和技术修养
 #### 基础工具 ---------------------------------------------------------------
-* [《Linux 基础》 ](https://www.w3cschool.cn/linux/)   -> 《鸟哥的 Linux 私房菜》
+* [《Linux W3C School》 ](https://www.w3cschool.cn/linux/)   -> 《鸟哥的 Linux 私房菜》
 *  [VSCode 教程](https://jeasonstudio.gitbooks.io/vscode-cn-doc/content/)  -> 《VSCode 权威指南》
-* [git pro 第二版](https://git-scm.com/book/zh/v2/)
-* [相对简单的 git 文档](https://backlog.com/git-tutorial/cn/)
+* [相对简单的 git 文档](https://backlog.com/git-tutorial/cn/) -> [git pro 第二版](https://git-scm.com/book/zh/v2/)
 * 《了不起的 Markdown》
 
 心得总结：
@@ -29,7 +28,6 @@
 * 《重构》
 
 心得总结：
-
 
 
 ## 编程语言 
