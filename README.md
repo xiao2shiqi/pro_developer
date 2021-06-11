@@ -127,13 +127,23 @@ Go 使用总结：
 * 《整洁架构之道》 -> 《敏捷整洁之道》
 
 ## 数据库
-#### 关系型数据库
+
+数据库相关书籍：
 * 《高性能 MySQL》
 * 《MySQL 技术内幕》
 * 《PostgreSQL 官方文档》
 
-#### NoSQL 数据库
-MongoDB 官方文档 ---------------------------------------------------------------
+
+#### Oracle ---------------------------------------------------------------
+学习笔记：
+* 待补充
+* 待补充
+
+使用心得：
+1. [在 Linux 下使用 sqlplus 访问远程 Oracle 数据库](https://github.com/xiao2shiqi/pro_developer/blob/main/develop_tool/db/1.md)
+
+#### MongoDB ---------------------------------------------------------------
+学习笔记
 1. [Mongodb 入门介绍](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/1.md)
 2. [CRUD 操作](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/2.md)
 3. [聚合管道](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/3.md)
