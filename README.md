@@ -1,11 +1,16 @@
-这里是我的学习笔记和总结仓库。
-公开分享这些笔记和总结，希望在工作和学习上都能帮助到大家
+这里只是作为学习和思考笔记的仓库。另外的经验和总结，可以参考 我的个人博客：[phoenix 的奇思妙想](http://www.phoenixblog.cn)
 
-个人的思考和价值观输出（博客的草稿）
-1. [对于流行技术趋势的一些思考](https://github.com/xiao2shiqi/pro_developer/blob/main/think/1.md)
-2. [我对鸿蒙OS的一些看法](https://github.com/xiao2shiqi/pro_developer/blob/main/think/2.md)
 
----------------------------------------- 学海无涯分割线 ------------------------------------------------
+> 学海无涯分割线
+
+--- 
+
+## 输出分享
+#### Ruby ---------------------------------------------------------------
+#### git ---------------------------------------------------------------
+#### VsCode ---------------------------------------------------------------
+#### Oracle ---------------------------------------------------------------
+
 
 ## 工具和技术修养
 #### 基础工具 ---------------------------------------------------------------
@@ -41,8 +46,11 @@
 * 《设计模式之禅》
 * 《设计模式》
 
+Java 心得总结（原创）：
+
+
 #### Ruby 语言 ---------------------------------------------------------------
-Effective Ruby
+Effective Ruby（ 改善 Ruby 程序的 48 条建议）：
 1. [重新熟悉 Ruby 的基础语法](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/1.md)
 2. [理解 Ruby 中的面向对象](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/2.md)
 3. [高效使用 Ruby 的集合](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/3.md)
@@ -52,7 +60,7 @@ Effective Ruby
 7. [常用的文档和依赖管理](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/7.md)
 8. [内存管理和性能优化](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/8.md) （待完成）
 
-Ruby 元编程（Metaprogramming Ruby
+Ruby 元编程（Metaprogramming Ruby）：
 1. [元编程（What is Mate?）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/1.md)
 2. [对象模型（The Object Model）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/2.md)
 3. [动态方法（Methods）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/3.md)
@@ -60,12 +68,12 @@ Ruby 元编程（Metaprogramming Ruby
 5. [类定义（Class Definitions）：Ruby 对象模式最深暗的角落](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/5.md)
 6. [编写代码的代码]
 
-Ruby 使用总结：
-1. [Ruby 多线程的使用技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/ruby_skill/1.md)
-2. [Ruby 和 Java 的基础语法比较](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/ruby_skill/2.md)
-3. [如何使用 yard 写文档](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/rails_guide/1.md)
-4. [使用 MongoDB 创建 Rails API](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/rails_guide/2.md)
-5. [使用 Rails 操作 Mongo Docuemtn](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/rails_guide/3.md)
+Ruby 心得总结（原创）：
+1. [Ruby 多线程的使用技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/summary_experience/1.md)
+2. [Ruby 和 Java 的基础语法比较](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/summary_experience/2.md)
+3. [如何使用 yard 写文档](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/summary_experience/3.md)
+4. [使用 MongoDB 创建 Rails API](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/summary_experience/4.md)
+5. [使用 Rails 操作 Mongo Docuemtn](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/summary_experience/5.md)
 
 #### C 语言 ---------------------------------------------------------------
 * 《C 程序设计语言》
@@ -143,23 +151,22 @@ Go 使用总结：
 1. [在 Linux 下使用 sqlplus 访问远程 Oracle 数据库](https://github.com/xiao2shiqi/pro_developer/blob/main/develop_tool/db/1.md)
 
 #### MongoDB ---------------------------------------------------------------
-学习笔记
+《MongoDB 官方文档》：[地址](https://docs.mongoing.com) 
 1. [Mongodb 入门介绍](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/1.md)
 2. [CRUD 操作](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/2.md)
 3. [聚合管道](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/3.md)
 4. [数据模式验证](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/4.md)
 
-
-列数据库：
+#### 列数据库： ---------------------------------------------------------------
 * Cassandra
 * HBase：《HBase 实战》、《HBase 权威指南》
 
-文档数据库：
+#### 文档数据库： ---------------------------------------------------------------
 * MongoDB
 * SimpleDB
 * CouchDB 
 
-其他类型：
+#### 其他类型： ---------------------------------------------------------------
 * 数据结构数据库：Redis
 * 时序数据库：***
 * 图数据库  ：Neo4J
@@ -179,7 +186,6 @@ Go 使用总结：
 * Raft 一致性算法
 * Gossip 一致性算法
 。。。。。。
-
 
 微服务：
 * 《微服务设计》
