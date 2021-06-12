@@ -1,35 +1,39 @@
-这里只是作为学习和思考笔记的仓库。另外的经验和总结，可以参考 我的个人博客：[phoenix 的奇思妙想](http://www.phoenixblog.cn)
-
-> 学海无涯分割线
-
---- 
-
 ## 输出分享
+
+这里只是作为读书、学习和思考笔记的仓库，也算是博客文章的草稿箱，更多的文章可以参考 我的个人博客：[phoenix 的奇思妙想](http://www.phoenixblog.cn) 
+
 #### Ruby ---------------------------------------------------------------
-* [Ruby 多线程的使用技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/summary_experience/1.md)
-* [Ruby 和 Java 的基础语法比较](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/summary_experience/2.md)
-* [如何使用 yard 写文档](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/summary_experience/3.md)
-* [使用 MongoDB 创建 Rails API](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/summary_experience/4.md)
-* [使用 Rails 操作 Mongo Docuemtn](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/summary_experience/5.md)
+* [Ruby 多线程的使用技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/1.md)
+* [Ruby 和 Java 的基础语法比较](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/2.md)
+* [如何使用 Yard 写文档](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/3.md)
+* [使用 MongoDB 创建 Rails API](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/4.md)
+* [使用 Rails 操作 Mongo Docuemtn](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/5.md)
 
 #### Go 语言 ---------------------------------------------------------------
-* [Go 语言的初体验](https://github.com/xiao2shiqi/pro_developer/blob/main/go/go_basic/1.md)
+* [Go 语言的初体验](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/go/1.md/1.md)
 
-#### git ---------------------------------------------------------------
-* [git merge --ff/--no-ff/--ff-only 三种选项参数的区别](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/1.md)
-* [git 集成 阿里 P3C 编译 PMD 可执行文件别](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/2.md)
-* [git hook 自动检查代码风格和单元测试](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/3.md)
+#### Git ---------------------------------------------------------------
+* [Git merge --ff/--no-ff/--ff-only 三种选项参数的区别](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/1.md)
+* [Git 集成 阿里 P3C 编译 PMD 可执行文件别](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/2.md)
+* [Git hook 自动检查代码风格和单元测试](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/3.md)
 
 #### VsCode ---------------------------------------------------------------
 1. [VSCode 几个实用技巧和插件分享](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/1.md)
 2. [VSCode Snippets（代码模板）使用心得](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/2.md)
 
 #### Oracle ---------------------------------------------------------------
-* [在 Linux 下使用 sqlplus 访问远程 Oracle 数据库](https://github.com/xiao2shiqi/pro_developer/blob/main/develop_tool/db/1.md)
+* [在 Linux 下使用 sqlplus 访问远程 Oracle 数据库](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/oracle/1.md)
 
-#### 算法 ---------------------------------------------------------------
-* [如何反转一个单向链表](https://github.com/xiao2shiqi/pro_developer/blob/main/algo/1.md)
-* [练习算法的几个实用技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/algo/2.md)
+#### 算法和数据结构 ---------------------------------------------------------------
+* [如何反转一个单向链表](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/algorithm/1.md)
+* [练习算法的几个实用技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/algorithm/2.md)
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+学海无涯，学习地图分割线 ---------------------------------------------------------------
+
+
 
 ## 工具和技术修养
 #### 基础工具 ---------------------------------------------------------------
@@ -38,15 +42,11 @@
 * [相对简单的 git 文档](https://backlog.com/git-tutorial/cn/) -> [git pro 第二版](https://git-scm.com/book/zh/v2/)
 * 《了不起的 Markdown》
 
-
 #### 技术修养 ---------------------------------------------------------------
 * 《代码大全》
 * 《Clean Code 代码整洁之道》
 * 《程序员的职业素养》
 * 《重构》
-
-心得总结：
-
 
 ## 编程语言 
 #### Java 语言 ---------------------------------------------------------------
@@ -150,8 +150,8 @@ Ruby 元编程（Metaprogramming Ruby）：
 #### MongoDB ---------------------------------------------------------------
 《MongoDB 官方文档》：[地址](https://docs.mongoing.com) 
 1. [Mongodb 入门介绍](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/1.md)
-2. [CRUD 操作](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/2.md)
-3. [聚合管道](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/3.md)
+2. [Mongodb 基础的 CRUD 操作](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/2.md)
+3. [Mongodb 管道-聚合操作](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/3.md)
 4. [数据模式验证](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/4.md)
 
 #### 列数据库： ---------------------------------------------------------------
