@@ -10,7 +10,7 @@
 * [使用 Rails 操作 Mongo Docuemtn](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/5.md)
 
 #### Go 语言 ---------------------------------------------------------------
-* [Go 语言的初体验](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/go/1.md/1.md)
+* [Go 语言的初体验](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/go/1.md/)
 
 #### Git ---------------------------------------------------------------
 * [Git merge --ff/--no-ff/--ff-only 三种选项参数的区别](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/1.md)
@@ -32,7 +32,6 @@
 ------------------------------------------------------------------------------------------------------------------------------
 
 学海无涯，学习地图分割线 ---------------------------------------------------------------
-
 
 
 ## 工具和技术修养
