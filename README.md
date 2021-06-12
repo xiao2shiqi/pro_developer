@@ -1,35 +1,6 @@
 ## 输出分享
+这里只是作为读书、学习和思考笔记的仓库，也算是博客文章的草稿箱，更多的文章可以参考博客：[phoenix 的奇思妙想](http://www.phoenixblog.cn) 
 
-这里只是作为读书、学习和思考笔记的仓库，也算是博客文章的草稿箱，更多的文章可以参考 我的个人博客：[phoenix 的奇思妙想](http://www.phoenixblog.cn) 
-
-#### Ruby ---------------------------------------------------------------
-* [Ruby 多线程的使用技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/1.md)
-* [Ruby 和 Java 的基础语法比较](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/2.md)
-* [如何使用 Yard 写文档](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/3.md)
-* [使用 MongoDB 创建 Rails API](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/4.md)
-* [使用 Rails 操作 Mongo Docuemtn](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/5.md)
-
-#### Go 语言 ---------------------------------------------------------------
-* [Go 语言的初体验](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/go/1.md/)
-
-#### Git ---------------------------------------------------------------
-* [Git merge --ff/--no-ff/--ff-only 三种选项参数的区别](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/1.md)
-* [Git 集成 阿里 P3C 编译 PMD 可执行文件别](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/2.md)
-* [Git hook 自动检查代码风格和单元测试](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/3.md)
-
-#### VsCode ---------------------------------------------------------------
-1. [VSCode 几个实用技巧和插件分享](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/1.md)
-2. [VSCode Snippets（代码模板）使用心得](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/2.md)
-
-#### Oracle ---------------------------------------------------------------
-* [在 Linux 下使用 sqlplus 访问远程 Oracle 数据库](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/oracle/1.md)
-
-#### 算法和数据结构 ---------------------------------------------------------------
-* [如何反转一个单向链表](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/algorithm/1.md)
-* [练习算法的几个实用技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/algorithm/2.md)
-
-
-------------------------------------------------------------------------------------------------------------------------------
 
 学海无涯，学习地图分割线 ---------------------------------------------------------------
 
@@ -46,6 +17,16 @@
 * 《Clean Code 代码整洁之道》
 * 《程序员的职业素养》
 * 《重构》
+
+
+Git 经验总结：
+* [Git merge --ff/--no-ff/--ff-only 三种选项参数的区别](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/1.md)
+* [Git 集成 阿里 P3C 编译 PMD 可执行文件别](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/2.md)
+* [Git hook 自动检查代码风格和单元测试](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/3.md)
+
+VSCode 经验总结：
+1. [VSCode 几个实用技巧和插件分享](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/1.md)
+2. [VSCode Snippets（代码模板）使用心得](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/2.md)
 
 ## 编程语言 
 #### Java 语言 ---------------------------------------------------------------
@@ -80,6 +61,12 @@ Ruby 元编程（Metaprogramming Ruby）：
 5. [类定义（Class Definitions）：Ruby 对象模式最深暗的角落](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/5.md)
 6. [编写代码的代码]
 
+Ruby 经验总结：
+* [Ruby 多线程的使用技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/1.md)
+* [Ruby 和 Java 的基础语法比较](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/2.md)
+* [如何使用 Yard 写文档](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/3.md)
+* [使用 MongoDB 创建 Rails API](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/4.md)
+* [使用 Rails 操作 Mongo Docuemtn](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/5.md)
 
 #### C 语言 ---------------------------------------------------------------
 * 《C 程序设计语言》
@@ -89,6 +76,9 @@ Ruby 元编程（Metaprogramming Ruby）：
 #### Go 语言 ---------------------------------------------------------------
 * 《Go 程序设计语言》
 * 《Go 语言实战》
+
+Go 经验总结：
+* [Go 语言的初体验](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/go/1.md/)
 
 
 ## 理论学科
@@ -112,6 +102,10 @@ Ruby 元编程（Metaprogramming Ruby）：
 * 《计算机网络》
 * 《计算机程序的构造和解释》
 * 《编译原理》
+
+理论学科经验总结：
+* [如何反转一个单向链表](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/algorithm/1.md)
+* [练习算法的几个实用技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/algorithm/2.md)
 
 ## 操作系统和网络
 中难度
@@ -144,6 +138,9 @@ Ruby 元编程（Metaprogramming Ruby）：
 学习笔记：
 * 待补充
 * 待补充
+
+Oracle 经验总结：
+* [在 Linux 下使用 sqlplus 访问远程 Oracle 数据库](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/oracle/1.md)
 
 
 #### MongoDB ---------------------------------------------------------------
