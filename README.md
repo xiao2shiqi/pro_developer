@@ -7,8 +7,8 @@
 
 ## 工具和技术修养
 #### 基础工具 ---------------------------------------------------------------
-* [《Linux W3C School》 ](https://www.w3cschool.cn/linux/)   -> 《鸟哥的 Linux 私房菜》
-*  [VSCode 教程](https://jeasonstudio.gitbooks.io/vscode-cn-doc/content/)  -> 《VSCode 权威指南》
+
+*  [VSCode 使用教程](https://jeasonstudio.gitbooks.io/vscode-cn-doc/content/)  -> 《VSCode 权威指南》
 * [相对简单的 git 文档](https://backlog.com/git-tutorial/cn/) -> [git pro 第二版](https://git-scm.com/book/zh/v2/)
 * 《了不起的 Markdown》
 
@@ -108,6 +108,10 @@ Go 经验总结：
 * [练习算法的几个实用技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/algorithm/2.md)
 
 ## 操作系统和网络
+
+Linux 这样学：
+* [一些必须掌握的 Linux 命令](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/1.md)
+
 中难度
 * 《Linux C 编程一站式学习》
 * 《图解 TCP IP》
