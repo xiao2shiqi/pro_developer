@@ -155,7 +155,7 @@ Oracle 经验总结：
 1. [Mongodb 入门介绍](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/1.md)
 2. [Mongodb 基础的 CRUD 操作](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/2.md)
 3. [Mongodb 管道-聚合操作](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/3.md)
-4. [数据模式验证](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/4.md)
+4. [Mongodb 的数据模式验证](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/4.md)
 
 #### 列数据库： ---------------------------------------------------------------
 * Cassandra
