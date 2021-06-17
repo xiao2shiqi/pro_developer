@@ -114,6 +114,7 @@ Linux 这样学：
 * [一些必须掌握的 Linux 命令](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/1.md)
 * [输入输出、管道、环境变量](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/2.md)
 * [Vim 编辑器和 Shell 脚本](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/3.md)
+* [用户身份与文件权限](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/4.md)
 
 中难度
 * 《Linux C 编程一站式学习》
