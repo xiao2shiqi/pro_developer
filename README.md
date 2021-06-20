@@ -1,6 +1,5 @@
 ## 输出分享
-这里只是作为读书、学习和思考笔记的仓库，也算是博客文章的草稿箱 <br> 
-更多的文章都会写在自己博客里面：[phoenix 的博客（博客园）](https://www.cnblogs.com/xiao2shiqi/) 
+学习笔记的记录仓库，2021.5 月份开始  ----->  
 
 
 学海无涯，学习地图分割线 ---------------------------------------------------------------
@@ -110,7 +109,7 @@ Go 经验总结：
 
 ## 操作系统和网络
 
-Linux 这样学：
+Linux 基础：
 * [程序员必须掌握的 Linux 命令](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/1.md)
 * [输入输出、管道、环境变量](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/2.md)
 * [Vim 编辑器、Shell 脚本](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/3.md)
