@@ -115,6 +115,7 @@ Linux 这样学：
 * [输入输出、管道、环境变量](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/2.md)
 * [Vim 编辑器、Shell 脚本](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/3.md)
 * [用户管理和文件权限设置](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/4.md)
+* [存储结构和磁盘划分](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/5.md)
 
 中难度
 * 《Linux C 编程一站式学习》
