@@ -109,13 +109,14 @@ Go 经验总结：
 
 ## 操作系统和网络
 
-Linux 基础：
+Linux 第一阶段：
 * [程序员必须掌握的 Linux 命令](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/1.md)
 * [输入输出、管道、环境变量](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/2.md)
 * [Vim 编辑器、Shell 脚本](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/3.md)
 * [用户管理和文件权限设置](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/4.md)
 * [存储结构和磁盘划分](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/5.md)
 * [iptables 与 firewalld 防火墙](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/6.md)
+* [SSH 服务配置和加密协议](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/7.md)
 
 中难度
 * 《Linux C 编程一站式学习》
