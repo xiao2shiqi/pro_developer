@@ -43,7 +43,10 @@ Java 心得总结（原创）：
 
 
 #### Ruby 语言 ---------------------------------------------------------------
-Effective Ruby（ 改善 Ruby 程序的 48 条建议）：
+Ruby 第一阶段：
+1. 待补充…………
+
+Ruby 第二阶段：
 1. [重新熟悉 Ruby 的基础语法](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/1.md)
 2. [理解 Ruby 中的面向对象](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/2.md)
 3. [高效使用 Ruby 的集合](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/3.md)
@@ -53,7 +56,7 @@ Effective Ruby（ 改善 Ruby 程序的 48 条建议）：
 7. [常用的文档和依赖管理](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/7.md)
 8. [内存管理和性能优化](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/8.md) （待完成）
 
-Ruby 元编程（Metaprogramming Ruby）：
+Ruby 第三阶段：
 1. [元编程（What is Mate?）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/1.md)
 2. [对象模型（The Object Model）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/2.md)
 3. [动态方法（Methods）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/3.md)
