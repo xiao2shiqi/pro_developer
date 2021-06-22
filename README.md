@@ -13,7 +13,9 @@
 
 *  [VSCode 使用教程](https://jeasonstudio.gitbooks.io/vscode-cn-doc/content/)  -> 《VSCode 权威指南》
 * [相对简单的 git 文档](https://backlog.com/git-tutorial/cn/) -> [git pro 第二版](https://git-scm.com/book/zh/v2/)
-* 《了不起的 Markdown》
+
+Markdown：
+
 
 #### 技术修养 ---------------------------------------------------------------
 * 《代码大全》
