@@ -1,24 +1,23 @@
-## 输出分享
 学习笔记的记录仓库，2021.5 月份开始  ----->  
 
 
 学海无涯，学习地图分割线 ---------------------------------------------------------------
 
 
-## 工具和技术修养
-#### 技术思考
-* [我为什么喜欢“技术”](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/1.md)
+## 技术修养
+### 技术思考
+* [聊聊我为什么喜欢“技术”](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/1.md)
 
-#### 基础工具 ---------------------------------------------------------------
+### 技术工具
 
 * [VSCode 使用教程](https://jeasonstudio.gitbooks.io/vscode-cn-doc/content/)  -> 《VSCode 权威指南》
 * [相对简单的 git 文档](https://backlog.com/git-tutorial/cn/) -> [git pro 第二版](https://git-scm.com/book/zh/v2/)
 
-Markdown：
+#### Markdown
 * [一篇文章完全掌握 Markdown](https://github.com/xiao2shiqi/pro_developer/blob/main/markdown/1.md)
 
 
-#### 技术修养 ---------------------------------------------------------------
+### 技术修养
 * 《代码大全》
 * 《Clean Code 代码整洁之道》
 * 《程序员的职业素养》
@@ -35,7 +34,7 @@ VSCode 经验总结：
 2. [VSCode Snippets（代码模板）使用心得](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/2.md)
 
 ## 编程语言 
-#### Java 语言 ---------------------------------------------------------------
+### Java
 * 《Java 核心技术》  -> 《Java 编程思考》
 * 《Java 实战》(第二版)
 * 《Spring 实战》（第5版）
@@ -45,14 +44,12 @@ VSCode 经验总结：
 * 《设计模式之禅》
 * 《设计模式》
 
-Java 心得总结（原创）：
 
-
-#### Ruby 语言 ---------------------------------------------------------------
+### Ruby
 Ruby 第一阶段：
 1. 待补充…………
 
-Ruby 第二阶段：
+#### Ruby 第二阶段
 1. [重新熟悉 Ruby 的基础语法](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/1.md)
 2. [理解 Ruby 中的面向对象](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/2.md)
 3. [高效使用 Ruby 的集合](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/3.md)
@@ -62,7 +59,7 @@ Ruby 第二阶段：
 7. [常用的文档和依赖管理](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/7.md)
 8. [内存管理和性能优化](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/8.md) （待完成）
 
-Ruby 第三阶段：
+#### Ruby 第三阶段
 1. [元编程（What is Mate?）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/1.md)
 2. [对象模型（The Object Model）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/2.md)
 3. [动态方法（Methods）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/3.md)
@@ -70,19 +67,19 @@ Ruby 第三阶段：
 5. [类定义（Class Definitions）：Ruby 对象模式最深暗的角落](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/5.md)
 6. [编写代码的代码]
 
-Ruby 经验总结：
+#### Ruby 使用经验
 * [Ruby 多线程的使用技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/1.md)
 * [Ruby 和 Java 的基础语法比较](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/2.md)
 * [如何使用 Yard 写文档](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/3.md)
 * [使用 MongoDB 创建 Rails API](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/4.md)
 * [使用 Rails 操作 Mongo Docuemtn](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/5.md)
 
-#### C 语言 ---------------------------------------------------------------
+### C 语言
 * 《C 程序设计语言》
 * 《C 语言程序设计现代方法》
 * 《C 陷阱与缺陷》
 
-#### Go 语言 ---------------------------------------------------------------
+### Go 语言
 * 《Go 程序设计语言》
 * 《Go 语言实战》
 
@@ -91,13 +88,13 @@ Go 经验总结：
 
 
 ## 理论学科
-#### 数据结构和算法
+### 数据结构和算法
 低难度
-* 《算法图解》
-* 《图解 HTTP》
-* 《网络是怎样连接的》
-* 《程序是怎样跑起来的》
-* 《计算机是怎样跑起来的》
+- 《算法图解》
+- 《图解 HTTP》
+- 《网络是怎样连接的》
+- 《程序是怎样跑起来的》
+- 《计算机是怎样跑起来的》
 
 中等难度：
 * 《数据结构和算法分析》- Java 语言描述
@@ -105,18 +102,18 @@ Go 经验总结：
 * 《算法导论》
 * 《编程珠玑》
 
-#### 其他理论基础
+### 其他理论基础
 * 《数据库系统概念》
 * 《现代操作系统》
 * 《计算机网络》
 * 《计算机程序的构造和解释》
 * 《编译原理》
 
-理论学科经验总结：
+### 理论学科的总结
 * [如何反转一个单向链表](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/algorithm/1.md)
 * [练习算法的几个实用技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/algorithm/2.md)
 
-## 操作系统和网络
+### 操作系统和网络
 
 Linux 第一阶段：
 * [程序员必须掌握的 Linux 命令](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/1.md)
@@ -139,59 +136,62 @@ Linux 第一阶段：
 * 《Wireshark 数据包分析实战》
 
 
-## 软件设计
+### 软件设计
 设计进阶：
 * 《领域驱动设计》
 * 《UNIX 编程艺术》
 * 《整洁架构之道》 -> 《敏捷整洁之道》
 
-## 数据库
+### 数据库
 
 数据库相关书籍：
 * 《高性能 MySQL》
 * 《MySQL 技术内幕》
 * 《PostgreSQL 官方文档》
 
+#### MySQL
 
-#### Oracle ---------------------------------------------------------------
+#### PostgreSQL
+
+#### Oracle
 学习笔记：
 * 待补充
 * 待补充
 
-Oracle 经验总结：
+Oracle 经验总结
 * [在 Linux 下使用 sqlplus 访问远程 Oracle 数据库](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/oracle/1.md)
 
 
-#### MongoDB ---------------------------------------------------------------
+#### Mongo DB
 《MongoDB 官方文档》：[地址](https://docs.mongoing.com) 
 1. [Mongodb 入门介绍](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/1.md)
 2. [Mongodb 基础的 CRUD 操作](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/2.md)
 3. [Mongodb 管道-聚合操作](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/3.md)
 4. [Mongodb 的数据模式验证](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/4.md)
 
-#### 列数据库： ---------------------------------------------------------------
+#### 列数据库
 * Cassandra
 * HBase：《HBase 实战》、《HBase 权威指南》
 
-#### 文档数据库： ---------------------------------------------------------------
+#### 文档数据库
 * MongoDB
 * SimpleDB
 * CouchDB 
 
-#### 其他类型： ---------------------------------------------------------------
+#### 其他类型数据库
 * 数据结构数据库：Redis
 * 时序数据库：***
 * 图数据库  ：Neo4J
 * 搜索数据库：ElasticSearch
 
-## 分布式领域
-经典图书：
+## 分布式理论
+### 经典图书
 * Distributed Systems for fun and profit
 * Designing Data Intensive Applications
 * 《分布式系统原理与范型》（第二版）
 * 可扩展的 Web 架构和分布式系统
 
-经典论文：
+### 经典论文
 * Transaction Across DataCenter
 * [分布式系统的事务处理](https://coolshell.cn/articles/10910.html)
 * Paxos 一致性算法
@@ -199,7 +199,7 @@ Oracle 经验总结：
 * Gossip 一致性算法
 。。。。。。
 
-微服务：
+### 微服务相关
 * 《微服务设计》
 * 《微服务架构设计模式》
 * Go 语言微服务工具集 Go Kit
