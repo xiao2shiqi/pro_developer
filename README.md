@@ -44,6 +44,9 @@ VSCode 经验总结：
 * 《设计模式之禅》
 * 《设计模式》
 
+Activiti 工作流引擎：
+1. [BPMN 和 Activiti 介绍](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/2.md)
+
 
 ### Ruby
 Ruby 第一阶段：
