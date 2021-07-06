@@ -47,6 +47,7 @@ VSCode 经验总结：
 Activiti 工作流引擎：
 1. [BPMN 介绍和 Activiti 的基本使用](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/1.md)
 2. [Activiti 的结构设计、核心模块功能](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/2.md)
+3. [Activiti 流程引擎的配置和使用](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/3.md)
 
 
 ### Ruby
