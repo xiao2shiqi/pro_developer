@@ -77,7 +77,7 @@ Ruby 第一阶段：
 * [Ruby 和 Java 的基础语法比较](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/2.md)
 * [如何使用 Yard 写文档](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/3.md)
 * [使用 MongoDB 创建 Rails API](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/4.md)
-* [使用 Rails 操作 Mongo Docuemtn](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/5.md)
+* [使用 Rails 操作 Mongo Document](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/5.md)
 
 ### C 语言
 * 《C 程序设计语言》
