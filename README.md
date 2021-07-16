@@ -38,7 +38,7 @@
 **词根词缀**
 
 简单阶段：（常用核心的词根汇总）
-- [初级阶段 01](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/2.md)
+- [初级阶段 01](https://github.com/xiao2shiqi/pro_developer/blob/main/english/easy/1.md)
 - [初级阶段 02](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/2.md)
 - [初级阶段 03](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/2.md)
 - [初级阶段 04](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/2.md)
