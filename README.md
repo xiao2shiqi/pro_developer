@@ -13,7 +13,7 @@
 * [VSCode 使用教程](https://jeasonstudio.gitbooks.io/vscode-cn-doc/content/)  -> 《VSCode 权威指南》
 * [相对简单的 git 文档](https://backlog.com/git-tutorial/cn/) -> [git pro 第二版](https://git-scm.com/book/zh/v2/)
 
-#### Markdown
+**Markdown**
 * [一篇文章完全掌握 Markdown](https://github.com/xiao2shiqi/pro_developer/blob/main/markdown/1.md)
 
 
@@ -24,14 +24,28 @@
 * 《重构》
 
 
-Git 经验总结：
+**Git 经验总结**
 * [Git merge --ff/--no-ff/--ff-only 三种选项参数的区别](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/1.md)
 * [Git 集成 阿里 P3C 编译 PMD 可执行文件别](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/2.md)
 * [Git hook 自动检查代码风格和单元测试](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/3.md)
 
-VSCode 经验总结：
+**VSCode 经验总结**
 1. [VSCode 几个实用技巧和插件分享](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/1.md)
 2. [VSCode Snippets（代码模板）使用心得](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/2.md)
+
+### 英文词汇
+
+**词根词缀**
+
+简单阶段：（常用核心的词根汇总）
+- [初级阶段 01](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/2.md)
+- [初级阶段 02](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/2.md)
+- [初级阶段 03](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/2.md)
+- [初级阶段 04](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/2.md)
+
+中级阶段：（适合的考研词汇汇总）
+
+困难阶段：（适合出国或者留学的词汇汇总）
 
 ## 编程语言 
 ### Java
