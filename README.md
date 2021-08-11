@@ -21,7 +21,10 @@
 * 《代码大全》
 * 《Clean Code 代码整洁之道》
 * 《程序员的职业素养》
-* 《重构》
+
+
+**《重构》Refactoring：Improving the Design of Existing Code**
+* [一个重构的案例](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/1.md)
 
 
 **Git 经验总结**
@@ -59,9 +62,13 @@
 * 《设计模式》
 
 Activiti 工作流引擎：
+
+**第一阶段：工作流讲义**：
 1. [BPMN 介绍和 Activiti 的基本使用](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/1.md)
 2. [Activiti 的结构设计、核心模块功能](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/2.md)
 3. [Activiti 流程引擎的配置和使用](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/3.md)
+
+**第二阶段：官方文档（6.x 中文版）**
 
 
 ### Ruby
