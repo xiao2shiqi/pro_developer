@@ -24,7 +24,8 @@
 
 
 **《重构》Refactoring：Improving the Design of Existing Code**
-* [一个重构的案例](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/1.md)
+* [什么是重构](https://github.com/xiao2shiqi/pro_developer/blob/main/refactoring/0.md)
+* [一个重构的案例](https://github.com/xiao2shiqi/pro_developer/blob/main/refactoring/1.md)
 
 
 **Git 经验总结**
