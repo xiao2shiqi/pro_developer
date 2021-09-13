@@ -236,4 +236,4 @@ Oracle 经验总结
 容器和自动化运维：
 * Docker  直接看官方文档
 * Kubernetes 看官方文本
-* 《Kubernetes IN Action》 值得推荐
+* 《Kubernetes in Action》 值得推荐
