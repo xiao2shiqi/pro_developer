@@ -39,24 +39,10 @@
 1. [VSCode 几个实用技巧和插件分享](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/1.md)
 2. [VSCode Snippets（代码模板）使用心得](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/2.md)
 
-### 英文词汇
-
-**词根词缀**
-
-简单阶段：（常用核心的词根汇总）
-- [初级阶段 01](https://github.com/xiao2shiqi/pro_developer/blob/main/english/easy/1.md)
-- [初级阶段 02](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/2.md)
-- [初级阶段 03](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/2.md)
-- [初级阶段 04](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/2.md)
-
-中级阶段：（适合的考研词汇汇总）
-
-困难阶段：（适合出国或者留学的词汇汇总）
-
 ## 编程语言 
 ### Java
-* 《Java 核心技术》  -> 《Java 编程思考》
-* 《Java 实战》(第二版)
+* 《Java 核心技术》  -> 《Java 编程思考》  -> 新书《On Java》 输出 XMind 知识体系结构图
+* 《Java 实战》(第二版) Java In Action 8-11 New Feature
 * 《Spring 实战》（第5版）
 * 《Effective Java》
 * 《Java 并发编程实战》
