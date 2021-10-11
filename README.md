@@ -1,12 +1,6 @@
 从 2021.5 月份开始  ----->  
-
-这里记录自己的学习路径，学习心得总结。还有一些个人价值观的输出。
-
-留下一句我很喜欢的名言：
-**只要在正确的路上，剩下的只是时间问题。**
-
-地图分割线 ---------------------------------------------------------------
-
+这里记录自己的学习路径，学习心得总结。  
+还有一些个人价值观的输出。
 
 ## 技术修养
 ### 技术思考
@@ -14,34 +8,23 @@
 * [我们应该如何度过这一生？](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/2.md)
 
 ### 技术工具
-
-* [VSCode 使用教程](https://jeasonstudio.gitbooks.io/vscode-cn-doc/content/)  -> 《VSCode 权威指南》
-* [相对简单的 git 文档](https://backlog.com/git-tutorial/cn/) -> [git pro 第二版](https://git-scm.com/book/zh/v2/)
-
-**Markdown**
+#### Markdown 心得
 * [一篇文章完全掌握 Markdown](https://github.com/xiao2shiqi/pro_developer/blob/main/markdown/1.md)
 
+#### Git 使用心得
+* [Git merge --ff/--no-ff/--ff-only 三种选项参数的区别](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/1.md)
+* [Git 集成 阿里 P3C 编译 PMD 可执行文件别](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/2.md)
+* [Git hook 自动检查代码风格和单元测试](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/3.md)
+
+#### VSCode 经验总结
+1. [VSCode 几个实用技巧和插件分享](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/1.md)
+2. [VSCode Snippets（代码模板）使用心得](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/2.md)
 
 ### 技术修养
 * 《代码大全》
 * 《Clean Code 代码整洁之道》
 * 《程序员的职业素养》
 
-
-**《重构》Refactoring：Improving the Design of Existing Code**
-* [什么是重构](https://github.com/xiao2shiqi/pro_developer/blob/main/refactoring/0.md)
-* [一个重构的案例](https://github.com/xiao2shiqi/pro_developer/blob/main/refactoring/1.md)
-* [函数重构的 7 个小技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/refactoring/6.md)
-
-
-**Git 经验总结**
-* [Git merge --ff/--no-ff/--ff-only 三种选项参数的区别](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/1.md)
-* [Git 集成 阿里 P3C 编译 PMD 可执行文件别](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/2.md)
-* [Git hook 自动检查代码风格和单元测试](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/3.md)
-
-**VSCode 经验总结**
-1. [VSCode 几个实用技巧和插件分享](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/1.md)
-2. [VSCode Snippets（代码模板）使用心得](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/2.md)
 
 ## 编程语言 
 ### Java
@@ -54,8 +37,14 @@
 * 《设计模式之禅》
 * 《设计模式》
 
-Activiti 工作流引擎：
+#### Java 代码重构
+* [什么是重构](https://github.com/xiao2shiqi/pro_developer/blob/main/refactoring/0.md)
+* [函数重构的 7 个小技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/refactoring/6.md)
 
+#### Java 基础
+
+
+#### Activiti 工作流
 **第一阶段：工作流讲义**：
 1. [BPMN 介绍和 Activiti 的基本使用](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/1.md)
 2. [Activiti 的结构设计、核心模块功能](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/2.md)
@@ -65,10 +54,10 @@ Activiti 工作流引擎：
 
 
 ### Ruby
-Ruby 第一阶段：
+#### Ruby 基础
 1. 待补充…………
 
-#### Ruby 第二阶段
+#### Ruby 进阶
 1. [重新熟悉 Ruby 的基础语法](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/1.md)
 2. [理解 Ruby 中的面向对象](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/2.md)
 3. [高效使用 Ruby 的集合](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/3.md)
@@ -78,7 +67,7 @@ Ruby 第一阶段：
 7. [常用的文档和依赖管理](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/7.md)
 8. [内存管理和性能优化](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/8.md) （待完成）
 
-#### Ruby 第三阶段
+#### Ruby 元编程
 1. [元编程（What is Mate?）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/1.md)
 2. [对象模型（The Object Model）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/2.md)
 3. [动态方法（Methods）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/3.md)
@@ -86,7 +75,7 @@ Ruby 第一阶段：
 5. [类定义（Class Definitions）：Ruby 对象模式最深暗的角落](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/5.md)
 6. [编写代码的代码]
 
-#### Ruby 使用经验
+#### Ruby 经验总结
 * [Ruby 多线程的使用技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/1.md)
 * [Ruby 和 Java 的基础语法比较](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/2.md)
 * [如何使用 Yard 写文档](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/3.md)
