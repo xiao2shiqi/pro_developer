@@ -29,6 +29,7 @@
 Java 语言描述：
 * [什么是重构](https://github.com/xiao2shiqi/pro_developer/blob/main/refactoring/0.md)
 * [函数重构的 7 个小技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/refactoring/6.md)
+* [对象重构的 8 个小技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/refactoring/7.md)
 
 ## 编程语言 
 ### Java
