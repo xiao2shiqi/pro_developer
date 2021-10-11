@@ -9,7 +9,7 @@
 
 ### 技术工具
 #### Markdown 心得
-* [一篇文章完全掌握 Markdown](https://github.com/xiao2shiqi/pro_developer/blob/main/markdown/1.md)
+* [Markdown 完全解析](https://github.com/xiao2shiqi/pro_developer/blob/main/markdown/1.md)
 
 #### Git 使用心得
 * [Git merge --ff/--no-ff/--ff-only 三种选项参数的区别](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/1.md)
@@ -25,21 +25,24 @@
 * 《Clean Code 代码整洁之道》
 * 《程序员的职业素养》
 
+#### 代码重构
+Java 语言描述：
+* [什么是重构](https://github.com/xiao2shiqi/pro_developer/blob/main/refactoring/0.md)
+* [函数重构的 7 个小技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/refactoring/6.md)
 
 ## 编程语言 
 ### Java
 * 《Java 核心技术》  -> 《Java 编程思考》  -> 新书《On Java》 输出 XMind 知识体系结构图
 * 《Java 实战》(第二版) Java In Action 8-11 New Feature
-* 《Spring 实战》（第5版）
 * 《Effective Java》
 * 《Java 并发编程实战》
 * 《深入理解 JVM 虚拟机》（周志明）
+* 《Spring 实战》（第5版）
 * 《设计模式之禅》
 * 《设计模式》
-
-#### Java 代码重构
-* [什么是重构](https://github.com/xiao2shiqi/pro_developer/blob/main/refactoring/0.md)
-* [函数重构的 7 个小技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/refactoring/6.md)
+* 《微服务设计》Sam Newman
+* 《Java 云原生》Cloud Native Java
+* 《微服务架构设计模式》Chris Richardson
 
 #### Java 基础
 
