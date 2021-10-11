@@ -85,12 +85,12 @@ Java 语言描述：
 * [使用 MongoDB 创建 Rails API](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/4.md)
 * [使用 Rails 操作 Mongo Document](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/5.md)
 
-### C 语言
+### C（搁浅）
 * 《C 程序设计语言》
 * 《C 语言程序设计现代方法》
 * 《C 陷阱与缺陷》
 
-### Go 语言
+### Go
 * 《Go 程序设计语言》
 * 《Go 语言实战》
 
@@ -98,7 +98,7 @@ Go 经验总结：
 * [Go 语言的初体验](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/go/1.md/)
 
 
-## 理论学科
+## 基础理论
 ### 数据结构和算法
 低难度
 - 《算法图解》
@@ -195,7 +195,7 @@ Oracle 经验总结
 * 图数据库  ：Neo4J
 * 搜索数据库：ElasticSearch
 
-## 分布式理论
+## 分布式系统
 ### 经典图书
 * Distributed Systems for fun and profit
 * Designing Data Intensive Applications
