@@ -4,8 +4,8 @@
 
 ## 技术修养
 ### 我的认知
-* [聊聊我为什么喜欢“技术”](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/1.md)
-* [我们应该如何度过这一生？](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/2.md)
+* [技术价值观：聊聊我为什么喜欢“技术”](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/1.md)
+* [心理学：我们应该如何度过这一生？](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/2.md)
 
 ### 技术工具
 #### 写作工具
