@@ -3,24 +3,24 @@
 还有一些个人价值观的输出。
 
 ## 技术修养
-### 技术思考
+### 我的认知
 * [聊聊我为什么喜欢“技术”](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/1.md)
 * [我们应该如何度过这一生？](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/2.md)
 
 ### 技术工具
-#### Markdown 心得
+#### 写作工具
 * [Markdown 完全解析](https://github.com/xiao2shiqi/pro_developer/blob/main/markdown/1.md)
 
-#### Git 使用心得
+#### Git 心得
 * [Git merge --ff/--no-ff/--ff-only 三种选项参数的区别](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/1.md)
 * [Git 集成 阿里 P3C 编译 PMD 可执行文件别](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/2.md)
 * [Git hook 自动检查代码风格和单元测试](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/3.md)
 
-#### VSCode 经验总结
+#### VSCode 经验
 1. [VSCode 几个实用技巧和插件分享](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/1.md)
 2. [VSCode Snippets（代码模板）使用心得](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/2.md)
 
-### 技术修养
+### 职业道德
 * 《代码大全》
 * 《Clean Code 代码整洁之道》
 * 《程序员的职业素养》
