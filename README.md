@@ -209,7 +209,7 @@ Oracle 经验总结
 * Paxos 一致性算法
 * Raft 一致性算法
 * Gossip 一致性算法
-。。。。。。
+
 
 ### 微服务相关
 * 《微服务设计》
@@ -223,4 +223,4 @@ Oracle 经验总结
 * 《Kubernetes in Action》 值得推荐
 
 #### 微服务心得总结
-* [Spring Cloud 微服务使用心得总结](https://coolshell.cn/articles/10910.html)
+* [Spring Cloud 微服务使用心得总结](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/microservices/1.md)
