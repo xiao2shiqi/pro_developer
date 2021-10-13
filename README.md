@@ -26,7 +26,7 @@
 * 《程序员的职业素养》
 
 #### CodeReview 
-* [CodeRewview 几个实践技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/refactoring/0.md)
+* [CodeRewview 的几个实践技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/code_style/1.md)
 
 #### 代码重构
 Java 语言描述：
