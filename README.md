@@ -25,11 +25,14 @@
 * 《Clean Code 代码整洁之道》
 * 《程序员的职业素养》
 
+#### CodeReview 
+* [CodeRewview 几个实践技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/refactoring/0.md)
+
 #### 代码重构
 Java 语言描述：
 * [什么是重构](https://github.com/xiao2shiqi/pro_developer/blob/main/refactoring/0.md)
-* [函数重构的 7 个小技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/refactoring/6.md)
-* [对象重构的 8 个小技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/refactoring/7.md)
+* [函数重构的 7 个技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/refactoring/6.md)
+* [对象重构的 8 个技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/refactoring/7.md)
 
 ## 编程语言 
 ### Java
@@ -223,4 +226,4 @@ Oracle 经验总结
 * 《Kubernetes in Action》 值得推荐
 
 #### 微服务心得总结
-* [Spring Cloud 全家桶组件使用心得和总结](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/microservices/1.md)
+* [Spring Cloud 全家桶组件的使用心得和总结](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/microservices/1.md)
