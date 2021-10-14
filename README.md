@@ -3,17 +3,17 @@
 还有一些个人价值观的输出。
 
 ## 技术修养
-### 我的认知（博客）
+### 我的认知（博客总结）
 * [技术价值观：聊聊我为什么喜欢“技术”](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/1.md)
 * [心理学：我们应该如何度过这一生？](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/2.md)
 * [我也来聊聊鸿蒙系统](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/3.md)
 * [我对技术潮流的一点看法](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/4.md)
 * [我高效学习的 7 个方法](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/5.md)
 * [Spring Cloud 全家桶的使用心得和总结](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/6.md)
+* [CodeRewview 的几个实践技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/7.md)
+* [Markdown 体系化教程](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/8.md)
 
 ### 技术工具
-#### 写作工具
-* [Markdown 完全解析](https://github.com/xiao2shiqi/pro_developer/blob/main/markdown/1.md)
 
 #### Git 心得
 * [git merge --ff/--no-ff/--ff-only 三种选项参数的区别](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/1.md)
