@@ -227,8 +227,6 @@ Oracle 经验总结
 * 《Kubernetes in Action》 值得推荐
 
 
-#### Kubernetes 官方文档
-1. [Kubernetes 使用介绍](https://github.com/xiao2shiqi/pro_developer/blob/main/kubernetes/official_documents/1.md)
-
-#### Docker 
-1. [第一本 Docker 书](https://github.com/xiao2shiqi/pro_developer/blob/main/docker/the_first_docker_book/1.md)
+#### 容器技术
+1. [Kubernetes 学习笔记](https://github.com/xiao2shiqi/pro_developer/blob/main/kubernetes/official_documents/1.md)
+2. [Docker 学习笔记](https://github.com/xiao2shiqi/pro_developer/blob/main/docker/the_first_docker_book/1.md)
