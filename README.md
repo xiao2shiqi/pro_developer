@@ -54,6 +54,9 @@ Java 语言描述：
 
 #### Spring 实战
 
+#### JVM 虚拟机
+
+1. [Java 的发展和未来](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/1.md)
 
 #### Activiti 工作流
 **第一阶段：工作流讲义**：
