@@ -52,31 +52,25 @@ Java 语言描述：
 
 #### Java 基础
 
-#### Spring 实战
+#### Spring 相关
 
 #### JVM 虚拟机
-
 1. [Java 的发展和未来](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/1.md)
 2. [自动内存管理](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/2.md)
 
 
-
-#### Java 面试相关汇总
-
-1. Java 基础，集合，多线程，JVM 虚拟机
-2. Spring，Spring Boot，Spring Cloud 微服务相关
-3. 数据库，网络，操作系统，Linux，K8S相关
+#### Java 面试题库汇总（我遇到过的）
+1. [Java 基础，集合，多线程，JVM 虚拟机](https://github.com/xiao2shiqi/pro_developer/blob/main/java/interview/1.md)
+2. [Spring，Spring Boot，Spring Cloud 微服务，分布式架构](https://github.com/xiao2shiqi/pro_developer/blob/main/java/interview/2.md)
+3. [数据库，网络，操作系统，Linux，K8S相关](https://github.com/xiao2shiqi/pro_developer/blob/main/java/interview/3.md)
 
 
 
-#### Activiti 工作流
-
-**第一阶段：工作流讲义**：
+#### Activiti BPMN 工作流相关
 1. [BPMN 介绍和 Activiti 的基本使用](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/1.md)
 2. [Activiti 的结构设计、核心模块功能](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/2.md)
 3. [Activiti 流程引擎的配置和使用](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/3.md)
 
-**第二阶段：官方文档（6.x 中文版）**
 
 
 ### Ruby
