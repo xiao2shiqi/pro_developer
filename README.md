@@ -59,7 +59,18 @@ Java 语言描述：
 1. [Java 的发展和未来](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/1.md)
 2. [自动内存管理](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/2.md)
 
+
+
+#### Java 面试相关汇总
+
+1. Java 基础，集合，多线程，JVM 虚拟机
+2. Spring，Spring Boot，Spring Cloud 微服务相关
+3. 数据库，网络，操作系统，Linux，K8S相关
+
+
+
 #### Activiti 工作流
+
 **第一阶段：工作流讲义**：
 1. [BPMN 介绍和 Activiti 的基本使用](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/1.md)
 2. [Activiti 的结构设计、核心模块功能](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/2.md)
