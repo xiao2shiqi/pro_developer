@@ -57,6 +57,7 @@ Java 语言描述：
 #### JVM 虚拟机
 
 1. [Java 的发展和未来](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/1.md)
+2. [自动内存管理](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/2.md)
 
 #### Activiti 工作流
 **第一阶段：工作流讲义**：
