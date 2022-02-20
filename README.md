@@ -56,7 +56,7 @@ Java 语言描述：
 
 #### JVM 虚拟机
 1. [Java 的发展和未来](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/1.md)
-2. [自动内存管理](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/2.md)
+2. [Java 的自动内存管理](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/2.md)
 
 
 #### Java 面试题库汇总（我遇到过的）
