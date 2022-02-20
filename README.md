@@ -38,17 +38,17 @@ Java 语言描述：
 
 ## 编程语言 
 ### Java
-* 《Java 核心技术》  -> 《Java 编程思考》  -> 新书《On Java》 输出 XMind 知识体系结构图
-* 《Java 实战》(第二版) Java In Action 8-11 New Feature
-* 《Effective Java》
-* 《Java 并发编程实战》
-* 《深入理解 JVM 虚拟机》（周志明）
-* 《Spring 实战》（第5版）
-* 《设计模式之禅》
-* 《设计模式》
-* 《微服务设计》Sam Newman
-* 《Java 云原生》Cloud Native Java
-* 《微服务架构设计模式》Chris Richardson
+- [ ] 《Java 核心技术》  -> 《Java 编程思考》  -> 新书《On Java》 输出 XMind 知识体系结构图
+- [ ] 《Java 实战》(第二版) Java In Action 8-11 New Feature
+- [ ] 《Effective Java》
+- [ ] 《Java 并发编程实战》
+- [x] 《深入理解 JVM 虚拟机》（周志明）
+- [ ] 《Spring 实战》（第5版）
+- [ ] 《设计模式之禅》
+- [ ] 《设计模式》
+- [ ] 《微服务设计》Sam Newman
+- [ ] 《Java 云原生》Cloud Native Java
+- [ ] 《微服务架构设计模式》Chris Richardson
 
 #### Java 基础
 
