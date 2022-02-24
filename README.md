@@ -18,8 +18,8 @@
 
 #### Git 心得
 * [git merge --ff/--no-ff/--ff-only 三种选项参数的区别](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/1.md)
-* [git 集成 阿里 P3C 编译 PMD 可执行文件别](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/2.md)
-* [git hook 自动检查代码风格和单元测试](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/3.md)
+* [git 集成代码检查（P3C）和单元测试（Junit）](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/2.md)
+* [git 集成代码检查（Rubocop）和单元测试（Rspec）](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/3.md)
 
 #### VSCode 经验
 1. [VSCode 几个实用技巧和插件分享](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/1.md)
