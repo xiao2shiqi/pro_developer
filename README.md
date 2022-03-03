@@ -49,6 +49,7 @@ Java 语言描述：
 - [ ] 《微服务设计》Sam Newman
 - [ ] 《Java 云原生》Cloud Native Java
 - [ ] 《微服务架构设计模式》Chris Richardson
+- [ ] 《高性能 MySQL》
 
 #### Java 基础
 
