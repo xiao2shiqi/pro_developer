@@ -52,13 +52,14 @@ Java 语言描述：
 
 #### Java 基础
 
-#### Spring 相关
+#### Java 并发编程
 
 #### JVM 虚拟机
 1. [Java 的发展和未来](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/1.md)
 2. [Java 的自动内存管理](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/2.md)
 3. [虚拟机执行子系统](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/3.md)
 
+#### Spring 相关
 
 #### Java 面试题库汇总（我遇到过的）
 1. [Java 基础，集合，多线程，JVM 虚拟机](https://github.com/xiao2shiqi/pro_developer/blob/main/java/interview/1.md)
