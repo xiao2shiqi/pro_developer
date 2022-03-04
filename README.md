@@ -38,7 +38,7 @@ Java 语言描述：
 
 ## 编程语言 
 ### Java 待读书单
-- [ ] 《Java 核心技术》  -> 《Java 编程思考》  -> 新书《On Java》 
+- [ ]  新书《On Java》 
 - [ ] 《Java 实战》(第二版) Java In Action 8-11 New Feature
 - [ ] 《Effective Java》
 - [x] 《Java 并发编程实战》
