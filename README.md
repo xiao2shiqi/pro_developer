@@ -41,7 +41,7 @@ Java 语言描述：
 - [ ] 《Java 核心技术》  -> 《Java 编程思考》  -> 新书《On Java》 
 - [ ] 《Java 实战》(第二版) Java In Action 8-11 New Feature
 - [ ] 《Effective Java》
-- [ ] 《Java 并发编程实战》
+- [x] 《Java 并发编程实战》
 - [x] 《深入理解 JVM 虚拟机》（周志明）
 - [ ] 《Spring 实战》（第5版）
 - [ ] 《设计模式之禅》
@@ -53,12 +53,18 @@ Java 语言描述：
 
 #### Java 基础
 
-#### Java 并发编程
+#### 《Java 并发编程实战》
+1. [基础知识（第一部分 1~5 章）](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/1.md)
+2. [结构化并发应用程序（第二部分 6~9 章）](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/1.md)
+3. [活跃性、性能与测试（第三部分 10~12 章）](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/1.md)
+4. [高级主题（第四部分 13~16 章）](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/1.md)
 
-#### JVM 虚拟机
+#### 《深入理解 JVM 虚拟机》
 1. [Java 的发展和未来](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/1.md)
 2. [Java 的自动内存管理](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/2.md)
 3. [虚拟机执行子系统](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/3.md)
+4. [程序编译与代码优化](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/4.md)（待完成）
+5. [高效并发](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/5.md)（待完成）
 
 #### Spring 相关
 
