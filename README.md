@@ -63,8 +63,8 @@ Java 语言描述：
 1. [Java 的发展和未来](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/1.md)
 2. [Java 的自动内存管理](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/2.md)
 3. [虚拟机执行子系统](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/3.md)
-4. [程序编译与代码优化](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/4.md)（wait...current）
-5. [高效并发](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/5.md)（wait...current）
+4. [程序编译与代码优化](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/4.md)（等待完善基础）
+5. [高效并发](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/5.md)（等待完善并发）
 
 #### Spring 相关
 
