@@ -55,9 +55,9 @@ Java 语言描述：
 
 #### 《Java 并发编程实战》
 1. [基础知识（第一部分 1~5 章）](https://github.com/xiao2shiqi/pro_developer/blob/main/java/concurrency/1.md)
-2. [结构化并发应用程序（第二部分 6~9 章）](https://github.com/xiao2shiqi/pro_developer/blob/main/java/concurrency/2.md)
-3. [活跃性、性能与测试（第三部分 10~12 章）](https://github.com/xiao2shiqi/pro_developer/blob/main/java/concurrency/3.md)
-4. [高级主题（第四部分 13~16 章）](https://github.com/xiao2shiqi/pro_developer/blob/main/java/concurrency/4.md)
+2. [结构化并发应用程序（第二部分 6~9 章）](https://github.com/xiao2shiqi/pro_developer/blob/main/java/concurrency/2.md)（待完成）
+3. [活跃性、性能与测试（第三部分 10~12 章）](https://github.com/xiao2shiqi/pro_developer/blob/main/java/concurrency/3.md)（待完成）
+4. [高级主题（第四部分 13~16 章）](https://github.com/xiao2shiqi/pro_developer/blob/main/java/concurrency/4.md)（待完成）
 
 #### 《深入理解 JVM 虚拟机》
 1. [Java 的发展和未来](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/1.md)
