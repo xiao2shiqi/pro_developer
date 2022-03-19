@@ -38,18 +38,20 @@ Java 语言描述：
 
 ## 编程语言 
 ### Java 待读书单
-- [ ]  新书《On Java》 
-- [ ] 《Java 实战》(第二版) Java In Action 8-11 New Feature
-- [ ] 《Effective Java》
-- [x] 《Java 并发编程实战》
-- [x] 《深入理解 JVM 虚拟机》（周志明）
-- [ ] 《Spring 实战》（第5版）
-- [ ] 《设计模式之禅》
-- [ ] 《设计模式》
+- [ ]  新书《On Java》 （重温大师新作）
+- [ ] 《Java 实战》(第二版) Java In Action 8-11 New Feature （熟悉新特性）
+- [ ] 《Effective Java》（熟悉 Java 最佳实践）
+- [x] 《Java 并发编程实战》（熟悉并发编程）
+- [x] 《深入理解 JVM 虚拟机》（周志明）（熟悉虚拟机运作机制）
+- [ ] 《Spring 实战》（第5版）（熟悉主流框架）
 - [ ] 《微服务设计》Sam Newman
 - [ ] 《Java 云原生》Cloud Native Java
 - [ ] 《微服务架构设计模式》Chris Richardson
 - [ ] 《高性能 MySQL》
+
+### 其他待读清单（优先级不高）
+- [ ] 《设计模式之禅》
+- [ ] 《设计模式》
 
 #### Java 基础
 
