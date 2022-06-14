@@ -3,7 +3,7 @@
 还有一些个人价值观的输出。
 
 ## 技术修养
-### 我的认知（博客总结）
+### 博客文章
 * [技术价值观：聊聊我为什么喜欢“技术”](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/1.md)
 * [心理学：我们应该如何度过这一生？](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/2.md)
 * [我也来聊聊鸿蒙系统](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/3.md)
@@ -13,6 +13,7 @@
 * [CodeRewview 的几个实践技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/7.md)
 * [Markdown 体系化教程](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/8.md)
 * [什么是云原生？聊聊云原生和微服务的架构](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/9.md)
+* [JaCoCo 食用指南](my_blog/jacoco_getting_started.md)
 
 ### 技术工具
 

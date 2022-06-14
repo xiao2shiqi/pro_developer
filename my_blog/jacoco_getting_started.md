@@ -1,3 +1,7 @@
+<img src="https://pcloud-1258173945.cos.ap-guangzhou.myqcloud.com/image-20220613092650006.png" alt="image-20220613092650006" style="zoom:80%;" />
+
+
+
 ### 一：概述
 
 众所周知，软件的代码覆盖率是衡量软件质量的重要指标，
