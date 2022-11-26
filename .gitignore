@@ -4,3 +4,4 @@ ruby_on_rails/ruby_program/*
 # .DS_Store
 .DS_Store
 ../.DS_Store
+/.idea/

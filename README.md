@@ -39,7 +39,7 @@ Java 语言描述：
 
 ## 编程语言 
 ### Java 待读书单
-- [ ]  新书《On Java》 （重温大师新作）
+- [x]  新书《On Java》 （重温大师新作）(/java/on_java.md)
 - [ ] 《Java 实战》(第二版) Java In Action 8-11 New Feature （熟悉新特性）
 - [ ] 《Effective Java》（熟悉 Java 最佳实践）
 - [x] 《Java 并发编程实战》（熟悉并发编程）
