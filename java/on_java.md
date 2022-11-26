@@ -171,6 +171,173 @@ Sum Iterated: 81ms
 
 * 并行流将输入数据分成多个部分，然后进行单独计算
 * 数组的分割成本低，并且分割均匀
+* 并行流只看起来很容易，但在使用前，你必须了解并行性如何帮助或损害你的操作
+* 流的出现并不意味着你可以不用理解并行的原理
+
+TODO。。。
+
+
+
+### 创建和运行任务
+
+Java 线程的发展历：
+
+1. 早期版本的 Java 中，你可以直接创建自己的 Thread 对象来使用线程，并且手动启动（现在不鼓励这种方式）
+2. 在 Java 5 中，更推荐使用线程池 ExecutorService 来运行和管理你的任务
+
+
+
+关于 `ExecutorService` 一个简单的示例，如下：
+
+```java
+public class SingleThreadExecutor {
+
+    public static void main(String[] args) {
+        ExecutorService exec = Executors.newSingleThreadExecutor();
+
+        // 创建 10 个 NapTask 交给 ExecutorService 执行
+        IntStream.range(0, 10)
+                .mapToObj(NapTask::new)
+                .forEach(exec::execute);
+
+        System.out.println("All tasks submitted");
+        
+        // 等待所有任务完成
+        exec.shutdown();
+//        while (!exec.isTerminated()) {
+//            System.out.println(Thread.currentThread().getName() + " awaiting termination");
+//            new Nap(0.1);
+//        }
+    }
+}
+```
+
+程序的输出结果：
+
+```sh
+All tasks submitted
+NapTask[0] pool-1-thread-1
+NapTask[1] pool-1-thread-1
+NapTask[2] pool-1-thread-1
+NapTask[3] pool-1-thread-1
+NapTask[4] pool-1-thread-1
+NapTask[5] pool-1-thread-1
+NapTask[6] pool-1-thread-1
+NapTask[7] pool-1-thread-1
+NapTask[8] pool-1-thread-1
+NapTask[9] pool-1-thread-1
+```
+
+通过以上示例，我们可以对线程池有一个初步的使用总结：
+
+1. `ExecutorService` 创建子线程执行任务，并不会影响主线程 `main` 的工作
+2. 线程池调用 `shutdown()` 将不再接受任何新任务，否则抛出 `RejectedExecutionException` 异常
+3. `pool-1-thread-1` 是子线程的名字，因为使用 `newSingleThreadExecutor()` 函数，所以只会创建 1 个线程
+
+
+
+如果想要使用更多的线程，把线程池函数改为 `newCachedThreadPool()` 即可，重新执行以上代码，输出如下：
+
+```sh
+All tasks submitted
+NapTask[9] pool-1-thread-10
+NapTask[7] pool-1-thread-8
+NapTask[8] pool-1-thread-9
+NapTask[6] pool-1-thread-7
+NapTask[0] pool-1-thread-1
+NapTask[5] pool-1-thread-6
+NapTask[2] pool-1-thread-3
+NapTask[1] pool-1-thread-2
+NapTask[4] pool-1-thread-5
+NapTask[3] pool-1-thread-4
+```
+
+PS：它似乎运行的更快了
+
+
+
+既然多线程更快，那什么场景下需要使用 `newSingleThreadExecutor()` 呢 ？
+
+先看一个示例，`InterferingTask` 类定义我们要执行的任务：
+
+```java
+public class InterferingTask implements Runnable{
+
+    final int id;
+    private static Integer val = 0;     // 多个线程会竞争这个变量
+
+    public InterferingTask(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public void run() {
+        for (int i = 0; i < 100; i++) {
+            val++;      // 每个线程为它 + 100
+        }
+        System.out.println(id + " " + Thread.currentThread().getName() + " " + val);
+    }
+}
+```
+
+然后使用多线程来执行这个任务：
+
+```java
+public class CachedThreadPool2 {
+
+    public static void main(String[] args) {
+        ExecutorService exec = Executors.newCachedThreadPool();
+        IntStream.range(0, 10)
+                .mapToObj(InterferingTask::new)
+                .forEach(exec::execute);
+        exec.shutdown();
+    }
+}
+```
+
+最后输出的乱七八糟的结果，如下：
+
+```sh
+0 pool-1-thread-1 131
+4 pool-1-thread-5 431
+2 pool-1-thread-3 231
+3 pool-1-thread-4 331
+1 pool-1-thread-2 131
+8 pool-1-thread-9 831
+7 pool-1-thread-8 731
+6 pool-1-thread-7 631
+5 pool-1-thread-6 531
+9 pool-1-thread-10 931
+```
+
+正确结果应该是 1000，上面的程序明显算错了。
+
+当我们把线程池函数改为 `newCachedThreadPool()` 后，再看看输出：
+
+```sh
+0 pool-1-thread-1 100
+1 pool-1-thread-1 200
+2 pool-1-thread-1 300
+3 pool-1-thread-1 400
+4 pool-1-thread-1 500
+5 pool-1-thread-1 600
+6 pool-1-thread-1 700
+7 pool-1-thread-1 800
+8 pool-1-thread-1 900
+9 pool-1-thread-1 1000
+```
+
+通过以上示例，我们可以总结：
+
+* 如果任务本身不是线程安全的，那么使用 `newSingleThreadExecutor` 函数执行任务会更安全
+
+
+
+其他的解决思路 ？：
+
+示例 `CachedThreadPool2` 中错误的主要原因因为变量 `val` 存在可变的共享状态。
+
+想避免该问题，就要想办法避免可变的共享状态。
 
 
 
