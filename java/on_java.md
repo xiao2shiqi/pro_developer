@@ -1,8 +1,6 @@
 ## 二十四：并发编程
 
-
-
-推荐书籍：
+本章节仅仅作为入门学习，如果需要深入理解并发编程，推荐书籍：
 
 1. 深入理解并发编程需要阅读 《Java concurrency in Parctice》 Brian Goetz  （该书已经有十多年的历史了）
 2. 学习 JVM 推荐书籍《Inside the Java Virtual Machine》 Bill Venner
@@ -21,6 +19,8 @@
 > 尽管 Java 8 在并发方面做出很大的改进，但仍然没有像编译时验证（compile-time verifcation）或受检查的异常（checked exceptions）那样的安全网告诉你何时出现错误。
 >
 > 通过并发，你只能依靠自己，只有知识渊博，保持怀疑和积极进取的人，才能用 Java 编写可靠的并发代码
+
+总结：你应该谨慎的使用这些强大的力量（来自阿尔萨斯的父亲）
 
 
 
@@ -68,7 +68,7 @@
 
 四：你必须仍然理解
 
-1. 你不能逃脱使用并发，因为它无处不在，例如：Swing 界面库，Spring 框架，Tomcat 容器，或者像 Timer class 那样简单的东西，
+1. 你不能逃脱使用并发，因为它无处不在，例如：Swing 界面库，Spring 框架，Tomcat 容器，或者像 Timer 那样简单的东西，
 2. 在你接触的东西里，都存在并发编程，所以你必须要理解它
 
 
@@ -77,9 +77,100 @@
 
 1. 在互联网的竞速比赛中，Java 的体系充斥着糟糕的决策，例如 Vector，Thread 类等等（并且只能通过建议，告诉别人不要使用这些）
 2. Java 不再是为并发而设计的语言，而是一种允许并发的语言
-3. Java 8 中的并行流和 CompletableFutures 是史诗级的变化
+3. Java 8 中的并行流和 CompletableFutures 是惊人的史诗级变化
 
 
+
+### 并行流
+
+Java 8 流的显著优先，就是很容易的进行并行化，只要使用 `.parallel()` 就会产生魔法般的结果
+
+看看以下的示例，感受并行的威力：
+
+```java
+public class ParallelPrime {
+    
+    static final int COUNT = 100_000;
+    
+    public static boolean isPrime(long n) {
+        return LongStream.rangeClosed(2, (long) Math.sqrt(n)).noneMatch(i -> n % i == 0);
+    }
+
+    public static void main(String[] args) throws IOException {
+        long start = System.currentTimeMillis();
+        LongStream.iterate(2, i -> i + 1)
+                .parallel()			// open parallel	
+                .filter(ParallelPrime::isPrime)
+                .limit(COUNT)
+                .mapToObj(Long::toString)
+                .collect(Collectors.toList());
+        
+        System.out.println("time consuming:" + (System.currentTimeMillis() - start));
+    }
+}
+```
+
+以上代码输出结果如下：
+
+```sh
+time consuming: 220			// use parallel
+time consuming: 317			// not use parallel
+```
+
+`paraller()` 并行确实有效，明显了加快的程序的运行速度。
+
+
+
+再来看一个使用不同的方式进行求和的示例代码：
+
+```java
+public class Summing {
+
+    static void timeTest(String id, long checkValue, LongSupplier operation) {
+        System.out.print(id + ": ");
+        Timer timer = new Timer();
+        long result = operation.getAsLong();
+        if (result == checkValue) {
+            System.out.println(timer.duration() + "ms");
+        } else {
+            System.out.format("result : %d%ncheckValue: %d%n", result, checkValue);
+        }
+    }
+
+    public static final int SZ = 100_000_000;
+    public static final long CHECK = (long)SZ * ((long)SZ + 1)/2;       // gauss's formula  高斯公式
+
+    public static void main(String[] args) {
+        System.out.println(CHECK);
+        // 非并行计算性能也不错 Sum Stream: 33ms
+        timeTest("Sum Stream", CHECK, () ->
+                LongStream.rangeClosed(0, SZ).sum()
+        );
+        // 使用并行计算速度则更快 Sum Stream Parallel: 14ms
+        timeTest("Sum Stream Parallel", CHECK, () ->
+                LongStream.rangeClosed(0, SZ).parallel().sum()
+        );
+        // 使用 iterate 减速则很明显 Sum Iterated: 81ms
+        timeTest("Sum Iterated", CHECK, () ->
+                LongStream.iterate(0, i -> i + 1).limit(SZ + 1).sum()
+        );
+    }
+}
+```
+
+程序运行的结果如下：
+
+```sh
+5000000050000000
+Sum Stream: 33ms
+Sum Stream Parallel: 14ms
+Sum Iterated: 81ms
+```
+
+通过以上示例，可以对使用并行流有一个初步的总结：
+
+* 并行流将输入数据分成多个部分，然后进行单独计算
+* 数组的分割成本低，并且分割均匀
 
 
 
