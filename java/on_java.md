@@ -187,6 +187,8 @@ Java 线程的发展历：
 
 
 
+#### 创建单个线程
+
 关于 `ExecutorService` 一个简单的示例，如下：
 
 ```java
@@ -236,6 +238,8 @@ NapTask[9] pool-1-thread-1
 
 
 
+#### 创建多个线程
+
 如果想要使用更多的线程，把线程池函数改为 `newCachedThreadPool()` 即可，重新执行以上代码，输出如下：
 
 ```sh
@@ -255,6 +259,8 @@ NapTask[3] pool-1-thread-4
 PS：它似乎运行的更快了
 
 
+
+#### 可变的共享变量
 
 既然多线程更快，那什么场景下需要使用 `newSingleThreadExecutor()` 呢 ？
 
@@ -340,4 +346,158 @@ public class CachedThreadPool2 {
 想避免该问题，就要想办法避免可变的共享状态。
 
 
+
+#### 使用 Callable
+
+第一种方式，我们使用 `Callable` 让每个任务返回结果，并且我们最终合并结果，示例如下：
+
+```java
+public class CountingTask implements Callable<Integer> {
+
+    final int id;
+
+    public CountingTask(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public Integer call() {
+        // 每个任务执行的内容，避免可变的共享状态
+        Integer val = 0;
+        for (int i = 0; i < 100; i++) {
+            val++;
+        }
+        System.out.println(id + " " + Thread.currentThread().getName() + " " + val);
+        return val;
+    }
+}
+```
+
+然后创建线程池来并行执行任务：
+
+```java
+public class CachedThreadPool3 {
+
+    public static Integer extractResult(Future<Integer> f) {
+        try {
+            // 这里的捕获只是为了避免 stream() 异常
+            return f.get();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        ExecutorService exec = Executors.newCachedThreadPool();
+        // 创建线程池，执行任务
+        List<CountingTask> tasks = IntStream.range(0, 10)
+                .mapToObj(CountingTask::new)
+                .collect(Collectors.toList());
+
+        // 阻塞：所有任务完成后，返回 Future 列表，包含所有任务运行结果
+        List<Future<Integer>> futures = exec.invokeAll(tasks);
+        
+        // 汇总：计算所有任务的结果
+        Integer sum = futures.stream()
+                .map(CachedThreadPool3::extractResult)
+                .reduce(0, Integer::sum);
+
+        System.out.println("sum = " + sum);
+        exec.shutdown();
+    }
+}
+```
+
+最终输出结果如下：
+
+```sh
+1 pool-1-thread-2 100
+5 pool-1-thread-6 100
+4 pool-1-thread-5 100
+3 pool-1-thread-4 100
+2 pool-1-thread-3 100
+0 pool-1-thread-1 100
+9 pool-1-thread-10 100
+8 pool-1-thread-9 100
+7 pool-1-thread-8 100
+6 pool-1-thread-7 100
+sum = 1000
+```
+
+关于示例有以下几点补充：
+
+* 在未完成的任务调用 `Future` 上调用 `get()` 时，会阻塞到当前任务执行完成
+* `invokeAll()` 甚至会在所有任务完成前都不会返回，会造成阻塞
+* 这是无效的并发解决方案，本质还是同步，所以更推荐使用 Java 8 的 `CompletableFuture`
+
+
+
+#### 使用 Stream Parallel
+
+上面的示例有些繁琐，使用 `Stream` 可以更优雅的创建和汇总任务：
+
+```java
+public class CountingStream {
+
+    public static void main(String[] args) {
+        Integer result = IntStream.range(0, 10)
+                .parallel()						// 创建并行流
+                .mapToObj(CountingTask::new)	// 创建任务
+                .map(ct -> ct.call())			// 执行任务
+                .reduce(0, Integer::sum);		// 汇总结果
+
+        System.out.println("result: " + result);
+    }
+}
+```
+
+输出结果：
+
+```sh
+9 ForkJoinPool.commonPool-worker-1 100
+3 ForkJoinPool.commonPool-worker-8 100
+0 ForkJoinPool.commonPool-worker-6 100
+7 ForkJoinPool.commonPool-worker-4 100
+5 ForkJoinPool.commonPool-worker-15 100
+1 ForkJoinPool.commonPool-worker-11 100
+6 main 100
+8 ForkJoinPool.commonPool-worker-2 100
+2 ForkJoinPool.commonPool-worker-9 100
+4 ForkJoinPool.commonPool-worker-13 100
+1000
+```
+
+
+
+#### 使用 Lambda 创建任务
+
+在 Java 8 以后，使用 Lambdas 和方法引用，可以不受限制来定义自己的任务（只需要结构保持一致即可）：
+
+```java
+public class LambdasAndMethodReferences {
+    
+    public static void main(String[] args) {
+        ExecutorService exec = Executors.newCachedThreadPool();
+        // 提交自定义 Runnable 任务
+        exec.submit(() -> System.out.println("Lambda1"));
+        exec.submit(new NotRunnable()::go);
+        // 提交自定义的 Callable 任务
+        exec.submit(() -> {
+            System.out.println("Lambda2");
+            return 1;
+        });
+        exec.submit(new NotCallable()::get);    // submit callable task
+        exec.shutdown();
+    }
+}
+```
+
+输出结果：
+
+```sh
+Lambda1
+Not Runnable
+Lambda2
+Not Callable
+```
 
