@@ -501,3 +501,124 @@ Lambda2
 Not Callable
 ```
 
+
+
+#### 使用 Atomic 终止任务
+
+关注中止 Runnable 和 Callable 任务的注意事项：
+
+* Java 早期设计的任务中断机制既乱又复杂，还有可能导致数据丢失
+* 任务中止的最佳方式是设置任务周期性检查标志，然后通过 `shutdown` 进程正常中止
+* 中止任务使用 `boolean flag` 和 `volatile` 都存在并发和不确定性
+
+
+
+Java 5 引入的 `Atomic` 可以帮助我们不用担心并发问题，进行任务中止：
+
+先创建一个任务类，包含 `quit()` 函数：
+
+```java
+public class QuittableTask implements Runnable {
+
+    final int id;
+
+    public QuittableTask(int id) {
+        this.id = id;
+    }
+
+    private AtomicBoolean running = new AtomicBoolean();
+
+    // AtomicBoolean 可以防止多个任务同时修改 running，从而使 quit() 方法成为线程安全的
+    public void quit() {
+        running.set(false);
+    }
+
+    @Override
+    public void run() {
+        while (running.get()) {
+            new Nap(0.1);
+        }
+        System.out.print(id + " ");
+    }
+}
+```
+
+然后创建多个线程执行它，看看结果：
+
+```java
+public class QuittableTasks {
+    // 定义任务数量
+    public static final int COUNT = 15000;
+
+    public static void main(String[] args) {
+        ExecutorService es = Executors.newCachedThreadPool();
+        // 创建并且执行任务
+        List<QuittableTask> tasks = IntStream.range(1, COUNT)
+                .mapToObj(QuittableTask::new)
+                .peek(qt -> es.execute(qt))
+                .collect(Collectors.toList());
+        // 主线程在这里执行
+        new Nap(1);
+        // 所有任务退出
+        tasks.forEach(QuittableTask::quit);
+        // 线程池关闭
+        es.shutdown();
+    }
+}
+```
+
+输出结果如下：
+
+```sh
+1 5 4 2 3 6 11 7 10 8 9 13 19 18 16 23 12 17 15 14 21 32 27 26 28 24 29 22 20 39 40 33 37 34 38 36 35 51 25 48 31 30 50 59 56 57 55 58 67 53 62 70 43 52 49 77 47 44 45 46 42 41 84 79 85 86 82 80 76 90 81 73 78 102 68 74 75 65 108 109 72 71 69 66 64 63 61 117 54 60 119 125 121 118 120 131 122 112 114 115 136 113 140 107 104 110 139 111 142 100 106 105 97 101 103 93 98 99 95 94 96 92 87 83 91 89 88 148 146 149 147 135 144 145 143 141 132 138 137 127 134 133 130 128 123 129 126 116 124 
+```
+
+即使调用了退出方式，所有任务都基本运行了，所以初步观察诊断如下：
+
+* 只要任务仍在运行，就会阻止程序退出
+* 即使调用 `quit()` 方法，任务也不会按照它们创建的顺序关闭
+
+
+
+### CompletableFuture 类
+
+使用 `CompletableFuture` 代替 `ExecutorService` 执行任务：
+
+```java
+public class QuittingCompletable {
+
+    public static void main(String[] args) {
+        // 准备需要执行的任务
+        List<QuittableTask> tasks = IntStream.range(1, QuittableTasks.COUNT)
+                .mapToObj(QuittableTask::new)
+                .collect(Collectors.toList());
+
+        // 开始执行任务
+        List<CompletableFuture<Void>> cfutures = tasks.stream()
+                .map(CompletableFuture::runAsync)
+                .collect(Collectors.toList());
+        new Nap(1);
+
+        // 开始退出任务
+        tasks.forEach(QuittableTask::quit);
+        // 等待所有任务运行完成
+        cfutures.forEach(CompletableFuture::join);
+    }
+}
+```
+
+输出结果：
+
+```sh
+1 2 3 4 7 5 11 14 16 15 17 6 20 8 19 18 24 23 13 30 32 22 12 21 36 35 34 33 9 31 29 28 27 25 10 26 50 49 48 47 46 45 44 43 42 41 40 38 39 37 64 63 62 61 60 59 71 58 57 56 55 54 53 52 51 79 78 77 76 75 74 73 72 70 69 68 67 66 65 93 92 91 90 89 88 87 86 85 103 84 83 82 81 80 107 108 106 105 104 102 101 100 99 98 97 96 95 94 122 121 120 119 118 117 128 129 116 115 114 113 112 134 111 110 109 139 138 137 136 143 135 146 133 132 130 131 127 126 125 124 123 149 148 147 145 144 142 141 140 
+```
+
+关于 `CompletableFuture` 使用总结：
+
+1. 每个任务交给 `runAsync()` 开始执行
+2. 调用 `CompletableFuture.join()` 等待任务完成
+
+
+
+#### 基本用法
+
