@@ -69,7 +69,7 @@ Java 相关的读书笔记和使用心得。。
 
 《On Java》
 
-* 
+* [并发编程](/java/on_java/concurrency.md)
 
 
 
@@ -87,16 +87,14 @@ Java 并发编程实战
 1. [Java 的发展和未来](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/1.md)
 2. [Java 的自动内存管理](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/2.md)
 3. [虚拟机执行子系统](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/3.md)
-4. [程序编译与代码优化](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/4.md)（等待完善基础）
-5. [高效并发](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/5.md)（等待完善并发）
-
-
+4. [程序编译与代码优化](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/4.md)（TODO。。。）
+5. [高效并发](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/5.md)（TODO。。。。）
 
 
 
 Java 相关待读书单：
 
-- [ ] [《On Java》
+- [ ] 《On Java》
 - [ ] 《Java 实战》(第二版) Java In Action 8-11 New Feature （熟悉新特性）
 - [ ] 《Effective Java》（熟悉 Java 最佳实践）
 - [x] 《Java 并发编程实战》（熟悉并发编程）
