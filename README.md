@@ -73,7 +73,7 @@ Java 相关的读书笔记和使用心得。。
 
 
 
-Java 并发编程实战
+《Java 并发编程实战》
 
 1. [基础知识（第一部分 1~5 章）](https://github.com/xiao2shiqi/pro_developer/blob/main/java/concurrency/1.md)
 2. [结构化并发应用程序（第二部分 6~9 章）](https://github.com/xiao2shiqi/pro_developer/blob/main/java/concurrency/2.md)（TODO。。。）
@@ -82,7 +82,7 @@ Java 并发编程实战
 
 
 
-深入理解 JVM 虚拟机
+《深入理解 JVM 虚拟机》
 
 1. [Java 的发展和未来](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/1.md)
 2. [Java 的自动内存管理](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/2.md)
@@ -94,7 +94,7 @@ Java 并发编程实战
 
 Java 相关待读书单：
 
-- [ ] 《On Java》
+- [ ] 《On Java》基础 + 进阶
 - [ ] 《Java 实战》(第二版) Java In Action 8-11 New Feature （熟悉新特性）
 - [ ] 《Effective Java》（熟悉 Java 最佳实践）
 - [x] 《Java 并发编程实战》（熟悉并发编程）
@@ -168,33 +168,37 @@ Go 语言待读书单：
 
 ## 基础理论
 ### 数据结构和算法
-低难度
-- 《算法图解》
-- 《图解 HTTP》
-- 《网络是怎样连接的》
-- 《程序是怎样跑起来的》
-- 《计算机是怎样跑起来的》
+学习笔记：
 
-中等难度：
-* 《数据结构和算法分析》- Java 语言描述
-* 《算法》
-* 《算法导论》
-* 《编程珠玑》
+1. [如何反转一个单向链表](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/algorithm/1.md)
+2. [练习算法的几个实用技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/algorithm/2.md)
 
-### 其他理论基础
-* 《数据库系统概念》
-* 《现代操作系统》
-* 《计算机网络》
-* 《计算机程序的构造和解释》
-* 《编译原理》
 
-### 理论学科的总结
-* [如何反转一个单向链表](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/algorithm/1.md)
-* [练习算法的几个实用技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/algorithm/2.md)
+
+待读书单：
+
+- [ ] 《算法图解》
+- [ ] 《图解 HTTP》
+- [ ] 《网络是怎样连接的》
+- [ ] 《程序是怎样跑起来的》
+- [ ] 《计算机是怎样跑起来的》
+- [ ] 《数据结构和算法分析》- Java 语言描述
+- [ ] 《算法》
+- [ ] 《算法导论》
+- [ ] 《编程珠玑》
+- [ ] 《数据库系统概念》
+- [ ] 《现代操作系统》
+- [ ] 《计算机网络》
+- [ ] 《计算机程序的构造和解释》
+- [ ] 《编译原理》
+
+
 
 ### 操作系统和网络
 
-Linux 第一阶段：
+学习笔记
+
+Linux 相关：
 * [程序员必须掌握的 Linux 命令](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/1.md)
 * [输入输出、管道、环境变量](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/2.md)
 * [Vim 编辑器、Shell 脚本](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/3.md)
@@ -203,93 +207,87 @@ Linux 第一阶段：
 * [iptables 与 firewalld 防火墙](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/6.md)
 * [SSH 服务配置和加密协议](https://github.com/xiao2shiqi/pro_developer/blob/main/linux/linux_learn_like_this/7.md)
 
-中难度
-* 《Linux C 编程一站式学习》
-* 《图解 TCP IP》
-
-高难度
-* 《深入理解计算机机系统》
-* 《Unix 高级环境编程》  ->   《Linux / Unix 系统编程手册》
-* 《Unix 网络编程》第一卷：接口 api，第二卷：进程间通信
-* 《TCP / IP 详解》卷1
-* 《Wireshark 数据包分析实战》
 
 
-### 软件设计
-设计进阶：
-* 《领域驱动设计》
-* 《UNIX 编程艺术》
-* 《整洁架构之道》 -> 《敏捷整洁之道》
+待读书单：
 
-### 数据库
+- [ ] 《Linux C 编程一站式学习》
+- [ ] 《图解 TCP IP》
+- [ ] 《深入理解计算机机系统》
+- [ ] 《Unix 高级环境编程》  ->   《Linux / Unix 系统编程手册》
+- [ ] 《Unix 网络编程》第一卷：接口 api，第二卷：进程间通信
+- [ ] 《TCP / IP 详解》卷1
+- [ ] 《Wireshark 数据包分析实战》
 
-数据库相关书籍：
-* 《高性能 MySQL》
-* 《MySQL 技术内幕》
-* 《PostgreSQL 官方文档》
 
-#### MySQL
 
-#### PostgreSQL
+### 软件设计和数据库
 
-#### Oracle
-学习笔记：
-* 待补充
-* 待补充
+学习笔记和心得汇总
 
-Oracle 经验总结
+Oracle 相关：
+
 * [在 Linux 下使用 sqlplus 访问远程 Oracle 数据库](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/oracle/1.md)
 
 
-#### Mongo DB
-《MongoDB 官方文档》：[地址](https://docs.mongoing.com) 
+
+Mongo DB 相关
+
 1. [Mongodb 入门介绍](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/1.md)
 2. [Mongodb 基础的 CRUD 操作](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/2.md)
 3. [Mongodb 管道-聚合操作](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/3.md)
 4. [Mongodb 的数据模式验证](https://github.com/xiao2shiqi/pro_developer/blob/main/db/mongodb/official_documents/4.md)
 
-#### 列数据库
+
+
+待读书单：
+
+- [ ] 《领域驱动设计》
+- [ ] 《UNIX 编程艺术》
+- [ ] 《整洁架构之道》 -> 《敏捷整洁之道》
+- [ ] 《高性能 MySQL》
+- [ ] 《MySQL 技术内幕》
+- [ ] 《PostgreSQL 官方文档》
+
+
+
+列数据库
+
 * Cassandra
 * HBase：《HBase 实战》、《HBase 权威指南》
 
-#### 文档数据库
+文档数据库
+
 * MongoDB
 * SimpleDB
 * CouchDB 
 
-#### 其他类型数据库
+其他类型数据库
+
 * 数据结构数据库：Redis
 * 时序数据库：***
 * 图数据库  ：Neo4J
 * 搜索数据库：ElasticSearch
 
-## 分布式系统
-### 经典图书
-* Distributed Systems for fun and profit
-* Designing Data Intensive Applications
-* 《分布式系统原理与范型》（第二版）
-* 可扩展的 Web 架构和分布式系统
-
-### 经典论文
-* Transaction Across DataCenter
-* [分布式系统的事务处理](https://coolshell.cn/articles/10910.html)
-* Paxos 一致性算法
-* Raft 一致性算法
-* Gossip 一致性算法
 
 
-### 微服务相关
-* 《微服务设计》
-* 《微服务架构设计模式》
-* Go 语言微服务工具集 Go Kit
-* 网关：Envoy / 日志监控： ELK / 调用跟踪：Jaeger / 自动化运维： Docker + k8s
+## 分布式相关
 
-容器和自动化运维：
-* Docker  直接看官方文档
-* Kubernetes 看官方文本
-* 《Kubernetes in Action》 值得推荐
+学习笔记和心得汇总
 
-
-#### 容器技术
 1. [Kubernetes 学习笔记](https://github.com/xiao2shiqi/pro_developer/blob/main/kubernetes/official_documents/1.md)
 2. [Docker 学习笔记](https://github.com/xiao2shiqi/pro_developer/blob/main/docker/the_first_docker_book/1.md)
+
+
+
+待读书单：
+
+- [ ] 《微服务设计》
+- [ ] 《微服务架构设计模式》
+- [ ] 《Docker 官方文档》
+- [ ] 《Kubernetes 官方文档》
+- [ ] 《Kubernetes in Action》
+- [ ] 《Distributed Systems for fun and profit》
+- [ ] 《Designing Data Intensive Applications》
+- [ ] 《分布式系统原理与范型》（第二版）
+- [ ] 《可扩展的 Web 架构和分布式系统》
