@@ -1,9 +1,15 @@
-从 2021.5 月份开始  ----->  
-这里记录自己的学习路径，学习心得总结。  
-还有一些个人价值观的输出。
+这里是我的学习笔记汇总
+
+
 
 ## 技术修养
+
+
+
 ### 博客文章
+
+个人写过的博客，在这里记录汇总
+
 * [技术价值观：聊聊我为什么喜欢“技术”](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/1.md)
 * [心理学：我们应该如何度过这一生？](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/2.md)
 * [我也来聊聊鸿蒙系统](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/3.md)
@@ -15,32 +21,82 @@
 * [什么是云原生？聊聊云原生和微服务的架构](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/9.md)
 * [JaCoCo 食用指南](my_blog/jacoco_getting_started.md)
 
+
+
 ### 技术工具
 
-#### Git 心得
+对于日常的技术工具的使用心得，在这里记录汇总
+
+Git
+
 * [git merge --ff/--no-ff/--ff-only 三种选项参数的区别](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/1.md)
 * [git 集成代码检查（P3C）和单元测试（Junit）](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/2.md)
 * [git 集成代码检查（Rubocop）和单元测试（Rspec）](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/3.md)
 
-#### VSCode 经验
+
+
+VSCode
+
 1. [VSCode 几个实用技巧和插件分享](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/1.md)
 2. [VSCode Snippets（代码模板）使用心得](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/2.md)
 
-### 职业道德
-* 《代码大全》
-* 《Clean Code 代码整洁之道》
-* 《程序员的职业素养》
 
-#### 代码重构
-Java 语言描述：
-* [什么是重构](https://github.com/xiao2shiqi/pro_developer/blob/main/refactoring/0.md)
-* [函数重构的 7 个技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/refactoring/6.md)
-* [对象重构的 8 个技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/refactoring/7.md)
+
+Activiti
+
+1. [BPMN 介绍和 Activiti 的基本使用](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/1.md)
+2. [Activiti 的结构设计、核心模块功能](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/2.md)
+3. [Activiti 流程引擎的配置和使用](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/3.md)
+
+
+
+面试题汇总
+
+我遇到过的。。。
+
+1. [Java 基础，集合，多线程，JVM 虚拟机](https://github.com/xiao2shiqi/pro_developer/blob/main/java/interview/1.md)
+2. [Spring，Spring Boot，Spring Cloud 微服务，分布式架构](https://github.com/xiao2shiqi/pro_developer/blob/main/java/interview/2.md)
+3. [数据库，网络，操作系统，Linux，K8S相关](https://github.com/xiao2shiqi/pro_developer/blob/main/java/interview/3.md)
+
+
 
 ## 编程语言 
-### Java 书单
+### Java
 
-- [x]  [《On Java 1：基础卷》](java/on_java.md)
+Java 相关的读书笔记和使用心得。。
+
+
+
+《On Java》
+
+* 
+
+
+
+Java 并发编程实战
+
+1. [基础知识（第一部分 1~5 章）](https://github.com/xiao2shiqi/pro_developer/blob/main/java/concurrency/1.md)
+2. [结构化并发应用程序（第二部分 6~9 章）](https://github.com/xiao2shiqi/pro_developer/blob/main/java/concurrency/2.md)（TODO。。。）
+3. [活跃性、性能与测试（第三部分 10~12 章）](https://github.com/xiao2shiqi/pro_developer/blob/main/java/concurrency/3.md)（TODO。。。）
+4. [高级主题（第四部分 13~16 章）](https://github.com/xiao2shiqi/pro_developer/blob/main/java/concurrency/4.md)（TODO。。。）
+
+
+
+深入理解 JVM 虚拟机
+
+1. [Java 的发展和未来](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/1.md)
+2. [Java 的自动内存管理](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/2.md)
+3. [虚拟机执行子系统](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/3.md)
+4. [程序编译与代码优化](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/4.md)（等待完善基础）
+5. [高效并发](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/5.md)（等待完善并发）
+
+
+
+
+
+Java 相关待读书单：
+
+- [ ] [《On Java》
 - [ ] 《Java 实战》(第二版) Java In Action 8-11 New Feature （熟悉新特性）
 - [ ] 《Effective Java》（熟悉 Java 最佳实践）
 - [x] 《Java 并发编程实战》（熟悉并发编程）
@@ -50,47 +106,22 @@ Java 语言描述：
 - [ ] 《Java 云原生》Cloud Native Java
 - [ ] 《微服务架构设计模式》Chris Richardson
 - [ ] 《高性能 MySQL》
-
-### 其他待读清单（优先级不高）
+- [ ] 《代码大全》
+- [ ] 《Clean Code 代码整洁之道》
+- [ ] 《程序员的职业素养》
 - [ ] 《设计模式之禅》
 - [ ] 《设计模式》
-
-#### Java 基础
-
-#### 《Java 并发编程实战》
-1. [基础知识（第一部分 1~5 章）](https://github.com/xiao2shiqi/pro_developer/blob/main/java/concurrency/1.md)
-2. [结构化并发应用程序（第二部分 6~9 章）](https://github.com/xiao2shiqi/pro_developer/blob/main/java/concurrency/2.md)（待完成）
-3. [活跃性、性能与测试（第三部分 10~12 章）](https://github.com/xiao2shiqi/pro_developer/blob/main/java/concurrency/3.md)（待完成）
-4. [高级主题（第四部分 13~16 章）](https://github.com/xiao2shiqi/pro_developer/blob/main/java/concurrency/4.md)（待完成）
-
-#### 《深入理解 JVM 虚拟机》
-1. [Java 的发展和未来](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/1.md)
-2. [Java 的自动内存管理](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/2.md)
-3. [虚拟机执行子系统](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/3.md)
-4. [程序编译与代码优化](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/4.md)（等待完善基础）
-5. [高效并发](https://github.com/xiao2shiqi/pro_developer/blob/main/java/jvm/5.md)（等待完善并发）
-
-#### Spring 相关
-
-#### Java 面试题库汇总（我遇到过的）
-1. [Java 基础，集合，多线程，JVM 虚拟机](https://github.com/xiao2shiqi/pro_developer/blob/main/java/interview/1.md)
-2. [Spring，Spring Boot，Spring Cloud 微服务，分布式架构](https://github.com/xiao2shiqi/pro_developer/blob/main/java/interview/2.md)
-3. [数据库，网络，操作系统，Linux，K8S相关](https://github.com/xiao2shiqi/pro_developer/blob/main/java/interview/3.md)
-
-
-
-#### Activiti BPMN 工作流相关
-1. [BPMN 介绍和 Activiti 的基本使用](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/1.md)
-2. [Activiti 的结构设计、核心模块功能](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/2.md)
-3. [Activiti 流程引擎的配置和使用](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/3.md)
 
 
 
 ### Ruby
-#### Ruby 基础
-1. 待补充…………
 
-#### Ruby 进阶
+Ruby 相关的学习笔记。。。
+
+
+
+Ruby 进阶
+
 1. [重新熟悉 Ruby 的基础语法](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/1.md)
 2. [理解 Ruby 中的面向对象](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/2.md)
 3. [高效使用 Ruby 的集合](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/3.md)
@@ -100,7 +131,10 @@ Java 语言描述：
 7. [常用的文档和依赖管理](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/7.md)
 8. [内存管理和性能优化](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/effective_ruby/8.md) （待完成）
 
-#### Ruby 元编程
+
+
+Ruby 元编程
+
 1. [元编程（What is Mate?）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/1.md)
 2. [对象模型（The Object Model）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/2.md)
 3. [动态方法（Methods）](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/3.md)
@@ -108,24 +142,30 @@ Java 语言描述：
 5. [类定义（Class Definitions）：Ruby 对象模式最深暗的角落](https://github.com/xiao2shiqi/pro_developer/blob/main/ruby/metaprogram/5.md)
 6. [编写代码的代码]
 
-#### Ruby 经验总结
+
+
+Ruby 经验总结
+
 * [Ruby 多线程的使用技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/1.md)
 * [Ruby 和 Java 的基础语法比较](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/2.md)
 * [如何使用 Yard 写文档](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/3.md)
 * [使用 MongoDB 创建 Rails API](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/4.md)
 * [使用 Rails 操作 Mongo Document](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/ruby/5.md)
 
-### C（搁浅）
-* 《C 程序设计语言》
-* 《C 语言程序设计现代方法》
-* 《C 陷阱与缺陷》
+
 
 ### Go
+
+Go 语言的学习相关笔记：
+
+* [Go 语言的初体验](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/go/1.md/)
+
+
+
+Go 语言待读书单：
+
 * 《Go 程序设计语言》
 * 《Go 语言实战》
-
-Go 经验总结：
-* [Go 语言的初体验](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/go/1.md/)
 
 
 ## 基础理论

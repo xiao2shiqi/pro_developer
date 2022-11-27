@@ -622,3 +622,128 @@ public class QuittingCompletable {
 
 #### 基本用法
 
+首先定义一个任务类：
+
+```java
+public class Machina {
+
+    public enum State {
+        START, ONE, TWO, THREE, END;
+
+        State step() {
+            if(equals(END)) {
+                return END;
+            }
+            return values()[ordinal() + 1];
+        }
+    }
+
+    private State state = State.START;
+    private final int id;
+
+    public Machina(int id) {
+        this.id = id;
+    }
+
+    // 工作就是改变状态
+    public static Machina work(Machina m) {
+        if(!m.state.equals(State.END)) {
+            // 耗时 100ms
+            new Nap(0.1);
+            m.state = m.state.step();
+        }
+        System.out.println(m);
+        return m;
+    }
+
+    @Override
+    public String toString() {
+        return "Machina" + id + ": " + (state.equals(State.END) ? "complete" : state);
+    }
+}
+```
+
+它是一个有限的状态机，从一个状态移动到下一个状态，工作耗时 100 毫秒
+
+我们可以使用 `CompletableFuture` 处理任务，并且可以将已处理的状态转交给另一个 `CompletableFuture` 处理：
+
+```java
+public class CompletableApply {
+
+    public static void main(String[] args) {
+        CompletableFuture<Machina> cf = CompletableFuture.completedFuture(new Machina(0));
+        CompletableFuture.completedFuture(new Machina(0));
+        CompletableFuture<Machina> cf2 = cf.thenApply(Machina::work);
+        CompletableFuture<Machina> cf3 = cf2.thenApply(Machina::work);
+        CompletableFuture<Machina> cf4 = cf3.thenApply(Machina::work);
+        CompletableFuture<Machina> cf5 = cf4.thenApply(Machina::work);
+    }
+}
+```
+
+输出结果：
+
+```sh
+Machina0: ONE
+Machina0: TWO
+Machina0: THREE
+Machina0: complete
+```
+
+我们还可以将 `CompletableFuture` 结合 `Stream` 来使用，使编写和理解代码变的更加简单：
+
+```java
+public class CompletableApplyChained {
+
+    public static void main(String[] args) {
+        Timer timer = new Timer();
+        CompletableFuture.completedFuture(new Machina(0))
+                        .thenApply(Machina::work)
+                        .thenApply(Machina::work)
+                        .thenApply(Machina::work)
+                        .thenApply(Machina::work);
+        
+        System.out.println(timer.duration());
+    }
+}
+```
+
+输出结果：
+
+```sh
+Machina0: ONE
+Machina0: TWO
+Machina0: THREE
+Machina0: complete
+460
+```
+
+上面示例展示的 `thenApply()` 同步调用，既当任务完成后才返回，所有耗时 400ms，
+
+还有一种异步调用 `thenApplyAsync()` 可以立即返回任务列表：
+
+```java
+public class CompletableApplyAsync {
+
+    public static void main(String[] args) {
+        Timer timer = new Timer();
+        CompletableFuture<Machina> cf = CompletableFuture.completedFuture(new Machina(0))
+                .thenApplyAsync(Machina::work)
+                .thenApplyAsync(Machina::work)
+                .thenApplyAsync(Machina::work)
+                .thenApplyAsync(Machina::work);
+
+        System.out.println(timer.duration());   // 主线程并不会等待 CompletableFuture 任务
+        System.out.println(cf.join());  //  在这里等待
+        System.out.println(timer.duration());   // 任务真正的执行完成
+    }
+}
+```
+
+上面示例，如果没有调用 `join()` 函数，则主线程会提前结束任务
+
+
+
+#### 结合 CompletableFuture
+
+TODO 。。。。。 未完待续。。。。。
