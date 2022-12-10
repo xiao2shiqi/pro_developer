@@ -23,21 +23,21 @@ Apache DS 完全用 Java 编写的目录服务器（可扩展，可嵌入），�
 
 
 
-### 基本用户指南
+### 基本使用指南
 
 LDAP 是一项复杂的技术，Apach DS（Directory Server）不仅仅提供 LDAP 服务，因此我们先通过快速开始来掌握它。
 
 
 
-#### 1 如何开始
+#### 快速开始
 
 本示例讲解如何通过最少的配置，让服务器快速的运行
 
 
 
-##### 1.1 什么是服务服务
+##### 什么是目录服务 ？
 
-愿景：
+Apache DS 的愿景：
 
 * Apache DS 是 LDAP 服务器
 * 可嵌入：嵌入到 Java 应用程序中，配置，启动和停止它，可嵌入意味着你可以选择你喜欢的方式部署它
@@ -54,9 +54,7 @@ LDAP 是一项复杂的技术，Apach DS（Directory Server）不仅仅提供 LD
 
 
 
-起源和动机：
-
-一切的起源来自作者：`Alex Karasulu`
+起源和动机，一切的起源来自作者：`Alex Karasulu` ：
 
 * 他在 2001 年时，意识到 LDAP 目录非常需要丰富的集成层构造，如 LDAP 存储过程，触发器和视图
 * 他尝试改变 OpenLDAP 服务器，但是失败了，这个软件很复杂，很脆弱，而且难以管理
@@ -75,7 +73,7 @@ LDAP 是一项复杂的技术，Apach DS（Directory Server）不仅仅提供 LD
 
 
 
-##### 1.2 LDAP 和目录服务介绍
+##### LDAP 和目录服务介绍
 
 本章介绍目录，目录服务，LDAP 的简要概述
 
@@ -163,7 +161,7 @@ LDAP 的最佳实践：
 
 
 
-##### 1.3 安装和开始
+##### 安装和开始
 
 安装条件：
 
@@ -173,7 +171,7 @@ LDAP 的最佳实践：
 
 
 
-##### 1.4 基本配置
+##### 基本配置
 
 ###### **修改运行端口**
 
@@ -374,6 +372,41 @@ log4j.logger.org.apache.directory.server.ldap.handlers.ModifyDnHandler=DEBUG
 
 * 启用匿名访问：无需任何身份认证即可访问 LDAP 服务
 * 关闭匿名访问：需要提供有效的身份信息才能访问 LDAP 服务
+
+
+
+##### 目录数据示例
+
+实际操作的几个注意事项：
+
+* 导入前请确保已将后缀 `o=sevenSeas` 的分区添加到服务器，为了提高辨识度，你可以添加自己的分区
+* 你可以使用任意一种实现 LDAP 协议的客户端，LDAP 的情况要比 HTTP 好一些，因为它没有浏览器大战
+* 你可以在官网 [apache-ds-tutorial.ldif](https://directory.apache.org/apacheds/basic-ug/resources/apache-ds-tutorial.ldif) 找到示例数据的 LDIF 样本，并且导入你的目录服务中
+* LDIF 文件是 LDAP 协议的数据交换格式，在 LDAP 世界被广泛采用，并且在 [RFC 2849](http://www.faqs.org/rfcs/rfc2849.html) 中标准化
+* 你可以将标准化的 LDIF 文件导入到任意的目录服务中，不仅仅是 Apache DS 目录服务
+
+
+
+以上示例文件导入效果如下，在结构树中，人员和群组通过 `ou=people`,`ou=groups` 进行了区分：
+
+<img src="./assets/image-20221210232821585.png" alt="image-20221210232821585" style="zoom: 67%;" />
+
+
+
+##### 备份/恢复
+
+Apache DS 所有数据文件都是二进制文件，你不能简单的复制这些文件，因为存在数据状态和一致性的问题
+
+当前的解决方案如下：
+
+通过 Apache  Directory Studio 工具或者 ldapsearch 脚本，在你感兴趣的分区进行以下操作
+
+* 在你需要备份的分区中提取 LDIF 文件
+* 在你需要恢复的分区中导入 LDIF 文件
+
+
+
+
 
 
 
