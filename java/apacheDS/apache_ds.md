@@ -75,7 +75,7 @@ LDAP 是一项复杂的技术，Apach DS（Directory Server）不仅仅提供 LD
 
 
 
-##### 1.2 LDAP 和目录服务的一些背景
+##### 1.2 LDAP 和目录服务介绍
 
 本章介绍目录，目录服务，LDAP 的简要概述
 
@@ -163,7 +163,7 @@ LDAP 的最佳实践：
 
 
 
-##### 1.3 安装和开始服务
+##### 1.3 安装和开始
 
 安装条件：
 
@@ -173,7 +173,207 @@ LDAP 的最佳实践：
 
 
 
+##### 1.4 基本配置
 
+###### **修改运行端口**
+
+LDAP 的运行端口：
+
+* LDAP 服务器的默认端口分别是：10389（未加密），10636（SS）
+* LDAP 的常见端口是 389，你可以把端口修改为 389（注意：UNIX 非根进程必须监听大于 1023 的端口）
+
+
+
+修改端口的两种方式：
+
+使用 `Apache Directory Studio` 的配置页面即可修改端口
+
+<img src="./assets/image-20221210211625148.png" alt="image-20221210211625148" style="zoom:80%;" />
+
+
+
+在修改配置 LDIF 分区设置，其中 DN 路径为: `ou=transports，ads-serverId=ldapServer*，ou=servers，ads-directoryServiceId=default，ou=config`
+
+<img src="./assets/image-20221210211501020.png" alt="image-20221210211501020" style="zoom:50%;" />
+
+
+
+###### **修改管理员密码**
+
+主要有以下 4 个步骤：
+
+1. 通过客户端工具和默认账号 `uid=admin，ou=system/secret` 登录 LDAP
+2. 找到树中的 `userPassword` 属性的值
+3. 然后输入密文和哈希算法，点击 `OK` 保存即可
+4. 最后使用新密码登录进行验证
+
+
+
+选择属性
+
+![条目编辑器](./assets/entryEditor.png)
+
+编辑，修改密码：
+
+![passwordEditor](./assets/passwordEditor.png)
+
+保存即可
+
+
+
+###### 添加分区 partition
+
+什么是分区（partition） ？
+
+* 所有 entry 存储在分区 partition 中，每个分区包含一个完整的 Entry Tree，也称 DIT
+* 也有可能存在多个分区，但是分区中的 Entry 彼此完全不会相互影响
+* 识别 Entry 的分区，通过 Entry DN 路径上下文即可
+* 分区默认实现基于 JDBM B+ Tree
+* Apache DS 将其信息存储在特殊的分区中，分别为：`ou=schema`、`ou=config`、`ou=system`
+
+
+
+Apache DS 默认配置包含一个后缀为 `dc=example, dc=com` 的分区，如图：
+
+![Partition in studio after installation](./assets/partitions-in-studio-after-installation.png)
+
+
+
+最小分区定义：
+
+通过 ApacheDS 的配置页面的 `Partitions` 标签，你可以添加自己的分区，如图：
+
+![sevenseas](./assets/sevenseas-partition-creation.png)
+
+重启服务器后，即可看见新创建的分区：
+
+![RootDSE](./assets/sevenseas-naming-context.png)
+
+
+
+你还可以通过编程的方式创建分区：
+
+```java
+// Get the SchemaManager, we need it for this addition
+SchemaManager schemaManager = directoryService.getSchemaManager();
+
+// Create the partition
+JdbmPartition sevenseasPartition = new JdbmPartition( schemaManager );
+sevenseasPartition.setId("sevenseas");
+Dn suffixDn = new Dn( schemaManager, "o=sevenseas" );
+sevenseasPartition.setSuffix( suffixDn );
+sevenseasPartition.setCacheSize(1000);
+sevenseasPartition.init(directoryService);
+sevenseasPartition.setPartitionPath( <a path on your disk> );
+
+// Create some indices (optional)
+sevenseasPartition.addindex( new JdbmIndex( "objectClass", false ) );
+sevenseasPartition.addindex( new JdbmIndex( "o", false ) );
+
+// Initialize the partition
+sevenseasPartition.initialize();
+
+// create the context entry
+Entry contextEntry = new DefaultEntry( schemaManager, "o=sevenseas",
+    "objectClass: top", 
+    "objectClass: organization",
+    "o: sevenseas" );
+
+// add the context entry
+sevenseasPartition.add( new AddOperationContext( null, entry ) );
+
+// We are done !
+```
+
+
+
+关于分区的更多配置选项：
+
+|           属性           |             描述              |    默认值     | 必须 |
+| :----------------------: | :---------------------------: | :-----------: | :--: |
+|     ads-partitionId      |         分区唯一标识          |      N/A      | yes  |
+|   ads-partitionSuffix    |           分区示例            |      N/A      | yes  |
+|     ads-contextEntry     |          entry 内容           |   自动推断    |  no  |
+|   ads-optimizerEnabled   |          打开优化器           |     true      |  no  |
+|  ads-partitionCacheSize  | 缓存大小 (仅应用于 JDBM 分区) | -1 (no cache) |  no  |
+| ads-partitionSyncOnWrite |       每次写入同步磁盘        |     true      |  no  |
+
+
+
+###### 配置日志
+
+调整服务器日志级别，可以有效的检测和分析问题，这里介绍如何在 Apache DS 中配置日志
+
+* Apache DS 2.0 使用 SLF4J 作为日志的解决方案
+* 默认情况下，Apache DS 将日志写入 `<APACHE_HOME>/var/log` 目录中
+* 默认配置文件 `log4j.properties` 位于 `<APACHE_HOME>/conf` 目录中
+
+
+
+日志配置文件如下：
+
+|          属性名          |              值               |                 释义                 |
+| :----------------------: | :---------------------------: | :----------------------------------: |
+|           File           |     apacheds-rolling.log      | 日志文件输出路径：默认是： *var/log* |
+|       MaxFileSize        |            1024KB             |          日志文件滚动的大小          |
+|      MaxBackupIndex      |               5               |           保留备份的文件数           |
+| layout.ConversionPattern | [%d{HH:mm:ss}] %p [%c] - %m%n |         记录事件的格式字符串         |
+
+备注：如果日志配置不符合你的要求，你可以随时修改它
+
+
+
+日志级别，Apache DS 对于日志级别的定义：
+
+| 级别  |                 描述定义                 |
+| :---: | :--------------------------------------: |
+| DEBUG |    细粒度：对调试应用程序最有用的事件    |
+| INFO  |    粗粒度：显示应用程序进度的信息消息    |
+| WARN  |     警告：程序发生潜在有害信息时输出     |
+| ERROR | 错误：程序发生错误事件，但仍可持续的运行 |
+| FATAL | 致命的：导致程序终止的非常严重的错误事件 |
+
+默认日志级别为 WARN，你可以这样修改它：
+
+```properties
+# 改为 DEBUG
+log4j.rootCategory=DEBUG, stdout, R
+```
+
+
+
+其他示例：
+
+你可以通过以下配置，记录所有传入的增删改查请求：
+
+```properties
+log4j.logger.org.apache.directory.server.ldap.handlers.SearchHandler=DEBUG
+log4j.logger.org.apache.directory.server.ldap.handlers.AddHandler=DEBUG
+log4j.logger.org.apache.directory.server.ldap.handlers.DeleteHandler=DEBUG
+log4j.logger.org.apache.directory.server.ldap.handlers.ModifyHandler=DEBUG
+log4j.logger.org.apache.directory.server.ldap.handlers.ModifyDnHandler=DEBUG
+```
+
+
+
+参考资料：
+
+* [Short introduction to log4j](https://logging.apache.org/log4j/1.2/manual.html)
+
+
+
+###### 启用匿名访问
+
+默认情况下会开启允许匿名访问，你可以通过以下方式改变它：
+
+![Anonymous Access](./assets/anonymous-access.png)
+
+备注：修改后需要重启服务器
+
+该功能启用和停用主要区别如下：
+
+* 启用匿名访问：无需任何身份认证即可访问 LDAP 服务
+* 关闭匿名访问：需要提供有效的身份信息才能访问 LDAP 服务
 
 
 
