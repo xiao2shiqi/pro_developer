@@ -48,7 +48,7 @@ Activiti
 2. [Activiti 的结构设计、核心模块功能](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/2.md)
 3. [Activiti 流程引擎的配置和使用](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/3.md)
 
-Apache 目录项目
+Apache Directory Project
 1. [Apache DS （Directory Server ）目录服务](java/apacheDS/apache_ds.md)
 
 
