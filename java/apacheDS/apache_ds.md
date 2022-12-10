@@ -160,7 +160,18 @@ LDAP 的最佳实践：
 * LDAP 专家 Neil Wilson Blog：[dc=nawilson,dc=com | LDAP, programming](https://nawilson.com/)
 * 书籍：[Understanding LDAP - Design and Implementation (ibm.com)](https://www.redbooks.ibm.com/abstracts/SG244986.html?Open)
 * 书籍：[LDAP verstehen mit linx](http://www.mitlinx.de/ldap/)
-* 
+
+
+
+##### 1.3 安装和开始服务
+
+安装条件：
+
+* java 8
+* 适用于任意平台的 `tar`， `zip` 安装路径：[Downloads — Apache Directory](https://directory.apache.org/apacheds/downloads.html)
+* 自己从源代码中构建服务：[Building Trunks — Apache Directory](https://directory.apache.org/apacheds/advanced-ug/0.2-building-trunks.html)
+
+
 
 
 
