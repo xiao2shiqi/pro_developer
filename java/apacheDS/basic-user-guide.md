@@ -1,6 +1,6 @@
 # Apache 目录项目
 
-使用 Java 编写的目录解决方案，包含目录服务器，该项已被 `Open Group` 组织认定为符合 LDAP v3 标准，还有基于 Eclipse 构建的目录工具 `Apache Directory Studio`
+Apache Directory Server 是使用 Java 编写的目录解决方案，包含目录服务器，该项已被 `Open Group` 组织认定为符合 LDAP v3 标准，还有基于 Eclipse 构建的目录工具 `Apache Directory Studio`
 
 
 
@@ -29,7 +29,7 @@ LDAP 是一项复杂的技术，Apach DS（Directory Server）不仅仅提供 LD
 
 
 
-#### 快速开始
+#### 1：快速开始
 
 本示例讲解如何通过最少的配置，让服务器快速的运行
 
@@ -406,9 +406,209 @@ Apache DS 所有数据文件都是二进制文件，你不能简单的复制这�
 
 
 
+#### 2：处理目录的数据
+
+服务启动后，可以增删改查 Entry，并且可以修改和管理 Schema，对其扩展，来满足你的需求
 
 
 
+##### 数据修改
+
+本章仅做简单介绍，查看更多信息，请参考以下文档：
+
+* [Welcome to Apache Directory LDAP API — Apache Directory](https://directory.apache.org/api/index.html)
+* [User's Guide — Apache Directory](https://directory.apache.org/studio/users-guide.html)
+
+
+
+###### 添加 Entry
+
+添加 Entry 很简单，步骤如下：
+
+1. 创建 LDIF 文件，选择你要添加的分区（必须存在）
+2. 选择合适的工具导入它，使用 `ldapmodify` 命令或者 Apache Directory Studio，或者 LDAP API 等等
+
+
+
+一个示例的 LDIF 文件如下：
+
+```sh
+# 添加到刚才创建的 parttion 中
+dn: ou=people,o=sevenSeas
+objectclass: organizationalUnit
+objectclass: top
+ou: people
+
+dn: cn=James Hook,ou=people,o=sevenSeas
+objectclass: inetOrgPerson
+objectclass: organizationalPerson
+objectclass: person
+objectclass: top
+cn: James Hook
+description: A pirate captain and Peter Pan's nemesis
+sn: Hook
+mail: jhook@neverland
+userpassword: peterPan
+```
+
+
+
+使用命令行创建：
+
+```sh
+$ ldapmodify -h zanzibar -p 10389 -D "cn=Horatio Nelson,ou=people,o=sevenSeas" -w pass \\
+    -a -f captain_hook.ldif
+adding new entry cn=James Hook,ou=people,o=sevenSeas
+
+# 创建成功后，再来搜索它进行验证
+$ ldapsearch -h zanzibar -p 10389 -b "o=sevenSeas" -s sub "(cn=James Hook)" +
+version: 1
+dn: cn=James Hook,ou=people,o=sevenSeas
+accessControlSubentries: cn=sevenSeasAuthorizationRequirementsACISubentry,o=sevenSeas
+creatorsName: cn=Horatio Nelson,ou=people,o=sevenSeas
+createTimestamp: 20061203140109Z
+```
+
+
+
+使用 Apche Directory Studio 导入示例：
+
+![import-entry-studio](./assets/import-entry-studio.png)
+
+然后选择文件进行导入：
+
+![ldif-import-file-select](./assets/ldif-import-file-select.png)
+
+
+
+###### 删除 Entry
+
+删除 Entry 的 3 个基本条件，才能开展下一步工作：
+
+* Entry 必须存在
+* Entry 不能有任何子节点（Studio 会帮你进行递归删除， LDAP 请求则不会）
+* 操作删除的用户需要具备足够的权限
+
+
+
+命令行工具删除：
+
+使用 LDIF 文件声明操作类型：
+
+```sh
+# File captain_hook_delete.ldif
+dn: cn=James Hook,ou=people,o=sevenSeas
+changetype: delete
+```
+
+然后使用命令行工具：
+
+```sh
+$ ldapdel -h zanzibar -p 10389 -D "cn=Horatio Nelson,ou=people,o=sevenSeas" -w pass \\
+    -a -f captain_hook.ldif deleting entry cn=James Hook,ou=people,o=sevenSeas
+```
+
+
+
+使用 Apache Directory Studio 删除：
+
+选择要 Entry，右键删除即可：
+
+![Delete entry with studio](./assets/delete-entry.png)
+
+注意：Studio 允许删除 Entry 含有子节点的情况，它会尝试递归删除所有子节点
+
+
+
+##### 搜索数据
+
+搜索是 LDAP 执行最多的操作，LDAP 的搜索都经过优化，以便尽可能快的搜索到结果
+
+###### 简单搜索
+
+一个简单的搜索示例：
+
+```sh
+$ ldapsearch -h zanzibar -p 10389 -b "o=sevenSeas" -s sub "(cn=James Hook)" +
+version: 1
+dn: cn=James Hook,ou=people,o=sevenSeas
+accessControlSubentries: cn=sevenSeasAuthorizationRequirementsACISubentry,o=sevenSeas
+creatorsName: cn=Horatio Nelson,ou=people,o=sevenSeas
+createTimestamp: 20061203140109Z
+```
+
+搜索示例总结：
+
+* 通过命令行连接到 zanzibar 服务器上进行匿名搜索（服务器允许的话）
+* 搜索命令：sevenSeas 分区，搜索条件是：`cn=James Hook` 的 Entry，搜索范围是 `sub`
+* 最后一个参数 `+` 要求服务器返回所有操作属性
+
+
+
+###### 更多搜索选项
+
+* Apache Directory Server 默认不启用匿名搜索（安全问题，搜索前先完成认证）
+* LDAP filter 非常复杂，和 SQL 不同，它们甚至没有 JOIN 功能
+* 查询符号：常用的分别是：and, or, not
+* 查询作用域：常用的分别是：OBJECT，ONELEVEL，SUBLEVEL
+* 指定返回属性：搜索可以指定返回的属性，可以通过以下方式设定：
+  * `*` 返回所有用户属性
+  * `+` 返回所有操作属性
+  * 属性名称列表
+  * 
+
+
+
+
+常用查询符合和示例：
+
+| Connector |               描述                |              Example              |
+| :-------: | :-------------------------------: | :-------------------------------: |
+|    And    |     所有结果值的条件都为 true     | (&(objectClass=person)(cn=acme))  |
+|    Or     | 计算出的结果值，条件满足 1 项即可 | (\|(objectClass=person)(cn=acme)) |
+|    Not    |     计算出不等于该条件的结果      |      (!(objectClass=person))      |
+
+常用的查询运算符：
+
+|      Filter      |
+| :--------------: |
+|   = (Equality)   |
+|    Substring     |
+|        >=        |
+|        <=        |
+|   =* (Present)   |
+| ~= (ApproxMatch) |
+| extensibleMatch  |
+
+
+
+##### Schema 介绍
+
+* LDAP 中的所有数据都是根据 Schema的结构存储，类似数据库的表和字段
+* Apache DS 有一个动态模式，可以修改模式而无需重启服务器（将在高级用户指南中详细讲解）
+
+
+
+Schema 是一组定义可以存储在服务器中的数据结构的元素，它定义了以下元素：
+
+* AttributeType：可以存储在属性中值的类型
+* ObjectClass：可以定义属性的集合和必须存在的值
+* Syntax：必须遵守的语法规则
+* MatchingRule：用于检索数据的规则
+
+
+
+Apache DS 提供预定义的 Schema，应该能满足大部分用户的需求，你可以使用 Apache Directory Studio 浏览现有模式（关于扩展 Schema 将在高级用户指南中详细讲解）：
+
+![Open Schema Browser](./assets/open-schema-browser.png)
+
+然后在 Schema Browser 中查看和检索：
+
+![Schema Browser](./assets/schema-browser.png)
+
+
+
+###### 添加 Schema 元素
 
 
 

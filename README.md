@@ -48,8 +48,41 @@ Activiti
 2. [Activiti 的结构设计、核心模块功能](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/2.md)
 3. [Activiti 流程引擎的配置和使用](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/3.md)
 
-Apache Directory Project
-1. [Apache DS （Directory Server ）目录服务](java/apacheDS/apache_ds.md)
+Apache Directory Project 目录项目
+
+Apache DS （Directory Server）：
+
+Apache DS™ 是一个完全用 Java 编写的可扩展和可嵌入的目录服务器，它已被 OpenGroup 认证为与 LDAPv3 兼容。除了 LDAP，它还支持 Kerberos 5 和更改密码协议。它旨在将触发器、存储过程、队列和视图引入缺少这些丰富结构的LDAP世界。
+
+   1. [基本使用指南](java/apacheDS/basic-user-guide.md)
+   2. [高级用户指南](java/apacheDS/advanced-user-guide.md)
+   3. 开发指南
+   4. Kerberos 用户指南
+   5. 配置参考
+   6. Java 文档
+   7. 参考文档
+
+Apache Directory Studio：
+
+Apache Directory Studio 是一个目录服务工具，特别适用于 ApacheDS，它是一个 Eclipse RCP 应用程序，由 Eclipse OSGI 插件组成，这些插件可以轻松升级，这些插件运行在 Eclipse 内部
+
+Apache LDAP API：  
+用户操作 LDAP 服务的 API，主要版本 Version 有：
+* 1.0.3
+* 2.1.2
+
+LDAP API （主要还是用于 ApacheDS），Spring 也有类型的 LDAP RestTemplate
+
+Apache Mavibot：  
+Mavibot 是 Java 中的多版本并发控制（MVCC）BTree。它有望取代JDBM（Apache Directory Server的当前后端），但可能非常适合需要Java MVCC BTree实现的任何其他项目。
+
+Apache Kerby：  
+Apahce Kerby 是 Java Kerberos 绑定。它提供了丰富、直观和可互操作的实现、库、KDC和各种设施，可根据现代环境（如云、Hadoop和移动）的需要集成PKI、OTP和令牌（OAuth2）。
+
+Apache Fortress：  
+Apache Fortress 是一个基于标准的授权系统，它使用 LDAP 后端提供属性和基于角色的访问控制、委派管理和密码策略服务。
+
+
 
 
 
