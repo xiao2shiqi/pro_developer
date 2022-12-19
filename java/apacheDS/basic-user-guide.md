@@ -942,11 +942,9 @@ keytool -genkey -keyalg "RSA" -dname "cn=zanzibar, ou=ApacheDS, o=ASF, c=US" \\
 
 
 
-### 4: Apache DS 集成
+## 4: Apache DS 集成
 
-
-
-#### Mozilla Thunderbird 集成
+### Mozilla Thunderbird 集成
 
 * 将电子邮件和 LDAP 服务器集成是一项非常传统的任务
 * 邮件程序在此刻充当普通的 LDAP 客户端，连接 LDAP 并且搜索数据（大部分复杂性对用户都是隐藏的）
@@ -979,7 +977,7 @@ keytool -genkey -keyalg "RSA" -dname "cn=zanzibar, ou=ApacheDS, o=ASF, c=US" \\
 
 
 
-#### 资源
+### 参考资源
 
 - [An introduction to Thunderbird](http://opensourcearticles.com/articles/introduction_to_thunderbird), Open Source Articles
 - [LDAP Attribute Mapping](https://developer.mozilla.org/en-US/docs/Mozilla/Thunderbird/LDAP_Support) for Mozilla Thunderbird
