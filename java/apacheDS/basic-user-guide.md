@@ -600,7 +600,386 @@ Apache DS 提供预定义的 Schema，应该能满足大部分用户的需求，
 
 
 
-#### 添加 Schema 元素
+#### 添加 Schema
+
+>问题：是否总需要自定义 schema elements ?
+>
+>回答：答案是否定的，大多数的目录服务都附带一组预定义的，标准化模式，只使用预定义的模式是很常见的
+
+##### 浏览 Schema
+
+Apache DS 的 Schema 子系统将 Schema 元素存储为 DIT 的条目，可以在 `ou=schema` 特殊分区中找到它们：
+
+![ApacheDS Schemas](./assets/schema-browser-tree.png)
 
 
 
+##### 使用 OID
+
+* OID 由一系列数字组成的字符串，这些数字由点分隔，如 `12.4.1971.0.1`，这种独特的方式标识对象，避免名称冲突
+* OID 是分层分配的，并且在世界范围内独一无二
+* `1.3.6.1.4.1` 开头的 OID 代表 IANA 注册的私有企业
+* `1.3.6.1.4.1.18080.0` 已由 ASF 分配给 Apache Directory 项目
+* `1.3.6.1.4.1.18080.0.4.3` 作为文档中示例的 schema elements 
+* 和 SSL 自签名证书一样，如果要在生产环境使用 OID，应该提前申请 OID （通过个人身份和企业身份申请）
+
+> 你可以在 [IANA | Change Request](https://www.iana.org/assignments/enterprise-numbers/assignment/apply/) 处申请 OID，一般需要几周的时间
+
+
+
+##### 简单的示例
+
+以下是我们要添加的 Entry，它的 objectClass 为 `ship`，包含一个 `numberOfGuns` 属性，如下：
+
+```sh
+dn: cn=HMS Victory,ou=ships,o=sevenSeas
+objectClass: top
+objectClass: ship
+cn: HMS Victory
+numberOfGuns: 104
+description: a ship of the line of the Royal Navy
+description: built between 1759 and 1765
+```
+
+Apache DS 预定义的模式中没有我们需要的类和属性，我们通过自定义模式，来让它满足需求，先添加 `numberOfGuns` 属性类型，下面是根据 RFC 4512 格式化的自定义属性类型 numberOfGuns 的定义：
+
+```sh
+( 1.3.6.1.4.1.18060.0.4.3.2.1 
+ NAME 'numberOfGuns'  DESC 'Number of guns of a ship'
+ EQUALITY integerMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 
+ SINGLE-VALUE 
+)
+```
+
+然后是自定义 ship 对象：
+
+```sh
+( 1.3.6.1.4.1.18060.0.4.3.3.1 
+ NAME 'ship' DESC 'An entry which represents a ship' 
+ SUP top STRUCTURAL 
+ MUST cn MAY ( numberOfGuns $ description ) 
+)
+```
+
+最终我们定义的 `sevenSeas.schema` 文件如下：
+
+```sh
+attributetype ( 1.3.6.1.4.1.18060.0.4.3.2.1 
+        NAME 'numberOfGuns' 
+        DESC 'Number of guns of a ship'
+        EQUALITY integerMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 
+        SINGLE-VALUE 
+ )
+ 
+objectclass ( 1.3.6.1.4.1.18060.0.4.3.3.1 
+        NAME 'ship'
+        DESC 'An entry which represents a ship' 
+        SUP top 
+        STRUCTURAL 
+        MUST cn 
+        MAY ( numberOfGuns $ description ) 
+ )
+```
+
+
+
+使用 Apache Directory Studio 加载新的 Schema 元素
+
+步骤如下：
+
+打开 Schema 编辑器，创建新的 Schema Project（或者在现有的 Apache DS 中选择 Schema Project）：
+
+![Select target server](./assets/select-target-server.png)
+
+然后单机创建，选择创建 Schema：
+
+![Create Schema](./assets/create-schema.png)
+
+然后将我们创建的 schema 导出为 LDIF 文件：
+
+![Export Schema](./assets/export-schema.png)
+
+最后，将导出的 LDIF 模式文件导入到 Apache DS 即可：
+
+![Import Schema](./assets/import-schema.png)
+
+最后在 Apache DS 中应该已经支持你创建的 schema 类和属性
+
+
+
+#### 启用 Schema 
+
+这里的文档重复了。。。
+
+
+
+## 3：基本安全
+
+这里介绍最简单的身份验证，授权和 SSL
+
+### 3.1 身份验证选项
+
+#### 身份认证介绍
+
+* 对客户端的身份进行验证，并且检查其拥有的操作权限
+* Apache DS 支持简单的身份验证，匿名访问
+* Apache DS 在用户的 userPassword 属性中存储密码，可以是明文，MD5 或者 SHA 1 等哈希算法进行单向加密
+
+
+
+#### 简单的身份绑定流程
+
+* LDAP 客户端向服务器提供用户条目的 DN 和密码，以及绑定操作的参数
+* Apache DS 检查给定的密码与存储在给定的 userPassword 属性中密码相同
+* 密码匹配成功则完全验证，匹配失败则抛出 LDAP_INVALID_REDENTIALS 用户身份未通过验证
+
+
+
+使用命令行工具进行用户身份绑定，绑定失败示例：
+
+```sh
+$ ldapsearch -h zanzibar -p 10389 -D "cn=Horatio Hornblower,ou=people,o=sevenSeas" \\
+    -w wrong -b "ou=people,o=sevenSeas" -s base "(objectclass=*)"
+ldap_simple_bind: Invalid credentials
+ldap_simple_bind: additional info: Bind failed: null
+```
+
+如果提供正确的密码，绑定成功后再进行搜索的操作：
+
+```sh
+$ ldapsearch -h zanzibar -p 10389 -D "cn=Horatio Hornblower,ou=people,o=sevenSeas" \\
+    -w pass -b "ou=people,o=sevenSeas" -s base "(objectclass=*)"
+version: 1
+dn: ou=people,o=sevenSeas
+ou: people
+description: Contains entries which describe persons (seamen)
+objectclass: organizationalUnit
+objectclass: top
+```
+
+
+
+#### 密码存储
+
+LDAP 会将密码进行单向的哈希加密存储（不会明文存储），例如：
+
+```sh
+dn: cn=Horatio Hornblower,ou=people,o=sevenSeas
+objectclass: person
+objectclass: organizationalPerson
+cn: Horatio Hornblower
+sn: Hornblower
+userpassword: {SHA}nU4eI71bcnBGqeO0t9tXvY1u5oQ=
+...
+```
+
+可以看到 `userpassword` 字段是通过安全哈希算法加密计算后存储的
+
+
+
+在使用 Apache Directory Studio 对用户密码进行添加修改时，也可以选择对应的哈希算法：
+
+![Password Edit](./assets/password-edit-ls.png)
+
+
+
+> 风险：
+>
+> * 单向加密只会有限的增加安全性，在绑定操作期间，如果未使用 SSL/TLS 通信，则凭据信息扔有可能被窃取
+> * LDIF 文件也包含用户的明文密码
+
+
+
+#### 匿名访问
+
+允许匿名访问并不罕见，如果足够信任客户端，并且数据不敏感的话，是会允许这样操作的
+
+示例 1：匿名访问被禁用的情况
+
+```sh
+$ ldapsearch -h zanzibar -p 10389 -b "ou=people,o=sevenSeas" -s one "(objectclass=*)"
+ldap_search: Insufficient access
+ldap_search: additional info: failed on search operation: Anonymous binds have been disabled!
+```
+
+示例 2：匿名访问被允许的情况
+
+```sh
+$ ldapsearch -h zanzibar -p 10389 -b "ou=people,o=sevenSeas" -s base "(objectclass=*)"
+version: 1
+dn: ou=people,o=sevenSeas
+ou: people
+description: Contains entries which describe persons (seamen)
+objectclass: organizationalUnit
+objectclass: top
+```
+
+示例 3：使用 Apache Directory Studio 匿名访问：
+
+![Authentication options](./assets/authentication-options-ls.png)
+
+
+
+通过 uid 验证
+
+DN 太长，通常无法被用户记录，使用 Entry 中的的 `uid` 属性则方便很多
+
+示例：使用 uid 进行身份认证：
+
+![Confluence Logon](./assets/confluence-logon.png)
+
+
+
+### 3.2 基本授权
+
+
+
+LDAP 的授权：
+
+* 在 LDAP 的世界中，目录操作的授权没有严格的标准化，每个产品都有自己的授权功能，Apache DS 也是如此
+* Apache DS 从 `0.9.3` 开始，提供了一个强大的授权子系统，但默认禁用
+* 通常通过 group 来实现（groupOfNames 和 groupOfUniqueNames）授权功能
+
+
+
+#### ACI 访问控制项
+
+通过 ACI = Access Control Item 可以实现更灵活的操作控制，满足更多需求，它默认是关闭的，我们可以启用它：
+
+![Enable access control](./assets/enable-access-control.png)
+
+
+
+我们将利用 ACI 让它满足我们如下需求：
+
+* 后缀 `o=sevenSeas` 用作访问控制特定区域
+* 用户 `Horatio Nelson` 能够在 `o=seven seas` 下执行所有操作
+* 其他和匿名用户只能搜索和比较
+* 其他和匿名用户无法读取 userPassword 属性
+
+
+
+关于 ACI 的文件定义参考：[3.2 - Basic authorization — Apache Directory](https://directory.apache.org/apacheds/basic-ug/3.2-basic-authorization.html)
+
+* 它展示了如何定义 ACI 文件，并且应用在特定用户身上
+* 并且使用 entry 的增删改查作为操作权限的验证示例
+
+
+
+本章资源：
+
+- [Practices in Directory Groups](http://middleware.internet2.edu/dir/groups/docs/internet2-mace-dir-groups-best-practices-200210.htm) describes how to use groups within LDAP directories. Highly recommended.
+- The [ApacheDS v2.0 Advanced User’s Guide](https://directory.apache.org/apacheds/advanced-user-guide.html) provides a detailed authorization chapter
+- [RFC 2849](https://www.faqs.org/rfcs/rfc2849.html) The LDAP Data Interchange Format (LDIF) is used extensively in this section
+
+
+
+#### 如何开启 SSL
+
+在 LDAP  中开启 SSL 的两种方法：
+
+* ldaps （LDAP over SSL/TLS，通常在端口 636 上）
+* 启动 TLS 扩展操作
+
+以上两种方法都需要使用适当的证书配置服务器
+
+> LDAPS 已经被弃用，您应该始终支持 startTLS
+
+
+
+启用 SSL 配置：
+
+![LDAPS configuration](./assets/studio-apacheds-configuration-ldaps.png)
+
+
+
+创建证书的三种方式：
+
+* 从证书颁发机构购买证书，或者从企业 CA 获取证书
+* 要求 [CACERT organisation](http://www.cacert.org/) 组织免费提供证书
+* 自己创建自签名证书，该证书将不受信任（你可以选择 JDK 的 keytool 工具创建）
+
+
+
+使用 JDK keytool 创建数字证书：
+
+```sh
+keytool -genkey -keyalg "RSA" -dname "cn=zanzibar, ou=ApacheDS, o=ASF, c=US" \\
+    -alias zanzibar -keystore zanzibar.ks -storepass secret -validity 730
+```
+
+
+
+或者可以选择使用 [Portecle](https://portecle.sourceforge.net/) 等图形工具创建密钥：
+
+![Portecle Keystore](./assets/portecle-with-keystore.png)
+
+
+
+配置 Apache DS 使用外部密钥库：
+
+将密钥库文件放在 ApacheDS 的 conf 目录中，然后启用 ldaps，如下：
+
+![Keystore Configuration](./assets/keystore-configuration.png)
+
+重启服务器后就可以使用 SSL 连接服务器：
+
+![studio` SSL](./assets/studio-ssl.png)
+
+连接的行为 与 LDAP 类型，功能没有区别，但传输由 SSL 提供保护
+
+> * 由于证书不可信，因此许多工具都会显示警告，你可能查看证书，并且决定继续就好
+> * 在代码使用 SSL 连接遇到不可信证书，可能会连接使用，使用 keytool 将证书导入就好
+
+
+
+#### 资源
+
+- [Java Secure Socket Extension (JSSE)](https://java.sun.com/products/jsse/)
+- [Portecle](https://portecle.sourceforge.net/) a free UI application for creating, managing and examining keystores
+- [SSL 3.0 Specification (Netscape)](http://wp.netscape.com/eng/ssl3/)
+
+
+
+### 4: Apache DS 集成
+
+
+
+#### Mozilla Thunderbird 集成
+
+* 将电子邮件和 LDAP 服务器集成是一项非常传统的任务
+* 邮件程序在此刻充当普通的 LDAP 客户端，连接 LDAP 并且搜索数据（大部分复杂性对用户都是隐藏的）
+
+
+
+邮件程序添加 LDAP 目录服务：
+
+![Thunderbirs open addressbook](./assets/thunderbird-open-adressbook.png)
+
+添加目录：
+
+![thunderbird new ldap directory](./assets/thunderbird-new-ldap-directory-menu.png)
+
+填写 LDAP 目录的基本信息：
+
+![Thunderbird new ldap](./assets/thunderbird-new-ldap-1.png)
+
+在高级搜索项里面设置：
+
+* 查询条件最大数量
+* 查询范围
+* 查询结果过滤器
+
+![Thunderbird new ldap](./assets/thunderbird-new-ldap-2.png)
+
+最终在邮件客户端中获取 LDAP 信息：
+
+![thunderbird-adressbook LDAP](./assets/thunderbird-adressbook.png)
+
+
+
+#### 资源
+
+- [An introduction to Thunderbird](http://opensourcearticles.com/articles/introduction_to_thunderbird), Open Source Articles
+- [LDAP Attribute Mapping](https://developer.mozilla.org/en-US/docs/Mozilla/Thunderbird/LDAP_Support) for Mozilla Thunderbird
