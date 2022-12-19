@@ -27,7 +27,7 @@
 
 对于日常的技术工具的使用心得，在这里记录汇总
 
-Git
+Git （代码版本管理工具）
 
 * [git merge --ff/--no-ff/--ff-only 三种选项参数的区别](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/1.md)
 * [git 集成代码检查（P3C）和单元测试（Junit）](https://github.com/xiao2shiqi/pro_developer/blob/main//summary_experience/git/2.md)
@@ -35,60 +35,48 @@ Git
 
 
 
-VSCode
+VSCode（文本编辑工具）
 
 1. [VSCode 几个实用技巧和插件分享](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/1.md)
 2. [VSCode Snippets（代码模板）使用心得](https://github.com/xiao2shiqi/pro_developer/blob/main/summary_experience/vscode/2.md)
 
 
 
-Activiti
+Activiti（流程引擎）
 
 1. [BPMN 介绍和 Activiti 的基本使用](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/1.md)
 2. [Activiti 的结构设计、核心模块功能](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/2.md)
 3. [Activiti 流程引擎的配置和使用](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/3.md)
 
-Apache Directory Project 目录项目
 
-Apache DS （Directory Server）：
 
-Apache DS™ 是一个完全用 Java 编写的可扩展和可嵌入的目录服务器，它已被 OpenGroup 认证为与 LDAPv3 兼容。除了 LDAP，它还支持 Kerberos 5 和更改密码协议。它旨在将触发器、存储过程、队列和视图引入缺少这些丰富结构的LDAP世界。
+Apache Directory Project （目录服务项目）
 
-   1. [基本使用指南](java/apacheDS/basic-user-guide.md)
-   2. [高级用户指南](java/apacheDS/advanced-user-guide.md)
-   3. 开发指南
-   4. Kerberos 用户指南
-   5. 配置参考
-   6. Java 文档
-   7. 参考文档
+Apache DS （Directory Server）目录服务
 
-Apache Directory Studio：
-
-Apache Directory Studio 是一个目录服务工具，特别适用于 ApacheDS，它是一个 Eclipse RCP 应用程序，由 Eclipse OSGI 插件组成，这些插件可以轻松升级，这些插件运行在 Eclipse 内部
-
-Apache LDAP API：  
-用户操作 LDAP 服务的 API，主要版本 Version 有：
-* 1.0.3
-* 2.1.2
-
-LDAP API （主要还是用于 ApacheDS），Spring 也有类型的 LDAP RestTemplate
-
-Apache Mavibot：  
-Mavibot 是 Java 中的多版本并发控制（MVCC）BTree。它有望取代JDBM（Apache Directory Server的当前后端），但可能非常适合需要Java MVCC BTree实现的任何其他项目。
-
-Apache Kerby：  
-Apahce Kerby 是 Java Kerberos 绑定。它提供了丰富、直观和可互操作的实现、库、KDC和各种设施，可根据现代环境（如云、Hadoop和移动）的需要集成PKI、OTP和令牌（OAuth2）。
-
-Apache Fortress：  
-Apache Fortress 是一个基于标准的授权系统，它使用 LDAP 后端提供属性和基于角色的访问控制、委派管理和密码策略服务。
+      1. [基本使用指南](java/apacheDS/basic-user-guide.md)
+      2. [高级用户指南](java/apacheDS/advanced-user-guide.md)
+      3. 开发指南
+      4. Kerberos 用户指南
+      5. 配置参考
+      6. Java 文档
+      7. 参考文档
 
 
 
+Apache Directory Studio（目录服务工具）
+
+Apache LDAP API (目录服务 API)  
+
+Apache Mavibot（多版本并发控制 BTree）
+
+Apache Kerby（Kerberos 绑定）
+
+Apache Fortress （基于标准的授权系统）
 
 
-面试题汇总
 
-我遇到过的。。。
+常见的面试题整理汇总：
 
 1. [Java 基础，集合，多线程，JVM 虚拟机](https://github.com/xiao2shiqi/pro_developer/blob/main/java/interview/1.md)
 2. [Spring，Spring Boot，Spring Cloud 微服务，分布式架构](https://github.com/xiao2shiqi/pro_developer/blob/main/java/interview/2.md)
