@@ -49,18 +49,16 @@ Activiti（流程引擎）
 3. [Activiti 流程引擎的配置和使用](https://github.com/xiao2shiqi/pro_developer/blob/main/java/activiti/3.md)
 
 
-
 Apache Directory Project （目录服务项目）
 
 Apache DS （Directory Server）目录服务
-
-      1. [基本使用指南](java/apacheDS/basic-user-guide.md)
-      2. [高级用户指南](java/apacheDS/advanced-user-guide.md)
-      3. 开发指南
-      4. Kerberos 用户指南
-      5. 配置参考
-      6. Java 文档
-      7. 参考文档
+1. [基本使用指南](java/apacheDS/basic-user-guide.md)
+2. [高级用户指南](java/apacheDS/advanced-user-guide.md)
+3. 开发指南
+4. Kerberos 用户指南
+5. 配置参考
+6. Java 文档
+7. 参考文档
 
 
 
