@@ -170,8 +170,181 @@ Apache DS 体系结构层次：
 
 
 
-如何工作 ？
+工作原理：
 
 * 每个后端实例都继承自 AbstractBTreePartition 类。我们可以看到后端必须是 BTree
 * MasterTable 包含所有序列化的条目，此表是一个<Key，Value>BTree，其中键是条目的 UUID
-* 
+
+
+
+# 服务器配置
+
+
+
+## 配置说明
+
+提示：最好不要手动修改 LDIF 配置文件，而是使用 Studio 配置插件修改服务器配置
+
+配置文件的层次结构：
+
+<img src="./assets/image-20221219213113675.png" alt="image-20221219213113675" style="zoom:80%;" />
+
+
+
+## 目录服务配置
+
+系统的核心配置，存储数据的地方，大多数服务依赖此组件
+
+目录服务的配置选项说明：
+
+|              属性类型               |   类型    | 默认值 |            描述            |
+| :---------------------------------: | :-------: | :----: | :------------------------: |
+|     **ads-directoryServiceId**      | *String*  |        |      服务的唯一标识符      |
+|             ads-enabled             | *boolean* |  true  | DirectoryService 是否启用  |
+|             description             | *String*  |  N/A   |      可选的简短的描述      |
+|         **ads-dsReplicaId**         |   *int*   |   1    |        复制的标识符        |
+|   **ads-dsAccessControlEnabled**    | *boolean* |  true  | 控制拦截器是否处于活跃状态 |
+|   **ads-dsAllowAnonymousAccess**    | *boolean* | false  |      是否允许匿名访问      |
+| **ads-dsDenormalizeOpAttrsEnabled** | *boolean* |  true  |    取消操作属性的规范化    |
+|      **ads-dsPasswordHidden**       | *boolean* |  true  |      密码是否应该加密      |
+|     **ads-dsSyncPeriodMillis**      |  *long*   | 15000  |      磁盘数据刷新延迟      |
+|          ads-dsTestEntries          | *String*  |  N/A   |          (未使用)          |
+
+
+
+## 审计日志
+
+ChangeLog是一个可选系统，它记录服务器上的每个更改，还记录还原操作，允许系统在需要时回滚更改。这在运行测试时非常有用。注意，目前，changelog只支持内存。默认情况下禁用。
+
+配置选项：
+
+|         属性类型         |   类型    | 默认值 |             描述              |
+| :----------------------: | :-------: | :----: | :---------------------------: |
+|   **ads-changeLogId**    | *String*  |        |       系统的唯一标识符        |
+|       ads-enabled        | *boolean* | false  | 告知 ChangeLog 系统是否已启用 |
+|       description        | *String*  |  N/A   |        简短的可选描述         |
+| **ads-changeLogExposed** | *boolean* | false  | 告知 ChangeLog 是否向用户公开 |
+
+
+
+## 日志配置
+
+日志记录文件系统上的每个修改。它是在DirectoryService崩溃时使用的，因为我们可以从过去的某个日期开始重新应用日志，因为我们知道基础数据库是正确的。
+
+|       AttributeType       |   type    | default value |      Description       |
+| :-----------------------: | :-------: | :-----------: | :--------------------: |
+|     **ads-journalId**     | *String*  |      N/A      |    日志的唯一标识符    |
+|        ads-enabled        | *boolean* |     false     | 告知日志系统是否已启用 |
+|        description        | *String*  |      N/A      |     简短的可选描述     |
+| **ads-journalWorkingDir** | *String*  |      N/A      | 日志将存储在的工作目录 |
+|  **ads-journalRotation**  | *String*  |      N/A      |   转存储之前的操作数   |
+|  **ads-journalFileName**  | *String*  |  journal.txt  |     包含日志的文件     |
+
+
+
+## 拦截器配置
+
+默认拦截器通常不可配置。除非您非常熟悉 ApacheDS 的内部结构和/或包括自定义拦截器，否则您不想更改它们的顺序或从默认拦截器中删除任何人。但是，至少可以配置一个默认侦听器：authenticationInterceptor
+
+|      AttributeType       |   type    | default value |     Description      |
+| :----------------------: | :-------: | :-----------: | :------------------: |
+|  **ads-interceptorid**   | *String*  |      N/A      | 此拦截器的唯一标识符 |
+|       ads-enabled        | *boolean* |     false     | 告知拦截器是否已启用 |
+|       description        | *String*  |      N/A      |    简短的可选描述    |
+|   ads-interceptororder   |   *int*   |      N/A      | 此拦截器在链中的位置 |
+| ads-interceptorclassname | *String*  |      N/A      |   实现此拦截器的类   |
+
+
+
+### 身份拦截
+
+该拦截器负责管理用户身份验证。它与身份验证器和密码策略相关联。
+
+我们可以为给定的服务器声明各种身份验证器。默认服务器有三个不同的身份验证程序，它们是：
+
+- anonymousAuthenticator : 用于匿名请求
+- simpleAuthenticator : 基于密码处理简单身份验证
+- strongAuthenticator : 处理SASL认证
+
+
+
+如果需要，可以添加新的 Authenticator。只需在 `ou=authenticators`、`adsinterceptorId=authenticationInterceptor`、`ou=interceptors` （任意即可）条目下创建一个新条目即可：
+
+|       AttributeType        |   type    | default value |       Description        |
+| :------------------------: | :-------: | :-----------: | :----------------------: |
+|  **ads-authenticatorId**   | *String*  |      N/A      | 此身份验证器的唯一标识符 |
+|        ads-enabled         | *boolean* |     false     |    告知分区是否已启用    |
+|        description         | *String*  |      N/A      |      简短的可选描述      |
+| **ads-authenticatorClass** | *String*  |      N/A      |   实现身份认证的实现类   |
+
+
+
+### 密码策略
+
+PasswordPolicy系统有许多可能的可配置选项。以下是所有选项的列表。有关各自属性的详细说明，请参阅密码策略草案：
+
+|                        AttributeType                         |   type    | default value |                         Description                          |
+| :----------------------------------------------------------: | :-------: | :-----------: | :----------------------------------------------------------: |
+|                        **ads-pwdId**                         | *String*  |      N/A      |                    密码策略的系统的唯一ID                    |
+|                     **ads-pwdAttribute**                     | *String*  | userPassword  |                   应用密码策略的属性的名称                   |
+|                        ads-pwdMinAge                         |   *int*   |       0       |                保存修改密码之间必须经过的秒数                |
+|                        ads-pwdMaxAge                         |   *int*   |       0       |      保留修改后的密码将过期的秒数。如果为0，则永不过期       |
+|                       ads-pwdInHistory                       | *boolean* |       0       |  指定pwdHistory属性中存储的最大已用密码数（0表示没有存储）   |
+|                     ads-pwdCheckQuality                      | *boolean* |       0       |     指示修改或添加密码时如何验证密码质量（0表示不检查）      |
+|                       ads-pwdMinLength                       |   *int*   |       0       |         密码中必须使用的最小字符数（0表示没有限制）          |
+|                       ads-pwdMaxLength                       |   *int*   |       0       |         密码中可以使用的最大字符数（0表示没有限制）          |
+|                     ads-pwdExpireWarning                     | *boolean* |       0       | 密码到期前的最长秒数，过期警告消息将返回给身份验证用户（0表示不会向用户发送消息） |
+|                    ads-pwdGraceAuthNLimit                    |   *int*   |       0       | 过期密码可用于身份验证的次数（0表示不允许使用过期密码进行身份验证） |
+|                      ads-pwdGraceExpire                      | *boolean* |       0       |          指定宽限身份验证有效的秒数（0表示无限制）           |
+|                        ads-pwdLockout                        | *boolean* |     false     |        一个标志，用于指示在指定次数后是否需要锁定帐户        |
+| consecutive failed bind attempts. The maximum number of consecutive failed bind attempts is specified in ads-pwdMaxFailure |           |               | 连续失败的绑定尝试。ads-pwdMaxFailure中指定了连续失败绑定尝试的最大次数 |
+|                    ads-pwdLockoutDuration                    |   *int*   |      300      |   由于绑定尝试失败次数过多而无法使用密码进行身份验证的秒数   |
+|                      ads-pwdMaxFailure                       |   *int*   |       0       | 无法使用密码进行身份验证的连续失败绑定尝试次数（0表示没有限制） |
+|                 ads-pwdFailureCountInterval                  |   *int*   |       0       | 从失败计数器中清除密码失败的秒数（0表示成功验证后重置所有pwdFailureTime） |
+|                      ads-pwdMustChange                       | *boolean* |     false     | 用于指示密码管理员设置或重置密码后，用户绑定到目录后是否必须更改密码的标志 |
+|                    ads-pwdAllowUserChange                    | *boolean* |     true      |                指示用户是否可以更改自己的密码                |
+|                      ads-pwdSafeModify                       | *boolean* |     false     |    用于指定更改时是否必须将现有密码与新密码一起发送的标志    |
+|                       ads-pwdMinDelay                        |   *int*   |       0       |    延迟响应第一次失败的身份验证尝试的秒数（0表示无延迟）     |
+|                       ads-pwdMaxDelay                        |   *int*   |       0       |   响应失败的身份验证尝试时要延迟的最大秒数（无延迟）0表示    |
+|                        ads-pwdMaxIdle                        |   *int*   |       0       |          帐户在锁定前可能未使用的秒数（0表示无限）           |
+|                       ads-pwdValidator                       | *String*  |      N/A      | PasswordValidator FQCN（如果未提供，将使用DefaultPasswordValidater） |
+
+
+
+## 分区配置
+
+分区是服务器存储数据的地方。为了获得服务器的最佳性能，需要配置许多部分。这也是您更可能修改的配置部分，添加新分区或添加新索引。DirectoryService中可能有多个分区。至少有三个默认的分区，它们分别是：
+
+* ou=system：LDIF分区
+* ou=config：LDIF分区
+* ou=schema：JDBM分区
+
+
+
+JDBM 分区配置：
+
+|      AttributeType       |   type    | default value |          Description           |
+| :----------------------: | :-------: | :-----------: | :----------------------------: |
+|   **ads-partitionid**    | *String*  |      N/A      |       此分区的唯一标识符       |
+|       ads-enabled        | *boolean* |     false     |       告知分区是否已启用       |
+|       description        | *String*  |      N/A      |         简短的可选描述         |
+| **ads-partitionsuffix**  | *String*  |      N/A      |            分区 DN             |
+|     ads-contextEntry     | *String*  |      N/A      |  与后缀关联的条目（LDIF格式）  |
+| ads-partitionSyncOnWrite | *boolean* |     true      | 告诉服务器在每次写入时刷新磁盘 |
+
+一旦添加了上述元素，分区就可用了。不过，您仍然需要创建一些强制索引。
+
+
+
+索引配置：
+
+|       Index        |                             role                             |
+| :----------------: | :----------------------------------------------------------: |
+|     apacheRdn      | Stores the RDN for the entry, and the relation to its parent’s RDN |
+|   apachePresence   |      Used to index the attributeTypes used in the entry      |
+|   apacheOneAlias   |     Stores the aliases one level below the current entry     |
+|   apacheSubAlias   |          Stores the aliases below the current entry          |
+|    apacheAlias     |                      Stores the aliases                      |
+|    objectClass     | Stores the relation between an ObjectClass an the entry using it |
+|      entryCSN      |                Stores the CSN for each entry                 |
+| administrativeRole |       Stores the entries that are AdminstrativePoints        |
