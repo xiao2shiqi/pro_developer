@@ -16,7 +16,7 @@
 * [我对技术潮流的一点看法](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/4.md)
 * [我高效学习的 7 个方法](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/5.md)
 * [Spring Cloud 全家桶的使用心得和总结](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/6.md)
-* [CodeRewview 的几个实践技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/7.md)
+* [CodeReview 的几个实践技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/7.md)
 * [Markdown 体系化教程](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/8.md)
 * [什么是云原生？聊聊云原生和微服务的架构](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/9.md)
 * [JaCoCo 食用指南](my_blog/jacoco_getting_started.md)
