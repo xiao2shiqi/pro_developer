@@ -191,7 +191,7 @@ Apache DS 体系结构层次：
 
 
 
-## 目录服务配置
+## 目录服务
 
 系统的核心配置，存储数据的地方，大多数服务依赖此组件
 
@@ -212,7 +212,7 @@ Apache DS 体系结构层次：
 
 
 
-## 审计日志
+### 审计日志
 
 ChangeLog是一个可选系统，它记录服务器上的每个更改，还记录还原操作，允许系统在需要时回滚更改。这在运行测试时非常有用。注意，目前，changelog只支持内存。默认情况下禁用。
 
@@ -227,7 +227,7 @@ ChangeLog是一个可选系统，它记录服务器上的每个更改，还记�
 
 
 
-## 日志配置
+### 日志配置
 
 日志记录文件系统上的每个修改。它是在DirectoryService崩溃时使用的，因为我们可以从过去的某个日期开始重新应用日志，因为我们知道基础数据库是正确的。
 
@@ -242,7 +242,7 @@ ChangeLog是一个可选系统，它记录服务器上的每个更改，还记�
 
 
 
-## 拦截器配置
+### 拦截器配置
 
 默认拦截器通常不可配置。除非您非常熟悉 ApacheDS 的内部结构和/或包括自定义拦截器，否则您不想更改它们的顺序或从默认拦截器中删除任何人。但是，至少可以配置一个默认侦听器：authenticationInterceptor
 
@@ -256,7 +256,7 @@ ChangeLog是一个可选系统，它记录服务器上的每个更改，还记�
 
 
 
-### 身份拦截
+#### 身份拦截
 
 该拦截器负责管理用户身份验证。它与身份验证器和密码策略相关联。
 
@@ -279,7 +279,7 @@ ChangeLog是一个可选系统，它记录服务器上的每个更改，还记�
 
 
 
-### 密码策略
+#### 密码策略
 
 PasswordPolicy系统有许多可能的可配置选项。以下是所有选项的列表。有关各自属性的详细说明，请参阅密码策略草案：
 
@@ -311,7 +311,7 @@ PasswordPolicy系统有许多可能的可配置选项。以下是所有选项的
 
 
 
-## 分区配置
+### 分区配置
 
 分区是服务器存储数据的地方。为了获得服务器的最佳性能，需要配置许多部分。这也是您更可能修改的配置部分，添加新分区或添加新索引。DirectoryService中可能有多个分区。至少有三个默认的分区，它们分别是：
 
@@ -321,7 +321,7 @@ PasswordPolicy系统有许多可能的可配置选项。以下是所有选项的
 
 
 
-JDBM 分区配置：
+#### JDBM 分区配置
 
 |      AttributeType       |   type    | default value |          Description           |
 | :----------------------: | :-------: | :-----------: | :----------------------------: |
@@ -336,15 +336,162 @@ JDBM 分区配置：
 
 
 
-索引配置：
+#### 索引配置
 
-|       Index        |                             role                             |
-| :----------------: | :----------------------------------------------------------: |
-|     apacheRdn      | Stores the RDN for the entry, and the relation to its parent’s RDN |
-|   apachePresence   |      Used to index the attributeTypes used in the entry      |
-|   apacheOneAlias   |     Stores the aliases one level below the current entry     |
-|   apacheSubAlias   |          Stores the aliases below the current entry          |
-|    apacheAlias     |                      Stores the aliases                      |
-|    objectClass     | Stores the relation between an ObjectClass an the entry using it |
-|      entryCSN      |                Stores the CSN for each entry                 |
-| administrativeRole |       Stores the entries that are AdminstrativePoints        |
+|       Index        |                   role                    |
+| :----------------: | :---------------------------------------: |
+|     apacheRdn      |   存储条目的RDN及其与其父项 RDN 的关系    |
+|   apachePresence   |    用于索引条目中使用的 attributeType     |
+|   apacheOneAlias   |        将别名存储在当前条目下一级         |
+|   apacheSubAlias   |           在当前条目下存储别名            |
+|    apacheAlias     |                 存储别名                  |
+|    objectClass     | 存储 ObjectClass 与使用它的条目之间的关系 |
+|      entryCSN      |            存储每个条目的 CSN             |
+| administrativeRole |           存储属于管理点的条目            |
+
+
+
+#### 索引属性配置
+
+TODO。。。。
+
+
+
+## 服务配置
+
+LDAP 提供的服务有：
+
+- a LDAP server
+- a Kerberos server
+- a changePassword server
+- an HTTP Server
+- a NTP Server
+- a DHCP server
+- a DNS server
+
+
+
+所有服务的通用配置项如下：
+
+|  AttributeType   |   type    | default value |    Description    |
+| :--------------: | :-------: | :-----------: | :---------------: |
+| ads-searchBaseDN |   *Dn*    |      N/A      | 查询基础项 BaseDn |
+|   ads-serverId   | *String*  |      N/A      |  服务的唯一名称   |
+|   ads-enabled    | *boolean* |      N/A      |  服务的启用状态   |
+|   description    | *String*  |      N/A      |    可选的描述     |
+
+
+
+### 传输配置
+
+以下是传输结构的参数：
+
+|      AttributeType       |   type    | default value |                 Description                 |
+| :----------------------: | :-------: | :-----------: | :-----------------------------------------: |
+|   **ads-transportId**    | *String*  |      N/A      |                    标识                     |
+| **ads-transportAddress** | *String*  |   localhost   |                   IP 地址                   |
+|    **ads-systemPort**    |   *int*   |      -1       |                    端口                     |
+|       ads-enabled        | *boolean* |      N/A      |             端口系统的启用状态              |
+|       description        | *String*  |      N/A      |               简短的可选描述                |
+|  ads-transportEnableSsl  | *boolean* |     false     |         SSL 活跃状态 (不能使用 UDP)         |
+|  ads-transportNbThreads  |   *int*   |       3       |            处理消息的专用线程数             |
+|   ads-transportBackLog   |   *int*   |      50       | 服务器过载时保留的邮件数 (not used for UDP) |
+
+
+
+### Ldap 服务
+
+以下显示 Ldap 服务器的可修改属性列表：
+
+|          AttributeType          |   type    | default value |           Description           |
+| :-----------------------------: | :-------: | :-----------: | :-----------------------------: |
+|           ads-enabled           | *boolean* |     true      |     LdapServer 服务启用状态     |
+|           description           | *String*  |      N/A      |              描述               |
+| **ads-confidentialityRequired** | *boolean* |     false     | 加密传输是否必须 (TLS 安全连接) |
+|      **ads-maxSizeLimit**       |   *int*   |     1000      |   服务器返回的最大的条目数量    |
+|      **ads-maxTimeLimit**       |   *int*   |     1000      |       用户超时的最大描述        |
+|       **ads-maxPDUSize**        |   *int*   |     2048      | PDU 的最大长度（目前未被使用）  |
+|        **ads-saslHost**         |   *int*   |      N/A      |          SASL主机名称           |
+|      **ads-saslPrincipal**      | *String*  |      N/A      |    服务负责人, 使用 GSSAPI.     |
+|       **sads-saslRealms**       |  *List*   |      N/A      |     此主机服务的 host 列表      |
+|        ads-keystoreFile         | *String*  |      N/A      | 文件系统上存储 Keystore 的位置  |
+|     ads-certificatePassword     | *String*  |      N/A      |            证书密码             |
+|       ads-replReqHandler        | *String*  |      (*)      |      复制请求处理程序 FQCN      |
+|         ads-replEnabled         | *boolean* |     FALSE     |     告知复制系统是否已启用      |
+
+
+
+其他条目：
+
+* Repl Consumers：TODO。。。。暂时不深究
+* Exteded Op Handlers： TODO。。。。暂时不深究
+* SASL Mechanisms：TODO。。。。暂时不深究
+
+
+
+### Kerberos 服务
+
+以下为可修改的属性列表：
+
+|          AttributeType          |   type    |                        default value                         |           Description            |
+| :-----------------------------: | :-------: | :----------------------------------------------------------: | :------------------------------: |
+|           ads-enabled           | *boolean* |                             true                             |           服务是否启用           |
+|           description           | *String*  |                             N/A                              |               描述               |
+|    ads-krbAllowableClockSkew    |   *int*   |                            300000                            |     允许时钟偏移 (5 minutes)     |
+|     ads-krbEncryptionTypes      |  *List*   |                                                              |             加密类型             |
+|  ads-krbEmptyAddressesAllowed   | *boolean* |                             true                             |          是否允许空地址          |
+|    ads-krbForwardableAllowed    | *boolean* |                             true                             |         是否允许转发地址         |
+|  ads-krbPaEncTimestampRequired  | *boolean* |                             true                             | 是否需要通过加密时间戳进行预认证 |
+|     ads-krbPostdatedAllowed     | *boolean* |                             true                             |           是否允许延期           |
+|     ads-krbProxiableAllowed     | *boolean* |                             true                             |         是否允许代理地址         |
+|     ads-krbRenewableAllowed     | *boolean* |                             true                             |           是否允许续租           |
+|       ads-krbKdcPrincipal       | *String*  | [krbtgt/EXAMPLE.COM@EXAMPLE.COM](mailto:krbtgt/EXAMPLE.COM@EXAMPLE.COM) |          服务负责人名称          |
+| ads-krbMaximumRenewableLifetime |  *long*   |                   1000 * 60 * 60 * 24 * 7                    |      最大生命周期 (7 days)       |
+|  ads-krbMaximumTicketLifetime   |  *long*   |                     1000 * 60 * 60 * 24                      |       最大生命周期 (24 h)        |
+|       ads-krbPrimaryRealm       | *String*  |                         EXAMPLE.COM                          |             主要领域             |
+|   ads-krbBodyChecksumVerified   | *boolean* |                             true                             |           是否校验正文           |
+
+
+
+### Http 服务
+
+嵌入的 Http Server 的可修改属性列表：
+
+|  AttributeType   |   type    | default value |   Description    |
+| :--------------: | :-------: | :-----------: | :--------------: |
+|   ads-enabled    | *boolean* |     true      |     启用状态     |
+|   description    | *String*  |      N/A      |       描述       |
+| ads-httpConfFile | *String*  |      N/A      | 此服务的配置文件 |
+
+
+
+没有 webApps 的 HttpServer 非常无用，我们现在必须配置底层web应用程序
+
+每个WebApp配置都必须添加到 `ou=webapps` 条目下。以下是可配置元素：
+
+|     AttributeType      |   type    | default value |   Description    |
+| :--------------------: | :-------: | :-----------: | :--------------: |
+|      ads-enabled       | *boolean* |     true      |     启用状态     |
+|      description       | *String*  |      N/A      |       描述       |
+|  **ads-httpWarFile**   | *String*  |      N/A      | 使用的 WAR 文件  |
+|       **ads-id**       | *String*  |      N/A      | WebApp 的唯一 ID |
+| **ads-httpAppCtxPath** | *String*  |      N/A      |     context      |
+
+以下是配置示例：
+
+```sh
+dn: ads-id=webApp1,ou=httpWebApps,ads-serverId=httpServer,ou=servers,ads-directoryServiceId=default,ou=config
+objectclass: top
+objectclass: ads-base
+objectclass: ads-httpWebApp
+ads-Id: webApp1
+ads-httpWarFile: war file 1
+ads-httpAppCtxPath: /home/app1
+```
+
+
+
+## 服务结构（图解）
+
+![ApacheDS configuration beans](./assets/configBeans.png)
+
