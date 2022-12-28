@@ -1,4 +1,4 @@
-# 架构
+# 1：架构
 
 了解服务器的工作方式
 
@@ -177,7 +177,7 @@ Apache DS 体系结构层次：
 
 
 
-# 服务器配置
+# 2：服务器配置
 
 
 
@@ -491,7 +491,89 @@ ads-httpAppCtxPath: /home/app1
 
 
 
-## 服务结构（图解）
+### 服务结构（图解）
 
 ![ApacheDS configuration beans](./assets/configBeans.png)
 
+
+
+# 3：管理模式（TODO。。。）
+
+什么是管理模式 ？
+
+TODO。。。。。。
+
+
+
+# 4：安全（TODO。。。）
+
+# 5：管理
+
+## 布局
+
+Apache DS 布局相当简单，主要分为：
+
+* 安装布局
+* 实例布局
+
+
+
+### 安装布局
+
+是存储 Apache DS 所有文件的地方，例如启动脚本，库，最终服务安装包，常见的分布如下：
+
+* `bin/`: 包含启动脚本和包装器的二进制文件
+* `conf/`: 在 `wrapper.conf` 中保存服务的常规配置
+* `lib/`: 目录包含运行服务器所需的依赖库
+* `LICENCE` 和 `NOTICE`：文件包含 Apache DS 所需的法律信息
+
+
+
+### 实例布局
+
+Apache DS 可以同时运行多个实例，可以在安装布局中找到实例文件夹，实例目录的布局如下：
+
+* `cache/`: 首次为空，启动后存储缓存数据
+* `conf/`: 目录包含
+  * `wrapper.conf` 可以覆盖安装布局的常规配置
+  * `log4j.properties` 负责记录日志的配置
+  * `config.ldif` 对应 Apache DS 内部配置的文件
+* `log/`: 日志文件存放处
+* `partitions/`: 分区的目录数据
+  * `example/`: 保存 Apache DS 默认配置中定义的示例分区的数据
+  * `schema/` 和 `system/`: 包含 schema 和 system 分区的数据
+
+
+
+### 具体布局
+
+不同的发行版，目录布局有所不同，主要平台区分如下：
+
+* 存档分发 Archive Distribution (zip/tar.gz)
+* Windows 平台（.exe）
+* Linux 二进制（.bin），Debian(.deb) & Fedora(.rpm) 平台
+* Mac OS X 平台
+
+
+
+详细区别参考文档：[5.1 - Layout — Apache Directory](https://directory.apache.org/apacheds/advanced-ug/5.1-layout.html)
+
+
+
+## 开始和停止
+
+这里介绍不同平台的 Apache DS 开始和停止命令（比较简单，暂时忽略）
+
+
+
+## 日志
+
+
+
+
+
+# 6：实现自定义拦截器
+
+# 7：在 Java 中嵌入 Apache DS
+
+# 8：操作属性
