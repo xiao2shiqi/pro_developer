@@ -87,11 +87,9 @@ Apache Fortress （基于标准的授权系统）
 
 Java 相关的读书笔记和使用心得。。
 
-
-
 《On Java》
-
-* [并发编程](/java/on_java/concurrency.md)
+* [1：对象的概念](/java/on_java/concept_object.md)
+* [22：并发编程](/java/on_java/concurrency.md)
 
 
 
