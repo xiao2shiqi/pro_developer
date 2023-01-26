@@ -19,7 +19,8 @@
 * [CodeReview 的几个实践技巧](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/7.md)
 * [Markdown 体系化教程](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/8.md)
 * [什么是云原生？聊聊云原生和微服务的架构](https://github.com/xiao2shiqi/pro_developer/blob/main/my_blog/9.md)
-* [JaCoCo 食用指南](my_blog/jacoco_getting_started.md)
+* [JaCoCo 使用指南](my_blog/jacoco_getting_started.md)
+* [Quartz 使用指南](my_blog/quartz_tutorial.md)
 
 
 
